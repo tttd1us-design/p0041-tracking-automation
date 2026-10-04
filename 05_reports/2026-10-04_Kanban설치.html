@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Kanban 스킬·플러그인 설치 및 업무 추적 체계 구축</title>
+<style>
+/* ==========================================================================
+   10조 스튜디오 — 대표이사 보고서 공식 양식 v2.0
+   표지: 브랜드 밴드 + 로고마크 + 대형 타이포 + 핵심지표 스트립
+   근거: 글로벌 연차보고서 표지 원칙 (로고/테마라인/단일 강조점/썸네일 테스트)
+   ========================================================================== */
+
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+@page :first {
+  margin: 0;
+}
+
+html {
+  font-family: "Malgun Gothic", "Noto Sans KR", "NanumGothic", sans-serif;
+  font-size: 10pt;
+  line-height: 1.7;
+  color: #212121;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body { margin: 0; padding: 0; }
+
+/* ==========================================================================
+   표지 (Cover)
+   ========================================================================== */
+.cover {
+  width: 210mm;
+  height: 297mm;
+  page-break-after: always;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* --- 상단 브랜드 밴드 --- */
+.cover-top {
+  background: #0f2a52;
+  color: #ffffff;
+  padding: 13mm 16mm 9mm 16mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cover-brandline {
+  display: flex;
+  align-items: center;
+  gap: 5.5mm;
+}
+
+.brand-logo { display: block; flex: 0 0 auto; }
+
+.cover-company {
+  font-size: 21pt;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.cover-company-en {
+  font-size: 7pt;
+  letter-spacing: 2.4px;
+  color: #9fc0ea;
+  margin-top: 1.8mm;
+  font-weight: 600;
+}
+
+.cover-classbox { text-align: right; padding-top: 0.5mm; }
+
+.cover-classbox .k {
+  font-size: 6.5pt;
+  letter-spacing: 2px;
+  color: #9fc0ea;
+  font-weight: 600;
+}
+
+.cover-classbox .v {
+  font-size: 9pt;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  margin-top: 1.5mm;
+  border: 1.2px solid #7fa8d8;
+  padding: 1mm 2.6mm;
+  display: inline-block;
+}
+
+/* --- 제목 블록 --- */
+.cover-main { padding: 15mm 16mm 0 16mm; }
+
+.cover-metarow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2.5px solid #0f2a52;
+  padding-bottom: 2.5mm;
+}
+
+.cover-doctype {
+  font-size: 9.5pt;
+  font-weight: 800;
+  letter-spacing: 4.5px;
+  color: #1565c0;
+}
+
+.cover-datestamp {
+  font-size: 9.5pt;
+  color: #546e7a;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.cover-title {
+  font-size: 30pt;
+  font-weight: 800;
+  color: #0d2244;
+  line-height: 1.24;
+  margin: 9mm 0 0 0;
+  letter-spacing: -0.6px;
+}
+
+.cover-subtitle {
+  font-size: 12pt;
+  color: #37474f;
+  margin-top: 4mm;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.cover-themeline {
+  margin-top: 7mm;
+  padding: 3.5mm 0 3.5mm 5mm;
+  border-left: 3px solid #1565c0;
+  font-size: 10pt;
+  color: #1565c0;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+/* --- 표지 핵심 판단 하이라이트 --- */
+.cover-highlight {
+  margin: 7mm 16mm 0 16mm;
+  background: #eef4fb;
+  border: 1px solid #c5d5e8;
+  border-left: 4px solid #1565c0;
+  padding: 5.5mm 6.5mm;
+  page-break-inside: avoid;
+}
+
+.cover-highlight .hl-label {
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  color: #1565c0;
+  margin-bottom: 2.8mm;
+}
+
+.cover-highlight .hl-text {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: #0d2244;
+  line-height: 1.62;
+}
+
+.cover-highlight .hl-text em {
+  font-style: normal;
+  color: #c62828;
+}
+
+/* --- 표지 핵심지표 스트립 (본문 kpi-row 재사용) --- */
+.cover .kpi-row {
+  margin: 8mm 16mm 0 16mm;
+  gap: 0;
+  page-break-inside: avoid;
+}
+
+.cover .kpi {
+  border-radius: 0;
+  border: 1px solid #cfd8dc;
+  border-top: 3px solid #0f2a52;
+  padding: 4mm 2mm;
+  background: #ffffff;
+}
+
+.cover .kpi-label { font-size: 7.5pt; color: #78909c; margin-bottom: 1.8mm; }
+.cover .kpi-value { font-size: 19pt; line-height: 1.05; }
+.cover .kpi-unit { font-size: 7.5pt; margin-top: 1.2mm; }
+
+/* --- 하단 문서정보 + 결재란 --- */
+.cover-bottom {
+  margin-top: auto;
+  padding: 0 16mm 11mm 16mm;
+}
+
+.cover-info {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+}
+
+.cover-info th {
+  background: #f2f5f9;
+  color: #37474f;
+  font-weight: 700;
+  text-align: left;
+  padding: 2mm 3mm;
+  border: 0.5pt solid #cfd8dc;
+  width: 21mm;
+  white-space: nowrap;
+}
+
+.cover-info td {
+  padding: 2mm 3mm;
+  border: 0.5pt solid #cfd8dc;
+  color: #263238;
+}
+
+.cover-approval {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+  margin-top: 5mm;
+}
+
+.cover-approval th {
+  background: #e8edf4;
+  color: #37474f;
+  font-weight: 700;
+  text-align: center;
+  padding: 1.8mm;
+  border: 0.5pt solid #b0bec5;
+  width: 33.33%;
+}
+
+.cover-approval td {
+  height: 13mm;
+  border: 0.5pt solid #b0bec5;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 1.8mm;
+  color: #90a4ae;
+  font-size: 7.5pt;
+}
+
+.cover-foot {
+  text-align: center;
+  font-size: 7.5pt;
+  color: #90a4ae;
+  letter-spacing: 0.8px;
+  margin-top: 5mm;
+  padding-top: 3mm;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* ==========================================================================
+   본문 헤딩
+   ========================================================================== */
+h1 {
+  font-size: 15pt;
+  font-weight: 800;
+  color: #0d2a4d;
+  border-bottom: 2px solid #1a3a6b;
+  padding-bottom: 2.2mm;
+  margin-top: 11mm;
+  margin-bottom: 4.5mm;
+  page-break-after: avoid;
+}
+
+h2 {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: #1a3a6b;
+  margin-top: 6.5mm;
+  margin-bottom: 3mm;
+  padding: 1.6mm 0 1.6mm 3.5mm;
+  border-left: 4px solid #1976d2;
+  background: #f5f8fc;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: #263238;
+  margin-top: 4.5mm;
+  margin-bottom: 2.2mm;
+  page-break-after: avoid;
+}
+
+h4 {
+  font-size: 10pt;
+  font-weight: 700;
+  color: #455a64;
+  margin-top: 3.5mm;
+  margin-bottom: 1.8mm;
+  page-break-after: avoid;
+}
+
+p { margin: 0 0 2.8mm 0; text-align: justify; orphans: 2; widows: 2; }
+
+/* ==========================================================================
+   Executive Summary
+   ========================================================================== */
+.exec-summary {
+  background: #f8fafc;
+  border: 1px solid #cfd8dc;
+  border-top: 3px solid #1976d2;
+  padding: 5mm 6mm;
+  margin: 4mm 0 6mm 0;
+  page-break-inside: avoid;
+}
+
+.exec-summary-title {
+  font-size: 11pt;
+  font-weight: 800;
+  color: #0d2a4d;
+  margin-bottom: 3mm;
+  letter-spacing: 1px;
+}
+
+.exec-item { margin-bottom: 2.5mm; font-size: 9.5pt; }
+.exec-item strong { color: #1a3a6b; }
+
+/* ==========================================================================
+   KPI 카드
+   ========================================================================== */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3mm;
+  margin: 4mm 0 6mm 0;
+  page-break-inside: avoid;
+}
+
+.kpi {
+  background: #ffffff;
+  border: 1px solid #cfd8dc;
+  border-radius: 3px;
+  padding: 4mm 3mm;
+  text-align: center;
+}
+
+.kpi-label { font-size: 7.5pt; color: #78909c; letter-spacing: 0.5px; margin-bottom: 2mm; }
+.kpi-value { font-size: 19pt; font-weight: 800; color: #1a3a6b; line-height: 1.1; }
+.kpi-value.positive { color: #2e7d32; }
+.kpi-value.negative { color: #c62828; }
+.kpi-value.neutral { color: #1565c0; }
+.kpi-unit { font-size: 8pt; color: #90a4ae; margin-top: 0.8mm; }
+
+/* ==========================================================================
+   RAG 상태 배지
+   ========================================================================== */
+.rag {
+  display: inline-block;
+  padding: 0.8mm 2.8mm;
+  border-radius: 2px;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.rag-green { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+.rag-amber { background: #fff8e1; color: #f57f17; border: 1px solid #ffe082; }
+.rag-red { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+.rag-gray { background: #eceff1; color: #546e7a; border: 1px solid #cfd8dc; }
+
+/* ==========================================================================
+   표
+   ========================================================================== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 3mm 0 4.5mm 0;
+  font-size: 8.5pt;
+  page-break-inside: avoid;
+}
+
+thead { display: table-header-group; }
+
+th {
+  background: #1a3a6b;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: left;
+  padding: 2.2mm 2.8mm;
+  border: 0.5pt solid #1a3a6b;
+  font-size: 8.5pt;
+}
+
+td {
+  padding: 1.8mm 2.8mm;
+  border: 0.5pt solid #cfd8dc;
+  vertical-align: top;
+  color: #263238;
+}
+
+tbody tr:nth-child(even) { background: #f8fafc; }
+
+/* ==========================================================================
+   강조 박스
+   ========================================================================== */
+.issue-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #ef6c00;
+  background: #fffdf7;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+.issue-box .issue-title {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: #e65100;
+  margin-bottom: 2mm;
+}
+
+.solution-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #2e7d32;
+  background: #f7fdf8;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+.solution-box .solution-title {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 2mm;
+}
+
+.info-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #1976d2;
+  background: #f5f9ff;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+.warn-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #c62828;
+  background: #fff7f7;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+/* ==========================================================================
+   목록 / 구분선
+   ========================================================================== */
+ul, ol { margin: 0 0 3mm 0; padding-left: 5.5mm; }
+li { margin-bottom: 1.2mm; }
+ul.square { list-style-type: square; }
+ul.circle { list-style-type: circle; }
+
+hr { border: none; border-top: 1px solid #e0e0e0; margin: 5.5mm 0; }
+
+/* ==========================================================================
+   승인 요청 박스
+   ========================================================================== */
+.approval-request {
+  border: 2px solid #1a3a6b;
+  background: #f8fafc;
+  padding: 5mm 6mm;
+  margin: 5mm 0;
+  page-break-inside: avoid;
+}
+
+.approval-request-title {
+  font-size: 11pt;
+  font-weight: 800;
+  color: #1a3a6b;
+  margin-bottom: 3mm;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   페이지 나눔 / 인쇄
+   ========================================================================== */
+h1 + h2, h2 + h3, h3 + h4 { page-break-before: avoid; }
+table, .issue-box, .solution-box, .info-box, .warn-box,
+.kpi-row, .exec-summary, .approval-request { page-break-inside: avoid; }
+
+@media print {
+  a[href]:after { content: none; }
+  a { color: #1565c0; text-decoration: none; word-break: break-all; }
+  .cover, .kpi, .rag, .exec-summary, .issue-box, .solution-box,
+  .info-box, .warn-box, th, .cover-top, .cover-classbox .v {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-brandline">
+      <svg class="brand-logo" width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+  <rect width="52" height="52" rx="9" fill="#1565c0"/>
+  <g fill="#ffffff">
+    <circle cx="15" cy="15" r="2.6"/><circle cx="26" cy="15" r="2.6"/><circle cx="37" cy="15" r="2.6"/>
+    <circle cx="15" cy="26" r="2.6"/><circle cx="37" cy="26" r="2.6"/>
+    <circle cx="15" cy="37" r="2.6"/><circle cx="26" cy="37" r="2.6"/><circle cx="37" cy="37" r="2.6"/>
+  </g>
+  <rect x="23.4" y="21" width="5.2" height="10" rx="1.4" fill="#ffffff"/>
+</svg>
+      <div>
+        <div class="cover-company">10조 스튜디오</div>
+        <div class="cover-company-en">10JO STUDIO &nbsp;·&nbsp; AI SOFTWARE COMPANY</div>
+      </div>
+    </div>
+    <div class="cover-classbox">
+      <div class="k">DOCUMENT CLASS</div>
+      <div class="v">대표이사 보고</div>
+    </div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-metarow">
+      <div class="cover-doctype">CEO REPORT</div>
+      <div class="cover-datestamp">2026년 10월 04일</div>
+    </div>
+    <div class="cover-title">Kanban 스킬·플러그인 설치 및 업무 추적 체계 구축</div>
+    <div class="cover-subtitle">10jo-kanban 스킬 신설, 플러그인 2개 설치, 태스크 5건 등록</div>
+    <div class="cover-themeline">
+      Kanban 스킬·플러그인 설치 및 업무 추적 체계 구축<br>
+      10jo-kanban 스킬 신설, 플러그인 2개 설치·활성화, 보드 생성, 태스크 5건 등록<br>
+      규칙 3곳 반영
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-label">매출</div><div class="kpi-value negative">0</div><div class="kpi-unit">원</div></div>
+    <div class="kpi"><div class="kpi-label">불편 발굴</div><div class="kpi-value neutral">38</div><div class="kpi-unit">건</div></div>
+    <div class="kpi"><div class="kpi-label">개발 완료</div><div class="kpi-value positive">1</div><div class="kpi-unit">제품</div></div>
+    <div class="kpi"><div class="kpi-label">승인 대기</div><div class="kpi-value negative">3</div><div class="kpi-unit">건</div></div>
+  </div>
+
+  <div class="cover-highlight">
+    <div class="hl-label">핵심 판단</div>
+    <div class="hl-text">
+      Kanban 업무 추적 체계 구축 완료 — 태스크 5건 등록.<br>
+      대표 승인 게이트 3건이 카드로 가시화됨.
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <table class="cover-info">
+      <tr>
+        <th>문서번호</th><td>10JO-CEO-20261004-01</td>
+        <th>보고일</th><td>2026년 10월 04일</td>
+      </tr>
+      <tr>
+        <th>보고자</th><td>10조 수석 (총괄 기획·지휘 본부)</td>
+        <th>보고기간</th><td>2026년 10월 4일 00:56 ~ 01:10</td>
+      </tr>
+      <tr>
+        <th>수신</th><td>대표이사 이상완</td>
+        <th>분류</th><td>경영진 보고용 · CONFIDENTIAL</td>
+      </tr>
+      <tr>
+        <th>검토</th><td>10조 수석 (Hermes Agent)</td>
+        <th>상태</th><td>대표 승인 대기</td>
+      </tr>
+    </table>
+
+    <table class="cover-approval">
+      <tr><th>작 성</th><th>검 토</th><th>승 인</th></tr>
+      <tr>
+        <td>10조 수석</td>
+        <td>10조 수석</td>
+        <td>대표이사</td>
+      </tr>
+    </table>
+
+    <div class="cover-foot">
+      10조 스튜디오 · 본 문서는 대표이사 보고용으로 무단 복제·배포를 금합니다.
+    </div>
+  </div>
+</div>
+
+<div style="page-break-after:always"><h1 style="margin-top:0;border-bottom:2px solid #1a3a6b">목차</h1><ul style="list-style:none;padding-left:0;margin-top:4mm"><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">I. 보고 요약 (Executive
+Summary)</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">II. 이번 기간 완료한 일</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. Kanban 스킬 신설</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 플러그인 설치</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. 보드 생성 및 태스크 등록</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 4. 등록된 태스크</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 5. 규칙 반영</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">III. 조직 구성원별 업무
+배치와 실적</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 조직 구성 (10개 부서)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 부서별 실적</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. Kanban 도입 효과</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">IV. 문제와 해결</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 문제: 업무 추적 체계 부재</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 문제: CLI 옵션 오류</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">V. 현재 상태</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 핵심 지표</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. Kanban 보드 상태</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. 업무 추적 체계</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">VI. 앞으로 할 일</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 즉시 (1일 내)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 단기 (1주)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. 중기 (1개월)</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">VII. 리스크 관리</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">VIII. 대표 승인 요청</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">IX. 결론</li></ul></div>
+<!-- COVER
+theme: Kanban 스킬·플러그인 설치 및 업무 추적 체계 구축 | 10jo-kanban 스킬 신설, 플러그인 2개 설치·활성화, 보드 생성, 태스크 5건 등록 | 규칙 3곳 반영
+kpi: 매출|0|원|negative; 불편 발굴|38|건|neutral; 개발 완료|1|제품|positive; 승인 대기|3|건|negative
+highlight: Kanban 업무 추적 체계 구축 완료 — 태스크 5건 등록. | 대표 승인 게이트 3건이 카드로 가시화됨.
+-->
+
+<h1 id="i-보고-요약-executive-summary">I. 보고 요약 (Executive
+Summary)</h1>
+<div class="exec-summary">
+<div class="exec-summary-title">핵심 요약</div>
+
+<div class="exec-item"><strong>1. Kanban 스킬 신설</strong> — `10jo-kanban` 스킬 생성. 업무 등록·추적 절차 정본화.</div>
+
+<div class="exec-item"><strong>2. 플러그인 2개 설치</strong> — `kanban-gantt`(간트 뷰), `kanban-live-gantt`(라이브 타임라인) 설치·활성화.</div>
+
+<div class="exec-item"><strong>3. 보드 생성 및 태스크 등록</strong> — `10jo-studio` 보드 생성, 태스크 5건 등록(승인 대기 3건, 진행 중 2건).</div>
+
+<div class="exec-item"><strong>4. 규칙 반영</strong> — COMPANY_RULES 7-4절, AGENTS.md, 대시보드 3곳 반영.</div>
+</div>
+
+<hr />
+<h1 id="ii-이번-기간-완료한-일">II. 이번 기간 완료한 일</h1>
+<h2 id="1-kanban-스킬-신설">1. Kanban 스킬 신설</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>스킬명</td>
+<td><code>10jo-kanban</code></td>
+</tr>
+<tr>
+<td>용도</td>
+<td>업무 등록·추적 절차 정본화</td>
+</tr>
+<tr>
+<td>위치</td>
+<td><code>D:\hermes\skills\10jo-studio\10jo-kanban\SKILL.md</code></td>
+</tr>
+<tr>
+<td>주요 내용</td>
+<td>보드 정보, 태스크 등록 명령, 운영 규칙, 함정</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-플러그인-설치">2. 플러그인 설치</h2>
+<table>
+<thead>
+<tr>
+<th>플러그인</th>
+<th>용도</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>kanban-gantt</code></td>
+<td>간트 타임라인 뷰 (데스크톱 <code>/kanban-gantt</code>)</td>
+<td>설치·활성화</td>
+</tr>
+<tr>
+<td><code>kanban-live-gantt</code></td>
+<td>라이브 간트 (now-centered 타임라인)</td>
+<td>설치·활성화</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-보드-생성-및-태스크-등록">3. 보드 생성 및 태스크 등록</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>보드 slug</td>
+<td><code>10jo-studio</code></td>
+</tr>
+<tr>
+<td>표시명</td>
+<td>10조 스튜디오</td>
+</tr>
+<tr>
+<td>DB 경로</td>
+<td><code>D:\hermes\kanban\boards\10jo-studio\kanban.db</code></td>
+</tr>
+<tr>
+<td>등록 태스크</td>
+<td>5건</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-등록된-태스크">4. 등록된 태스크</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>제목</th>
+<th>우선순위</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>t_dcf50d31</td>
+<td>Merge10 외부 배포 승인 요청</td>
+<td>1 (높음)</td>
+<td>ready</td>
+</tr>
+<tr>
+<td>t_6b8c698b</td>
+<td>결제 연동 승인 요청</td>
+<td>1 (높음)</td>
+<td>ready</td>
+</tr>
+<tr>
+<td>t_527491bb</td>
+<td>약관 정보 4건 회신 요청</td>
+<td>1 (높음)</td>
+<td>ready</td>
+</tr>
+<tr>
+<td>t_fa13be48</td>
+<td>안티그래비티 브리지 안정화</td>
+<td>2 (보통)</td>
+<td>ready</td>
+</tr>
+<tr>
+<td>t_4849c9f9</td>
+<td>로컬 모델 기반 불편 분석 자동화</td>
+<td>2 (보통)</td>
+<td>ready</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-규칙-반영">5. 규칙 반영</h2>
+<table>
+<thead>
+<tr>
+<th>반영처</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_docs/COMPANY_RULES.md</code></td>
+<td>7-4절 Kanban 업무 추적 규칙 추가</td>
+</tr>
+<tr>
+<td><code>AGENTS.md</code></td>
+<td>Kanban 스킬 참조 추가</td>
+</tr>
+<tr>
+<td><code>_shared/dashboard.md</code></td>
+<td>Kanban 설치 및 태스크 현황 추가</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="iii-조직-구성원별-업무-배치와-실적">III. 조직 구성원별 업무
+배치와 실적</h1>
+<h2 id="1-조직-구성-10개-부서">1. 조직 구성 (10개 부서)</h2>
+<table>
+<thead>
+<tr>
+<th>부서</th>
+<th>담당 AI</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>총괄 기획·지휘 본부</td>
+<td>10조 수석 (Hermes)</td>
+<td>지시 배분·조율·검수·보고</td>
+</tr>
+<tr>
+<td>불편 발굴·리서치팀</td>
+<td>하위 에이전트 (delegate)</td>
+<td>불편 수집·시장 조사</td>
+</tr>
+<tr>
+<td>기획팀</td>
+<td>10조 수석</td>
+<td>해법 도출·명세 작성</td>
+</tr>
+<tr>
+<td>소프트웨어 개발팀</td>
+<td>Claude Code (claude -p)</td>
+<td>코딩·테스트</td>
+</tr>
+<tr>
+<td>배포·수익화팀</td>
+<td>10조 수석</td>
+<td>배포·결제·백업</td>
+</tr>
+<tr>
+<td>경영 보고팀</td>
+<td>10조 수석</td>
+<td>현황 집계·보고서 작성</td>
+</tr>
+<tr>
+<td>운영 감시</td>
+<td>스크립트 (AI 미사용)</td>
+<td>모델·백업 자동 점검</td>
+</tr>
+<tr>
+<td>안티그래비티</td>
+<td>Antigravity.exe</td>
+<td>外部 AI 파트너</td>
+</tr>
+<tr>
+<td>보고서 검증팀</td>
+<td>10조 수석</td>
+<td>보고서 검증·품질 관리</td>
+</tr>
+<tr>
+<td>보고서 배포팀</td>
+<td>10조 수석</td>
+<td>보고서 배포·Drive 업로드</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-부서별-실적">2. 부서별 실적</h2>
+<div class="info-box">
+
+<p><strong>■ 총괄 기획·지휘 본부 (10조 수석)</strong></p>
+<ul>
+<li>Kanban 스킬 신설 (<code>10jo-kanban</code>)</li>
+<li>플러그인 2개 설치·활성화</li>
+<li>보드 생성 및 태스크 5건 등록</li>
+<li>규칙 3곳 반영</li>
+</ul>
+</div>
+
+<div class="info-box">
+
+<p><strong>■ 경영 보고팀 (10조 수석)</strong></p>
+<ul>
+<li>대표 승인 게이트 3건을 카드로 가시화</li>
+<li>태스크 우선순위 체계 수립 (1=높음, 2=보통, 3=낮음)</li>
+</ul>
+</div>
+
+<div class="info-box">
+
+<p><strong>■ 운영 감시팀 (스크립트)</strong></p>
+<ul>
+<li>크론 13개 정상 운영</li>
+<li>시간당 보고 3연속 성공 (21:00·22:00·23:00)</li>
+</ul>
+</div>
+
+<h2 id="3-kanban-도입-효과">3. Kanban 도입 효과</h2>
+<div class="solution-box">
+<div class="solution-title">■ 도입 전 → 도입 후</div>
+
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>도입 전</th>
+<th>도입 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>업무 추적</td>
+<td>대화·문서에 분산</td>
+<td>카드로 단일 관리</td>
+</tr>
+<tr>
+<td>승인 게이트</td>
+<td>보고서에 묻힘</td>
+<td>priority 1 카드로 가시화</td>
+</tr>
+<tr>
+<td>진행 상태</td>
+<td>수동 집계</td>
+<td><code>kanban stats</code> 자동 집계</td>
+</tr>
+<tr>
+<td>시각화</td>
+<td>없음</td>
+<td>간트 타임라인 (플러그인 2개)</td>
+</tr>
+<tr>
+<td>이력</td>
+<td>없음</td>
+<td>카드별 댓글·이벤트 자동 기록</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<hr />
+<h1 id="iv-문제와-해결">IV. 문제와 해결</h1>
+<h2 id="1-문제-업무-추적-체계-부재">1. 문제: 업무 추적 체계 부재</h2>
+<div class="issue-box">
+<div class="issue-title">■ 문제 상황</div>
+업무가 대화·문서·보고서에 분산되어 있어 전체 진행 상황을 한눈에 파악할 수 없었다. 대표 승인 대기 항목이 보고서에 묻혀 누락 위험이 있었다.
+</div>
+
+<div class="solution-box">
+<div class="solution-title">■ 해결 조치</div>
+Kanban 업무 추적 체계를 구축했다. 모든 업무를 카드로 등록하고, 대표 승인 대기는 priority 1로 가시화했다. `kanban-gantt`·`kanban-live-gantt` 플러그인으로 시각화를 확보했다.
+</div>
+
+<h2 id="2-문제-cli-옵션-오류">2. 문제: CLI 옵션 오류</h2>
+<div class="issue-box">
+<div class="issue-title">■ 문제 상황</div>
+태스크 등록 시 <code>--description</code> 옵션이 없어 오류가 발생했다. <code>--priority</code>에 문자열(<code>high</code>)을 넣어 오류가 발생했다.
+</div>
+
+<div class="solution-box">
+<div class="solution-title">■ 해결 조치</div>
+올바른 옵션을 확인했다 — <code>--body</code>(상세 설명), <code>--priority</code>(정수). 이 함정을 스킬에 명시해 재발을 방지했다.
+</div>
+
+<hr />
+<h1 id="v-현재-상태">V. 현재 상태</h1>
+<h2 id="1-핵심-지표">1. 핵심 지표</h2>
+<div class="kpi-row">
+<div class="kpi"><div class="kpi-label">매출</div><div class="kpi-value negative">0</div><div class="kpi-unit">원</div></div>
+<div class="kpi"><div class="kpi-label">불편 발굴</div><div class="kpi-value neutral">38</div><div class="kpi-unit">건</div></div>
+<div class="kpi"><div class="kpi-label">개발 완료</div><div class="kpi-value positive">1</div><div class="kpi-unit">제품</div></div>
+<div class="kpi"><div class="kpi-label">승인 대기</div><div class="kpi-value negative">3</div><div class="kpi-unit">건</div></div>
+</div>
+
+<h2 id="2-kanban-보드-상태">2. Kanban 보드 상태</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>보드</td>
+<td>10jo-studio</td>
+</tr>
+<tr>
+<td>태스크</td>
+<td>5건 (전부 ready)</td>
+</tr>
+<tr>
+<td>승인 대기 카드</td>
+<td>3건 (priority 1)</td>
+</tr>
+<tr>
+<td>진행 중 카드</td>
+<td>2건 (priority 2)</td>
+</tr>
+<tr>
+<td>플러그인</td>
+<td>2개 활성화</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-업무-추적-체계">3. 업무 추적 체계</h2>
+<table>
+<thead>
+<tr>
+<th>구성 요소</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kanban 스킬</td>
+<td>10jo-kanban (v1.0)</td>
+</tr>
+<tr>
+<td>보드</td>
+<td>10jo-studio</td>
+</tr>
+<tr>
+<td>시각화</td>
+<td>간트 2종</td>
+</tr>
+<tr>
+<td>규칙</td>
+<td>COMPANY_RULES 7-4절</td>
+</tr>
+<tr>
+<td>집계</td>
+<td><code>hermes kanban stats</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="vi-앞으로-할-일">VI. 앞으로 할 일</h1>
+<h2 id="1-즉시-1일-내">1. 즉시 (1일 내)</h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>작업</th>
+<th>담당</th>
+<th>의존</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>태스크 담당자 지정</td>
+<td>수석</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2</td>
+<td>게이트웨이 디스패처 확인</td>
+<td>운영감시</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3</td>
+<td>간트 뷰 접근 테스트</td>
+<td>수석</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-단기-1주">2. 단기 (1주)</h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>작업</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>모든 업무 카드화</td>
+<td>수석</td>
+<td>추적 완전성</td>
+</tr>
+<tr>
+<td>2</td>
+<td>보고서에 보드 집계 반영</td>
+<td>보고팀</td>
+<td>가시성 향상</td>
+</tr>
+<tr>
+<td>3</td>
+<td>크론 태스크 자동 등록</td>
+<td>운영감시</td>
+<td>자동화</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-중기-1개월">3. 중기 (1개월)</h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>작업</th>
+<th>담당</th>
+<th>조건</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Swarm 워크플로 도입</td>
+<td>수석</td>
+<td>카드 축적 후</td>
+</tr>
+<tr>
+<td>2</td>
+<td>태스크 자동 배정</td>
+<td>수석</td>
+<td>담당자 체계 정착 후</td>
+</tr>
+<tr>
+<td>3</td>
+<td>보드 기반 성과 지표</td>
+<td>보고팀</td>
+<td>데이터 축적 후</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="vii-리스크-관리">VII. 리스크 관리</h1>
+<table>
+<thead>
+<tr>
+<th>리스크</th>
+<th>확률</th>
+<th>영향</th>
+<th>대응</th>
+<th>담당</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>카드 등록 누락</td>
+<td>중</td>
+<td>중간</td>
+<td>모든 업무 카드화 규칙</td>
+<td>수석</td>
+</tr>
+<tr>
+<td>게이트웨이 미실행</td>
+<td>중</td>
+<td>높음</td>
+<td>디스패처 상태 점검</td>
+<td>운영감시</td>
+</tr>
+<tr>
+<td>카드 방치</td>
+<td>중</td>
+<td>중간</td>
+<td>완료 시 complete 처리</td>
+<td>수석</td>
+</tr>
+<tr>
+<td>보드 전환 오류</td>
+<td>낮음</td>
+<td>중간</td>
+<td>작업 전 switch 확인</td>
+<td>수석</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="viii-대표-승인-요청">VIII. 대표 승인 요청</h1>
+<div class="approval-request">
+<div class="approval-request-title">🔔 승인 + 정보 요청 (2건)</div>
+
+<p><strong>A. 승인 3건</strong> (Kanban 카드 등록 완료)</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>항목</th>
+<th>비용</th>
+<th>카드 ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Merge10 외부 배포</td>
+<td>0원</td>
+<td>t_dcf50d31</td>
+</tr>
+<tr>
+<td>2</td>
+<td>결제 연동</td>
+<td>0원</td>
+<td>t_6b8c698b</td>
+</tr>
+<tr>
+<td>3</td>
+<td>도메인 구매</td>
+<td>15,000원/년</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>B. 약관 정보 4건</strong> (Kanban 카드 등록 완료)</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>필요 정보</th>
+<th>카드 ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>사업자명</td>
+<td>t_527491bb</td>
+</tr>
+<tr>
+<td>2</td>
+<td>고객 문의 이메일</td>
+<td>t_527491bb</td>
+</tr>
+<tr>
+<td>3</td>
+<td>결제 연동 시점</td>
+<td>t_527491bb</td>
+</tr>
+<tr>
+<td>4</td>
+<td>법률 검토 진행 여부</td>
+<td>t_527491bb</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<hr />
+<h1 id="ix-결론">IX. 결론</h1>
+<p><strong>Kanban 업무 추적 체계를 구축했다.</strong></p>
+<ul>
+<li><code>10jo-kanban</code> 스킬 신설</li>
+<li>플러그인 2개 설치·활성화</li>
+<li>보드 생성, 태스크 5건 등록</li>
+<li>규칙 3곳 반영</li>
+</ul>
+<p><strong>대표 승인 게이트 3건이 카드로 가시화되었다.</strong> 이제
+누락 없이 추적된다.</p>
+<p><strong>배포를 막는 것은 승인 3건 + 약관 4곳이다.</strong> 회신 시
+즉시 배포 착수.</p>
+<hr />
+<p><strong>문서 끝</strong></p>
+
+</body>
+</html>

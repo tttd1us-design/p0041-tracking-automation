@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>보고서 작업 스킬·플러그인 설치 및 직원 역할 부여 보고</title>
+<style>
+/* ==========================================================================
+   10조 스튜디오 — 대표이사 보고서 공식 양식 v2.0
+   표지: 브랜드 밴드 + 로고마크 + 대형 타이포 + 핵심지표 스트립
+   근거: 글로벌 연차보고서 표지 원칙 (로고/테마라인/단일 강조점/썸네일 테스트)
+   ========================================================================== */
+
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+@page :first {
+  margin: 0;
+}
+
+html {
+  font-family: "Malgun Gothic", "Noto Sans KR", "NanumGothic", sans-serif;
+  font-size: 10pt;
+  line-height: 1.7;
+  color: #212121;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body { margin: 0; padding: 0; }
+
+/* ==========================================================================
+   표지 (Cover)
+   ========================================================================== */
+.cover {
+  width: 210mm;
+  height: 297mm;
+  page-break-after: always;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* --- 상단 브랜드 밴드 --- */
+.cover-top {
+  background: #0f2a52;
+  color: #ffffff;
+  padding: 13mm 16mm 9mm 16mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cover-brandline {
+  display: flex;
+  align-items: center;
+  gap: 5.5mm;
+}
+
+.brand-logo { display: block; flex: 0 0 auto; }
+
+.cover-company {
+  font-size: 21pt;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.cover-company-en {
+  font-size: 7pt;
+  letter-spacing: 2.4px;
+  color: #9fc0ea;
+  margin-top: 1.8mm;
+  font-weight: 600;
+}
+
+.cover-classbox { text-align: right; padding-top: 0.5mm; }
+
+.cover-classbox .k {
+  font-size: 6.5pt;
+  letter-spacing: 2px;
+  color: #9fc0ea;
+  font-weight: 600;
+}
+
+.cover-classbox .v {
+  font-size: 9pt;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  margin-top: 1.5mm;
+  border: 1.2px solid #7fa8d8;
+  padding: 1mm 2.6mm;
+  display: inline-block;
+}
+
+/* --- 제목 블록 --- */
+.cover-main { padding: 15mm 16mm 0 16mm; }
+
+.cover-metarow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2.5px solid #0f2a52;
+  padding-bottom: 2.5mm;
+}
+
+.cover-doctype {
+  font-size: 9.5pt;
+  font-weight: 800;
+  letter-spacing: 4.5px;
+  color: #1565c0;
+}
+
+.cover-datestamp {
+  font-size: 9.5pt;
+  color: #546e7a;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.cover-title {
+  font-size: 30pt;
+  font-weight: 800;
+  color: #0d2244;
+  line-height: 1.24;
+  margin: 9mm 0 0 0;
+  letter-spacing: -0.6px;
+}
+
+.cover-subtitle {
+  font-size: 12pt;
+  color: #37474f;
+  margin-top: 4mm;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.cover-themeline {
+  margin-top: 7mm;
+  padding: 3.5mm 0 3.5mm 5mm;
+  border-left: 3px solid #1565c0;
+  font-size: 10pt;
+  color: #1565c0;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+/* --- 표지 핵심 판단 하이라이트 --- */
+.cover-highlight {
+  margin: 7mm 16mm 0 16mm;
+  background: #eef4fb;
+  border: 1px solid #c5d5e8;
+  border-left: 4px solid #1565c0;
+  padding: 5.5mm 6.5mm;
+  page-break-inside: avoid;
+}
+
+.cover-highlight .hl-label {
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  color: #1565c0;
+  margin-bottom: 2.8mm;
+}
+
+.cover-highlight .hl-text {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: #0d2244;
+  line-height: 1.62;
+}
+
+.cover-highlight .hl-text em {
+  font-style: normal;
+  color: #c62828;
+}
+
+/* --- 표지 핵심지표 스트립 (본문 kpi-row 재사용) --- */
+.cover .kpi-row {
+  margin: 8mm 16mm 0 16mm;
+  gap: 0;
+  page-break-inside: avoid;
+}
+
+.cover .kpi {
+  border-radius: 0;
+  border: 1px solid #cfd8dc;
+  border-top: 3px solid #0f2a52;
+  padding: 4mm 2mm;
+  background: #ffffff;
+}
+
+.cover .kpi-label { font-size: 7.5pt; color: #78909c; margin-bottom: 1.8mm; }
+.cover .kpi-value { font-size: 19pt; line-height: 1.05; }
+.cover .kpi-unit { font-size: 7.5pt; margin-top: 1.2mm; }
+
+/* --- 하단 문서정보 + 결재란 --- */
+.cover-bottom {
+  margin-top: auto;
+  padding: 0 16mm 11mm 16mm;
+}
+
+.cover-info {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+}
+
+.cover-info th {
+  background: #f2f5f9;
+  color: #37474f;
+  font-weight: 700;
+  text-align: left;
+  padding: 2mm 3mm;
+  border: 0.5pt solid #cfd8dc;
+  width: 21mm;
+  white-space: nowrap;
+}
+
+.cover-info td {
+  padding: 2mm 3mm;
+  border: 0.5pt solid #cfd8dc;
+  color: #263238;
+}
+
+.cover-approval {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+  margin-top: 5mm;
+}
+
+.cover-approval th {
+  background: #e8edf4;
+  color: #37474f;
+  font-weight: 700;
+  text-align: center;
+  padding: 1.8mm;
+  border: 0.5pt solid #b0bec5;
+  width: 33.33%;
+}
+
+.cover-approval td {
+  height: 13mm;
+  border: 0.5pt solid #b0bec5;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 1.8mm;
+  color: #90a4ae;
+  font-size: 7.5pt;
+}
+
+.cover-foot {
+  text-align: center;
+  font-size: 7.5pt;
+  color: #90a4ae;
+  letter-spacing: 0.8px;
+  margin-top: 5mm;
+  padding-top: 3mm;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* ==========================================================================
+   본문 헤딩
+   ========================================================================== */
+h1 {
+  font-size: 15pt;
+  font-weight: 800;
+  color: #0d2a4d;
+  border-bottom: 2px solid #1a3a6b;
+  padding-bottom: 2.2mm;
+  margin-top: 11mm;
+  margin-bottom: 4.5mm;
+  page-break-after: avoid;
+}
+
+h2 {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: #1a3a6b;
+  margin-top: 6.5mm;
+  margin-bottom: 3mm;
+  padding: 1.6mm 0 1.6mm 3.5mm;
+  border-left: 4px solid #1976d2;
+  background: #f5f8fc;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: #263238;
+  margin-top: 4.5mm;
+  margin-bottom: 2.2mm;
+  page-break-after: avoid;
+}
+
+h4 {
+  font-size: 10pt;
+  font-weight: 700;
+  color: #455a64;
+  margin-top: 3.5mm;
+  margin-bottom: 1.8mm;
+  page-break-after: avoid;
+}
+
+p { margin: 0 0 2.8mm 0; text-align: justify; orphans: 2; widows: 2; }
+
+/* ==========================================================================
+   Executive Summary
+   ========================================================================== */
+.exec-summary {
+  background: #f8fafc;
+  border: 1px solid #cfd8dc;
+  border-top: 3px solid #1976d2;
+  padding: 5mm 6mm;
+  margin: 4mm 0 6mm 0;
+  page-break-inside: avoid;
+}
+
+.exec-summary-title {
+  font-size: 11pt;
+  font-weight: 800;
+  color: #0d2a4d;
+  margin-bottom: 3mm;
+  letter-spacing: 1px;
+}
+
+.exec-item { margin-bottom: 2.5mm; font-size: 9.5pt; }
+.exec-item strong { color: #1a3a6b; }
+
+/* ==========================================================================
+   KPI 카드
+   ========================================================================== */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3mm;
+  margin: 4mm 0 6mm 0;
+  page-break-inside: avoid;
+}
+
+.kpi {
+  background: #ffffff;
+  border: 1px solid #cfd8dc;
+  border-radius: 3px;
+  padding: 4mm 3mm;
+  text-align: center;
+}
+
+.kpi-label { font-size: 7.5pt; color: #78909c; letter-spacing: 0.5px; margin-bottom: 2mm; }
+.kpi-value { font-size: 19pt; font-weight: 800; color: #1a3a6b; line-height: 1.1; }
+.kpi-value.positive { color: #2e7d32; }
+.kpi-value.negative { color: #c62828; }
+.kpi-value.neutral { color: #1565c0; }
+.kpi-unit { font-size: 8pt; color: #90a4ae; margin-top: 0.8mm; }
+
+/* ==========================================================================
+   RAG 상태 배지
+   ========================================================================== */
+.rag {
+  display: inline-block;
+  padding: 0.8mm 2.8mm;
+  border-radius: 2px;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.rag-green { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+.rag-amber { background: #fff8e1; color: #f57f17; border: 1px solid #ffe082; }
+.rag-red { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+.rag-gray { background: #eceff1; color: #546e7a; border: 1px solid #cfd8dc; }
+
+/* ==========================================================================
+   표
+   ========================================================================== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 3mm 0 4.5mm 0;
+  font-size: 8.5pt;
+  page-break-inside: avoid;
+}
+
+thead { display: table-header-group; }
+
+th {
+  background: #1a3a6b;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: left;
+  padding: 2.2mm 2.8mm;
+  border: 0.5pt solid #1a3a6b;
+  font-size: 8.5pt;
+}
+
+td {
+  padding: 1.8mm 2.8mm;
+  border: 0.5pt solid #cfd8dc;
+  vertical-align: top;
+  color: #263238;
+}
+
+tbody tr:nth-child(even) { background: #f8fafc; }
+
+/* ==========================================================================
+   강조 박스
+   ========================================================================== */
+.issue-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #ef6c00;
+  background: #fffdf7;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+.issue-box .issue-title {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: #e65100;
+  margin-bottom: 2mm;
+}
+
+.solution-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #2e7d32;
+  background: #f7fdf8;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+.solution-box .solution-title {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 2mm;
+}
+
+.info-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #1976d2;
+  background: #f5f9ff;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+.warn-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #c62828;
+  background: #fff7f7;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+/* ==========================================================================
+   목록 / 구분선
+   ========================================================================== */
+ul, ol { margin: 0 0 3mm 0; padding-left: 5.5mm; }
+li { margin-bottom: 1.2mm; }
+ul.square { list-style-type: square; }
+ul.circle { list-style-type: circle; }
+
+hr { border: none; border-top: 1px solid #e0e0e0; margin: 5.5mm 0; }
+
+/* ==========================================================================
+   승인 요청 박스
+   ========================================================================== */
+.approval-request {
+  border: 2px solid #1a3a6b;
+  background: #f8fafc;
+  padding: 5mm 6mm;
+  margin: 5mm 0;
+  page-break-inside: avoid;
+}
+
+.approval-request-title {
+  font-size: 11pt;
+  font-weight: 800;
+  color: #1a3a6b;
+  margin-bottom: 3mm;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   페이지 나눔 / 인쇄
+   ========================================================================== */
+h1 + h2, h2 + h3, h3 + h4 { page-break-before: avoid; }
+table, .issue-box, .solution-box, .info-box, .warn-box,
+.kpi-row, .exec-summary, .approval-request { page-break-inside: avoid; }
+
+@media print {
+  a[href]:after { content: none; }
+  a { color: #1565c0; text-decoration: none; word-break: break-all; }
+  .cover, .kpi, .rag, .exec-summary, .issue-box, .solution-box,
+  .info-box, .warn-box, th, .cover-top, .cover-classbox .v {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-brandline">
+      <svg class="brand-logo" width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+  <rect width="52" height="52" rx="9" fill="#1565c0"/>
+  <g fill="#ffffff">
+    <circle cx="15" cy="15" r="2.6"/><circle cx="26" cy="15" r="2.6"/><circle cx="37" cy="15" r="2.6"/>
+    <circle cx="15" cy="26" r="2.6"/><circle cx="37" cy="26" r="2.6"/>
+    <circle cx="15" cy="37" r="2.6"/><circle cx="26" cy="37" r="2.6"/><circle cx="37" cy="37" r="2.6"/>
+  </g>
+  <rect x="23.4" y="21" width="5.2" height="10" rx="1.4" fill="#ffffff"/>
+</svg>
+      <div>
+        <div class="cover-company">10조 스튜디오</div>
+        <div class="cover-company-en">10JO STUDIO &nbsp;·&nbsp; AI SOFTWARE COMPANY</div>
+      </div>
+    </div>
+    <div class="cover-classbox">
+      <div class="k">DOCUMENT CLASS</div>
+      <div class="v">대표이사 보고</div>
+    </div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-metarow">
+      <div class="cover-doctype">CEO REPORT</div>
+      <div class="cover-datestamp">2026년 10월 03일</div>
+    </div>
+    <div class="cover-title">보고서 작업 스킬·플러그인 설치 및 직원 역할 부여 보고</div>
+    <div class="cover-subtitle">검증·배포 스킬 2개 신설, 조직 10개 부서 역할 정의</div>
+    <div class="cover-themeline">
+      보고서 작업 스킬·플러그인 설치 및 직원 역할 부여 완료<br>
+      검증·배포 스킬 2개 신설, 조직 10개 부서 역할 정의<br>
+      대시보드·규칙·지침 3곳 반영
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-label">매출</div><div class="kpi-value negative">0</div><div class="kpi-unit">원</div></div>
+    <div class="kpi"><div class="kpi-label">불편 발굴</div><div class="kpi-value neutral">38</div><div class="kpi-unit">건</div></div>
+    <div class="kpi"><div class="kpi-label">개발 완료</div><div class="kpi-value positive">1</div><div class="kpi-unit">제품</div></div>
+    <div class="kpi"><div class="kpi-label">승인 대기</div><div class="kpi-value negative">3</div><div class="kpi-unit">건</div></div>
+  </div>
+
+  <div class="cover-highlight">
+    <div class="hl-label">핵심 판단</div>
+    <div class="hl-text">
+      보고서 검증·배포 스킬 2개 신설 완료.<br>
+      조직 10개 부서 역할 정의 완료 — 검증팀·배포팀 추가.
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <table class="cover-info">
+      <tr>
+        <th>문서번호</th><td>10JO-CEO-20261003-07</td>
+        <th>보고일</th><td>2026년 10월 03일</td>
+      </tr>
+      <tr>
+        <th>보고자</th><td>10조 수석 (총괄 기획·지휘 본부)</td>
+        <th>보고기간</th><td>2026년 10월 3일 18:26 ~ 18:40</td>
+      </tr>
+      <tr>
+        <th>수신</th><td>대표이사 이상완</td>
+        <th>분류</th><td>경영진 보고용 · CONFIDENTIAL</td>
+      </tr>
+      <tr>
+        <th>검토</th><td>10조 수석 (Hermes Agent)</td>
+        <th>상태</th><td>대표 승인 대기</td>
+      </tr>
+    </table>
+
+    <table class="cover-approval">
+      <tr><th>작 성</th><th>검 토</th><th>승 인</th></tr>
+      <tr>
+        <td>10조 수석</td>
+        <td>10조 수석</td>
+        <td>대표이사</td>
+      </tr>
+    </table>
+
+    <div class="cover-foot">
+      10조 스튜디오 · 본 문서는 대표이사 보고용으로 무단 복제·배포를 금합니다.
+    </div>
+  </div>
+</div>
+
+<div style="page-break-after:always"><h1 style="margin-top:0;border-bottom:2px solid #1a3a6b">목차</h1><ul style="list-style:none;padding-left:0;margin-top:4mm"><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">I. 보고 요약 (Executive
+Summary)</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">II. 이번 기간 완료한 일</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 보고서 스킬 신설</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 직원 역할 부여</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. 규칙 반영</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">III. 조직 구성원별 업무
+배치와 실적</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 조직 구성 (10개 부서)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 부서별 실적</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. 업무 배치 방식</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">IV. 문제와 해결</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 문제: 보고서 검증 프로세스
+부재</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 문제: 보고서 배포 절차
+불명확</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">V. 현재 상태</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 핵심 지표</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 보고서 작업 체계</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. 조직 운영 현황</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">VI. 앞으로 할 일</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 즉시 (1일 내)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 단기 (1주)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. 중기 (1개월)</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">VII. 리스크 관리</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">VIII. 대표 승인 요청</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">IX. 결론</li></ul></div>
+<!-- COVER
+theme: 보고서 작업 스킬·플러그인 설치 및 직원 역할 부여 완료 | 검증·배포 스킬 2개 신설, 조직 10개 부서 역할 정의 | 대시보드·규칙·지침 3곳 반영
+kpi: 매출|0|원|negative; 불편 발굴|38|건|neutral; 개발 완료|1|제품|positive; 승인 대기|3|건|negative
+highlight: 보고서 검증·배포 스킬 2개 신설 완료. | 조직 10개 부서 역할 정의 완료 — 검증팀·배포팀 추가.
+-->
+
+<h1 id="i-보고-요약-executive-summary">I. 보고 요약 (Executive
+Summary)</h1>
+<div class="exec-summary">
+<div class="exec-summary-title">핵심 요약</div>
+
+<div class="exec-item"><strong>1. 보고서 스킬 2개 신설</strong> — 검증(`10jo-report-verification`)·배포(`10jo-report-distribution`) 스킬 생성 완료.</div>
+
+<div class="exec-item"><strong>2. 직원 역할 부여 완료</strong> — 조직 10개 부서 역할 정의. 검증팀·배포팀 추가.</div>
+
+<div class="exec-item"><strong>3. 규칙 반영 완료</strong> — 대시보드·COMPANY_RULES 7-3절·AGENTS.md 3곳 반영.</div>
+
+<div class="exec-item"><strong>4. 요청</strong> — 승인 3건 + 약관 정보 4건 회신 시 즉시 배포 착수.</div>
+</div>
+
+<hr />
+<h1 id="ii-이번-기간-완료한-일">II. 이번 기간 완료한 일</h1>
+<h2 id="1-보고서-스킬-신설">1. 보고서 스킬 신설</h2>
+<table>
+<thead>
+<tr>
+<th>스킬명</th>
+<th>용도</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>10jo-report-verification</code></td>
+<td>보고서 검증 (수치·논리·완결성·가독성)</td>
+<td>생성 완료</td>
+</tr>
+<tr>
+<td><code>10jo-report-distribution</code></td>
+<td>보고서 배포 (Drive 업로드·대표 전달)</td>
+<td>생성 완료</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-직원-역할-부여">2. 직원 역할 부여</h2>
+<table>
+<thead>
+<tr>
+<th>부서</th>
+<th>담당 AI</th>
+<th>역할</th>
+<th>주요 스킬</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>총괄 기획·지휘 본부</td>
+<td>10조 수석 (Hermes)</td>
+<td>지시 배분·조율·검수·보고</td>
+<td>10jo-ceo-ops</td>
+</tr>
+<tr>
+<td>불편 발굴·리서치팀</td>
+<td>하위 에이전트 (delegate)</td>
+<td>불편 수집·시장 조사</td>
+<td>10jo-pain-mining</td>
+</tr>
+<tr>
+<td>기획팀</td>
+<td>10조 수석</td>
+<td>해법 도출·명세 작성</td>
+<td>10jo-product-spec</td>
+</tr>
+<tr>
+<td>소프트웨어 개발팀</td>
+<td>Claude Code (claude -p)</td>
+<td>코딩·테스트</td>
+<td>10jo-build-mvp</td>
+</tr>
+<tr>
+<td>배포·수익화팀</td>
+<td>10조 수석</td>
+<td>배포·결제·백업</td>
+<td>10jo-deploy</td>
+</tr>
+<tr>
+<td>경영 보고팀</td>
+<td>10조 수석</td>
+<td>현황 집계·보고서 작성</td>
+<td>10jo-status-report</td>
+</tr>
+<tr>
+<td>운영 감시</td>
+<td>스크립트 (AI 미사용)</td>
+<td>모델·백업 자동 점검</td>
+<td>—</td>
+</tr>
+<tr>
+<td>안티그래비티</td>
+<td>Antigravity.exe</td>
+<td>외부 AI 파트너</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>보고서 검증팀</strong></td>
+<td><strong>10조 수석</strong></td>
+<td><strong>보고서 검증·품질 관리</strong></td>
+<td><strong>10jo-report-verification</strong></td>
+</tr>
+<tr>
+<td><strong>보고서 배포팀</strong></td>
+<td><strong>10조 수석</strong></td>
+<td><strong>보고서 배포·Drive 업로드</strong></td>
+<td><strong>10jo-report-distribution</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-규칙-반영">3. 규칙 반영</h2>
+<table>
+<thead>
+<tr>
+<th>반영처</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_shared/dashboard.md</code></td>
+<td>조직 구성원별 역할 섹션 추가</td>
+</tr>
+<tr>
+<td><code>_docs/COMPANY_RULES.md</code></td>
+<td>7-3절 보고서 검증·배포 규칙 추가</td>
+</tr>
+<tr>
+<td><code>AGENTS.md</code></td>
+<td>보고서 검증·배포 스킬 참조 추가</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="iii-조직-구성원별-업무-배치와-실적">III. 조직 구성원별 업무
+배치와 실적</h1>
+<h2 id="1-조직-구성-10개-부서">1. 조직 구성 (10개 부서)</h2>
+<table>
+<thead>
+<tr>
+<th>부서</th>
+<th>담당 AI</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>총괄 기획·지휘 본부</td>
+<td>10조 수석 (Hermes)</td>
+<td>지시 배분·조율·검수·보고</td>
+</tr>
+<tr>
+<td>불편 발굴·리서치팀</td>
+<td>하위 에이전트 (delegate)</td>
+<td>불편 수집·시장 조사</td>
+</tr>
+<tr>
+<td>기획팀</td>
+<td>10조 수석</td>
+<td>해법 도출·명세 작성</td>
+</tr>
+<tr>
+<td>소프트웨어 개발팀</td>
+<td>Claude Code (claude -p)</td>
+<td>코딩·테스트</td>
+</tr>
+<tr>
+<td>배포·수익화팀</td>
+<td>10조 수석</td>
+<td>배포·결제·백업</td>
+</tr>
+<tr>
+<td>경영 보고팀</td>
+<td>10조 수석</td>
+<td>현황 집계·보고서 작성</td>
+</tr>
+<tr>
+<td>운영 감시</td>
+<td>스크립트 (AI 미사용)</td>
+<td>모델·백업 자동 점검</td>
+</tr>
+<tr>
+<td>안티그래비티</td>
+<td>Antigravity.exe</td>
+<td>外部 AI 파트너</td>
+</tr>
+<tr>
+<td>보고서 검증팀</td>
+<td>10조 수석</td>
+<td>보고서 검증·품질 관리</td>
+</tr>
+<tr>
+<td>보고서 배포팀</td>
+<td>10조 수석</td>
+<td>보고서 배포·Drive 업로드</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-부서별-실적">2. 부서별 실적</h2>
+<div class="info-box">
+
+<p><strong>■ 총괄 기획·지휘 본부 (10조 수석)</strong></p>
+<ul>
+<li>보고서 스킬 2개 신설 (검증·배포)</li>
+<li>직원 역할 부여 (10개 부서)</li>
+<li>규칙 반영 (대시보드·COMPANY_RULES·AGENTS.md)</li>
+</ul>
+</div>
+
+<div class="info-box">
+
+<p><strong>■ 보고서 검증팀 (10조 수석)</strong></p>
+<ul>
+<li><code>10jo-report-verification</code> 스킬 생성</li>
+<li>검증 항목 정의 (수치·논리·완결성·가독성)</li>
+<li>검증 결과 기록 경로 확정</li>
+</ul>
+</div>
+
+<div class="info-box">
+
+<p><strong>■ 보고서 배포팀 (10조 수석)</strong></p>
+<ul>
+<li><code>10jo-report-distribution</code> 스킬 생성</li>
+<li>배포 절차 정의 (검증 확인 → Drive 업로드 → 대표 전달 → 기록)</li>
+<li>Google Drive 백업 폴더 확정</li>
+</ul>
+</div>
+
+<h2 id="3-업무-배치-방식">3. 업무 배치 방식</h2>
+<div class="solution-box">
+<div class="solution-title">■ 배치 원칙</div>
+
+<p><strong>1. 검증 우선</strong> — 보고서는 반드시 검증을 거쳐
+배포한다.</p>
+<p><strong>2. 역할 명확화</strong> — 각 부서에 담당 AI와 주요 스킬을
+명시한다.</p>
+<p><strong>3. 규칙 일원화</strong> — 대시보드·COMPANY_RULES·AGENTS.md
+3곳에 반영해 드리프트 방지.</p>
+<p><strong>4. 자동화 우선</strong> — 반복 작업은 스킬로 정본화해 자동
+실행.</p>
+</div>
+
+<hr />
+<h1 id="iv-문제와-해결">IV. 문제와 해결</h1>
+<h2 id="1-문제-보고서-검증-프로세스-부재">1. 문제: 보고서 검증 프로세스
+부재</h2>
+<div class="issue-box">
+<div class="issue-title">■ 문제 상황</div>
+보고서 작성 후 검증 없이 바로 제출되는 경우가 있었다. 수치 오류, 논리 모순, 불완전한 구조가 발견되지 않을 수 있다.
+</div>
+
+<div class="solution-box">
+<div class="solution-title">■ 해결 조치</div>
+`10jo-report-verification` 스킬을 신설해 검증 프로세스 구축. 수치 정확성, 논리 일관성, 완결성, 가독성 4개 항목을 체크. 검증 결과는 `05_reports/verification/` 에 기록.
+</div>
+
+<h2 id="2-문제-보고서-배포-절차-불명확">2. 문제: 보고서 배포 절차
+불명확</h2>
+<div class="issue-box">
+<div class="issue-title">■ 문제 상황</div>
+보고서 배포 절차가 명확하지 않아 업로드 누락, 대표 전달 누락이 발생할 수 있다.
+</div>
+
+<div class="solution-box">
+<div class="solution-title">■ 해결 조치</div>
+`10jo-report-distribution` 스킬을 신설해 배포 절차 정의. 검증 확인 → Drive 업로드 → 대표 전달 → 기록 4단계로 명확화.
+</div>
+
+<hr />
+<h1 id="v-현재-상태">V. 현재 상태</h1>
+<h2 id="1-핵심-지표">1. 핵심 지표</h2>
+<div class="kpi-row">
+<div class="kpi"><div class="kpi-label">매출</div><div class="kpi-value negative">0</div><div class="kpi-unit">원</div></div>
+<div class="kpi"><div class="kpi-label">불편 발굴</div><div class="kpi-value neutral">38</div><div class="kpi-unit">건</div></div>
+<div class="kpi"><div class="kpi-label">개발 완료</div><div class="kpi-value positive">1</div><div class="kpi-unit">제품</div></div>
+<div class="kpi"><div class="kpi-label">승인 대기</div><div class="kpi-value negative">3</div><div class="kpi-unit">건</div></div>
+</div>
+
+<h2 id="2-보고서-작업-체계">2. 보고서 작업 체계</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>보고서 작성 스킬</td>
+<td>10jo-status-report (v2.0)</td>
+</tr>
+<tr>
+<td>보고서 검증 스킬</td>
+<td>10jo-report-verification (v1.0)</td>
+</tr>
+<tr>
+<td>보고서 배포 스킬</td>
+<td>10jo-report-distribution (v1.0)</td>
+</tr>
+<tr>
+<td>보고서 양식</td>
+<td>v2.0 (대표 확정)</td>
+</tr>
+<tr>
+<td>검증 결과 경로</td>
+<td>05_reports/verification/</td>
+</tr>
+<tr>
+<td>배포 기록 경로</td>
+<td>05_reports/distribution/</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-조직-운영-현황">3. 조직 운영 현황</h2>
+<table>
+<thead>
+<tr>
+<th>부서</th>
+<th>이번 기간 실적</th>
+<th>다음 배치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>총괄 기획·지휘</td>
+<td>스킬 2개 신설, 역할 부여</td>
+<td>검증·배포 프로세스 운영</td>
+</tr>
+<tr>
+<td>보고서 검증팀</td>
+<td>스킬 생성, 검증 항목 정의</td>
+<td>보고서 검증 실행</td>
+</tr>
+<tr>
+<td>보고서 배포팀</td>
+<td>스킬 생성, 배포 절차 정의</td>
+<td>보고서 배포 실행</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="vi-앞으로-할-일">VI. 앞으로 할 일</h1>
+<h2 id="1-즉시-1일-내">1. 즉시 (1일 내)</h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>작업</th>
+<th>담당</th>
+<th>의존</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>보고서 검증 프로세스 테스트</td>
+<td>검증팀</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2</td>
+<td>보고서 배포 프로세스 테스트</td>
+<td>배포팀</td>
+<td>1 완료</td>
+</tr>
+<tr>
+<td>3</td>
+<td>검증 결과 기록 경로 생성</td>
+<td>검증팀</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-단기-1주">2. 단기 (1주)</h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>작업</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>모든 보고서에 검증 프로세스 적용</td>
+<td>검증팀</td>
+<td>품질 보장</td>
+</tr>
+<tr>
+<td>2</td>
+<td>배포 기록 자동화</td>
+<td>배포팀</td>
+<td>추적 가능성</td>
+</tr>
+<tr>
+<td>3</td>
+<td>검증 체크리스트 고도화</td>
+<td>검증팀</td>
+<td>정확성 향상</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-중기-1개월">3. 중기 (1개월)</h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>작업</th>
+<th>담당</th>
+<th>조건</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>검증 자동화 스크립트 개발</td>
+<td>검증팀</td>
+<td>테스트 완료 후</td>
+</tr>
+<tr>
+<td>2</td>
+<td>배포 모니터링 대시보드</td>
+<td>배포팀</td>
+<td>기록 축적 후</td>
+</tr>
+<tr>
+<td>3</td>
+<td>보고서 품질 지표 수립</td>
+<td>검증팀</td>
+<td>데이터 축적 후</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="vii-리스크-관리">VII. 리스크 관리</h1>
+<table>
+<thead>
+<tr>
+<th>리스크</th>
+<th>확률</th>
+<th>영향</th>
+<th>대응</th>
+<th>담당</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>검증 프로세스 무시</td>
+<td>중</td>
+<td>높음</td>
+<td>검증 없이 배포 금지 규칙 강화</td>
+<td>검증팀</td>
+</tr>
+<tr>
+<td>배포 누락</td>
+<td>중</td>
+<td>높음</td>
+<td>배포 기록 자동화</td>
+<td>배포팀</td>
+</tr>
+<tr>
+<td>스킬 사용 저조</td>
+<td>중</td>
+<td>중간</td>
+<td>정기 점검·교육</td>
+<td>수석</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="viii-대표-승인-요청">VIII. 대표 승인 요청</h1>
+<div class="approval-request">
+<div class="approval-request-title">🔔 승인 + 정보 요청 (3건)</div>
+
+<p><strong>A. 승인 3건</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>항목</th>
+<th>비용</th>
+<th>담당</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Merge10 외부 배포</td>
+<td>0원</td>
+<td>배포팀</td>
+</tr>
+<tr>
+<td>2</td>
+<td>결제 연동</td>
+<td>0원</td>
+<td>배포팀</td>
+</tr>
+<tr>
+<td>3</td>
+<td>도메인 구매</td>
+<td>15,000원/년</td>
+<td>배포팀</td>
+</tr>
+</tbody>
+</table>
+<p><strong>B. 약관 정보 4건</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>필요 정보</th>
+<th>용도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>사업자명</td>
+<td>약관 제1조</td>
+</tr>
+<tr>
+<td>2</td>
+<td>고객 문의 이메일</td>
+<td>약관 제12조</td>
+</tr>
+<tr>
+<td>3</td>
+<td>결제 연동 시점</td>
+<td>약관 제10조</td>
+</tr>
+<tr>
+<td>4</td>
+<td>법률 검토 진행 여부</td>
+<td>약관 상단 고지</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<hr />
+<h1 id="ix-결론">IX. 결론</h1>
+<p><strong>보고서 작업 스킬·플러그인 설치와 직원 역할 부여를
+완료했다.</strong></p>
+<ul>
+<li>검증·배포 스킬 2개 신설</li>
+<li>조직 10개 부서 역할 정의</li>
+<li>대시보드·규칙·지침 3곳 반영</li>
+</ul>
+<p><strong>보고서 품질이 검증 프로세스 도입으로 향상된다.</strong></p>
+<p><strong>배포를 막는 것은 승인 3건 + 약관 4곳이다.</strong> 회신 시
+즉시 배포 착수.</p>
+<hr />
+<p><strong>문서 끝</strong></p>
+
+</body>
+</html>

@@ -1,0 +1,1124 @@
+[
+  {
+    "id": "P-0001",
+    "pain": "직장인이 매일/매주 반복되는 엑셀 데이터 취합·복사붙여넣기·수식 작업에 수시간을 소요하며, 데이터 규모가 수천~수만 건이 되면 실수 가능성과 계산 지연이 급증한다",
+    "quote": "매번 이렇게 들어와서 이렇게 긴 수식을 작성하려고 하니 매번 파일 들어가서 범위 선택해서 이 수식을 입력해주기까지 굉장히 번거로울 겁니다.",
+    "who": "직장인, 1인 기업 사장, 마케터",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=rzpS9gec1hA",
+      "title": "엑셀 데이터 관리 문제풀이",
+      "published": "2026-09-28"
+    },
+    "signals": {
+      "frequency": "매일/매주 반복, 8000개 제품·144만 줄 데이터 사례",
+      "wtp": "생산성 향상을 위해 AI 도구 구매 의사 있음, 유료 강의 구매 사례",
+      "alternatives": "수동 복사붙여넣기, VLOOKUP 수식 작성, 외부 엑셀 강의 수강"
+    },
+    "score": {
+      "pain": 5,
+      "wtp": 4,
+      "buildability": 4,
+      "total": 13
+    },
+    "status": "approved",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0002",
+    "pain": "AI 도구를 업무에 쓰려면 폴더 정리·파일 이동·프롬프트 작성 등 준비 작업이 과도하게 많아 오히려 일이 되는 역설 발생",
+    "quote": "우리가 편하려고 쓰는 AI 도구인데 쓸 준비를 하는게 일이 돼 버린 거죠. 저는 일을 안 하고 싶은게 아니었어요. 그저 복사 붙여 넣기하고 옮기는 일만 안 하고 싶었던 겁니다.",
+    "who": "직장인, IT 운영팀",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=ew_ogVJ5t8M",
+      "title": "Claude Code 업무 자동화 실전",
+      "published": "2026-09-25"
+    },
+    "signals": {
+      "frequency": "AI 도구 사용자 공통 불만, 사용량 제한·컨텍스트 한계 언급",
+      "wtp": "AI 구독료 이미 지출 중, 생산성 향상 위해 추가 도구 구매 의사",
+      "alternatives": "채팅형 AI 사용, 수동 작업 병행"
+    },
+    "score": {
+      "pain": 4,
+      "wtp": 4,
+      "buildability": 5,
+      "total": 13
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0003",
+    "pain": "비개발자가 VBA·매크로 없이 엑셀 자동화를 시도하면 시트명 불규칙·다수 시트·셀 위치 가변 등 수식만으로 풀 수 없는 벽에 부딪힌다",
+    "quote": "규칙 없이 너무 많이 들어 있는 시트 명들에 대해서 한꺼번에 시트명을 불러오기 위해서 엑셀 함수로는 불과하기 때문에 VBA 코드를 짜야 되는데 저 같은 개발 알은 할 줄을 모르니까",
+    "who": "비개발 직장인, 1인 기업 사장",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=TgPGaxRk_aA",
+      "title": "엑셀 문제풀이 대행 심의위원회 61회",
+      "published": "2026-09-27"
+    },
+    "signals": {
+      "frequency": "엑셀 문제 게시판 다수 문의, 시트 합치기 매크로 가장 많은 질문",
+      "wtp": "AI 도구로 매크로 생성 시도, 유료 강의 구매",
+      "alternatives": "수동 시트 복사, ChatGPT에 코드 요청 후 실행"
+    },
+    "score": {
+      "pain": 4,
+      "wtp": 3,
+      "buildability": 4,
+      "total": 11
+    },
+    "status": "approved",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0004",
+    "pain": "Zapier·Make·n8n 등 유료 자동화 플랫폼이 계속 비용을 요구하고 서비스 트렌드가 빠르게 바뀌어 기업이 지속 비용 부담을 느낀다",
+    "quote": "좀 쓰다 보면 다 돈내라고 하거든요. 이런 것들. 근데 기업에서 우리가 업무를 하는데 이걸 비용을 계속 내면서 쓰기가 쉽지가 않은 거죠.",
+    "who": "기업 운영자, 마케터",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=HzKvjVvW3iA",
+      "title": "바이브 코딩 업무 자동화",
+      "published": "2026-09-26"
+    },
+    "signals": {
+      "frequency": "유료 자동화 도구 사용자 공통 불만",
+      "wtp": "무료 대안 찾는 중, VBA·파이썬 등 무료 언어 탐색",
+      "alternatives": "Zapier, Make, n8n 유료 구독"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 4,
+      "total": 10
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0005",
+    "pain": "회사 데이터를 AI에 올리면 외부로 전송되어 보안 문제가 발생하고 개인 계정 사용 시 징계 사유가 될 수 있어 업무 활용이 제한된다",
+    "quote": "클로드의 파일은 우리 컴퓨터에서 열리지만이 내용은 외부로 전송됩니다. 데이터가 안 나간다고 하면 그건 사실이 아니에요.",
+    "who": "기업 직원, 보안 담당자",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=ew_ogVJ5t8M",
+      "title": "Claude Code 업무 자동화 실전",
+      "published": "2026-09-25"
+    },
+    "signals": {
+      "frequency": "AI 도입 시 보안 우려 공통 언급",
+      "wtp": "기업 법인 계약·팀 요금제 구매 고려",
+      "alternatives": "온프레미스 AI, 보안 팀 검토 후 도입"
+    },
+    "score": {
+      "pain": 4,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 10
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0006",
+    "pain": "AI가 생성한 분석 결과를 검증 없이 그대로 받아들여 잘못된 의사결정을 하는 경우가 발생한다",
+    "quote": "AI가 판치는 시대에 AI를 안 쓰는 것도 문제라고 생각하지만 이렇게 AI를 잘못 써서 생기는 문제들도 있죠.",
+    "who": "1인 기업 사장, 마케터",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=u2TaeeaZMWI",
+      "title": "공여사들의 엑셀 혁명",
+      "published": "2026-09-24"
+    },
+    "signals": {
+      "frequency": "AI 사용자 공통 우려",
+      "wtp": "AI 검증 도구 필요성 인식",
+      "alternatives": "수동 검증, 전문가 컨설팅"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 4,
+      "total": 10
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0007",
+    "pain": "엑셀 데이터가 가로로 쌓이면 피벗테이블·VLOOKUP 등 기본 집계 기능을 쓸 수 없어 데이터 구조를 모르는 직장인이 매번 수동으로 처리해야 한다",
+    "quote": "이렇게 되면 우리가 피벗테이블로 이 전체 날짜에 대해서 한꺼번에 집계를 할 수가 없어요. 입고 출고도 마찬가지.",
+    "who": "직장인, 데이터 담당자",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=rzpS9gec1hA",
+      "title": "엑셀 데이터 관리 문제풀이",
+      "published": "2026-09-28"
+    },
+    "signals": {
+      "frequency": "엑셀 문제 게시판 다수 문의",
+      "wtp": "데이터 구조 교육 필요성 인식",
+      "alternatives": "수동 재배치, 전문가 의뢰"
+    },
+    "score": {
+      "pain": 4,
+      "wtp": 3,
+      "buildability": 5,
+      "total": 12
+    },
+    "status": "approved",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0008",
+    "pain": "ChatGPT에 엑셀 데이터를 복사-붙여넣기하고 결과를 다시 엑셀로 옮기는 과정이 반복되며 대용량 데이터는 처리 불가능하고 매크로 자동화도 어렵다",
+    "quote": "엑셀 파일을 열고 데이터 일부를 복사해서 채 GPT에 붙여 놓고 답변을 다시 엑셀로 옮깁니다. 매크로나 자동화 작업을 하려면 생각보다 손이 더 많이 갑니다.",
+    "who": "직장인, 마케터",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=TNUiCaifBeU",
+      "title": "ChatGPT 엑셀 연동 리뷰",
+      "published": "2026-09-23"
+    },
+    "signals": {
+      "frequency": "AI 사용자 공통 불만",
+      "wtp": "통합 도구 필요성 인식",
+      "alternatives": "ChatGPT 수동 사용, 별도 자동화 도구"
+    },
+    "score": {
+      "pain": 4,
+      "wtp": 4,
+      "buildability": 4,
+      "total": 12
+    },
+    "status": "approved",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0009",
+    "pain": "AI라서 더 솔직해질 수 있어 좋다는 감정 / AI라서 근원 신뢰 안 생긴다는 감정 동시 존재",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 9",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "기술이지만 인간적 거리감 유지하는 방식에 프리미엄 지불 가능",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0010",
+    "pain": "결과를 오래 남기기보다 순간 확인 후 잊는 방식 반복",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 10",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "내 불안·선택이 시간 지나도 다시 꺼내볼 수 있는 형태에 지불\n\n---",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0011",
+    "pain": "불안 해결 아닌 일시 정지에 그침",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 11",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "불안이 돌아오는 패턴 자체를 줄이는 방식에 지불 의사 강함",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0012",
+    "pain": "불안 다루는 도구가 오히려 결정 회피를 도움",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 12",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "결정을 돕는 방식에 더 높은 지불 의사",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0013",
+    "pain": "확인 많이 하는데 실제 안심으로 이어지지 않으면 확인 행위가 불안 유지 장치 됨",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 13",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "확인 충동과 실제 안심 사이 차이 다루는 서비스에 충성·지불",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0014",
+    "pain": "“이런 걸 왜 보냐” 시선 → 결과 공유·이용 사실 부담",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 14",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "사적 불안 다루면서도 사회적 부담 없이 접근하는 통로에 지불",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0015",
+    "pain": "위로는 받았는데 행동·정리 없으면 “그때뿐”",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 15",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "기분 나아지고 다음 행동도 정리되는 경험에 가치 지불",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0016",
+    "pain": "흥미·의미 있게 느껴져서 해석에 에너지 집중 → 실제 행동 막힘",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 16",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "에너지 덜 드는 방식으로 정리해주는 서비스에 가치",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0017",
+    "pain": "힘든 이유 말 못 잡으면 더 지침",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 17",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "내 상황처럼 느껴지는 말로 정리받는 경험에 지불",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0018",
+    "pain": "경험 있었는데 정리 없음 → 나중에 그 소비 부정적 기억",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 18",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "경험 의미가 저절로 따라오는 구조에 지불",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0019",
+    "pain": "약속한 것보다 덜 주면 실망, 더 주면 기대치만 높아짐",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 19",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "내 기대 수준을 알아주고 정직하게 조절해주는 서비스 신뢰·선택",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0020",
+    "pain": "사람은 유리한 해석에 끌림 → 서비스도 그 편향 강화 가능",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 20",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "듣기 싫지만 필요한 정리 제공하는 서비스에 가치 느낌\n\n---",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0021",
+    "pain": "결과의 원인은 가려지고 숫자만 커짐",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 21",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "성공 원인을 모르면 그 원리 알고 싶어 함 → 분석·리포트·멘토링 수요",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0022",
+    "pain": "매출 흔들리면 기능 더 넣는 식으로 대응",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 22",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "“기능 많이 넣는 게 답이 아니었다”는 깨달음 후 진짜 핵심 경험 설계 방법에 지불",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0023",
+    "pain": "확산·바이럴로 매출 붙지만 반복 구매·추천·재방문 전환 약함",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 23",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "지속적 관계로 전환되는 구조 만드는 데 민감 → 설계·템플릿에 지불",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0024",
+    "pain": "사용자 늘면 질문도 늠 → 체계적 처리 못하면 운영자 소진, 응답 품질 흔들림, 경험 나빠짐",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 24",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "고객 응대를 경험·시스템으로 설계하는 방법에 즉시 생존 가치",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0025",
+    "pain": "한 번 살아나면 생존 본능보다 의미 질문 커짐",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 25",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "의미와 구조 동시에 잡는 코칭·프레임워크·동료 그룹에 지불",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0026",
+    "pain": "“미래를 알려준다” 등 프레임은 단기 유입엔 강하지만 장기 신뢰엔 약함",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 26",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "간극 줄이는 메시지·경험 전환 방법에 지불",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0027",
+    "pain": "제품은 잘 만들 수 있지만 팔리는 구조·오래 가는 구조는 다른 역량",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 27",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "제품·시장·메시지·관계 연결하는 설계 교육에 수요",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0028",
+    "pain": "같은 시장에서도 누군가는 되고 누군가는 꺾임 → 성공 사례 봐도 무력",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 28",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "“왜 저 사람은 되고 나는 안 됐는지” 설명 분석·내 경우 맞춤 조정 원함 → 진단·컨설팅·케이스 스터디 상품화 근거",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0029",
+    "pain": "매출 떨어지면 사업 흔들리고, 매출 있으면 모든 게 괜찮은 것처럼 착각",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 29",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "매출 외 지표 함께 다루는 프레임워크 원함 → 통합 진단 코칭·컨설팅 셀링 포인트",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0030",
+    "pain": "서비스 커질수록 운영자는 만드는 가치 실체 놓치기 쉬움 → 제품 결정·메시지·고객 응대 모두 흐트러짐",
+    "quote": "",
+    "who": "직장인, 마케터, 1인 기업",
+    "source": {
+      "type": "analysis",
+      "url": "",
+      "title": "불편 분석 30",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "높음",
+      "wtp": "핵심 가치 선명하게 유지하도록 돕는 점검 체계·리뷰 프로세스·우선순위 프레임은 실제 운영 바로 쓰여 재구매·구독으로 이어지기 쉬움\n\n---\n\n*이 파일은 10조북스 분석 프로젝트에",
+      "alternatives": "수동 작업, 외부 도구 구매"
+    },
+    "score": {
+      "pain": 3,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 9
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0031",
+    "pain": "자영업자가 카페·고깃집 등 음식점 창업 시 과도한 경쟁과 동일 업종 브랜드 과잉으로 인해 수익이 나지 않고 폐업에 이르는 고통",
+    "quote": "서울의 카페수가 뉴욕보다 11배 만대요. 야 그러니까이 정도면 안 망하기도 쉽지 않잖아",
+    "who": "자영업자, 예비 창업자",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=15ANgbgAQy4",
+      "title": "자영업 힘든점 현실",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "일상적, 폐업률 50% 이상",
+      "wtp": "창업 전 시장 분석 도구 구매 의사",
+      "alternatives": "프랜차이즈 가맹, 외부 컨설팅"
+    },
+    "score": {
+      "pain": 5,
+      "wtp": 4,
+      "buildability": 4,
+      "total": 13
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0032",
+    "pain": "자영업자가 환기 장치, 불판 설치 등 인·허가 과정에서 6개월~1년이 소요되고 행정 절차가 복잡해 창업 준비 기간이 과도하게 길어지는 고통",
+    "quote": "그거 허가는데 1년 걸려. 거의 그리고 허가 내기도 힘들어 이거는. 그리고 뭐 이제 불판 이런 거 허가내는 것도 쉽지 않고 한 6개월씩",
+    "who": "자영업자, 예비 창업자",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=15ANgbgAQy4",
+      "title": "자영업 힘든점 현실",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "창업 시 반복 발생",
+      "wtp": "행정 절차 자동화 도구 필요",
+      "alternatives": "행정사 선임, 프랜차이즈 가맹"
+    },
+    "score": {
+      "pain": 4,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 10
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0033",
+    "pain": "자영업자가 재료비·인건비·임대료 등 고정비 상승으로 순수익이 급감하고, 가격 인상은 어려운 상황에서 수익 구조 개선 방법을 모르는 고통",
+    "quote": "순수익이 너무 안 나오고 일은 일대로 힘들고 하기 때문에 다망하는 거예요",
+    "who": "자영업자, 소상공인",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=RIh7zmFAApg",
+      "title": "자영업 폐업 이유",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "월 단위 반복",
+      "wtp": "원가 계산기, 수익 분석 도구 구매 의사",
+      "alternatives": "수동 장부 작성, 회계사 선임"
+    },
+    "score": {
+      "pain": 5,
+      "wtp": 4,
+      "buildability": 5,
+      "total": 14
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0034",
+    "pain": "자영업자가 배달비 상승과 배달 앱 수수료 부담으로 매출 대비 순수익이 급감하는 고통",
+    "quote": "배달비가 높아져서 망했다고요? 순차적 순차적으로 되면서 비용이 계속 드는 거죠",
+    "who": "자영업자, 배달 음식점 운영자",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=RIh7zmFAApg",
+      "title": "자영업 폐업 이유",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "일상적",
+      "wtp": "배달비 비교 도구, 직접 배달 시스템 구축",
+      "alternatives": "배달 앱 의존, 가격 인상"
+    },
+    "score": {
+      "pain": 4,
+      "wtp": 4,
+      "buildability": 4,
+      "total": 12
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0035",
+    "pain": "자영업자가 온라인 마케팅(인스타, 네이버 블로그, 유튜브)에 의존하게 되면서 마케팅 비용이 급증하고, 오프라인 동네 장사가 어려워지는 고통",
+    "quote": "가장 큰 원인은 바로 마케팅인데요. 도대체 마케팅이 왜 이렇게 동네 장사를 힘들게 만든 건지",
+    "who": "자영업자, 소상공인",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=knc9ZM6xNTw",
+      "title": "동네 장사 힘든 이유",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "일상적",
+      "wtp": "저비용 마케팅 도구, 자동화 도구 구매 의사",
+      "alternatives": "SNS 직접 운영, 광고 대행"
+    },
+    "score": {
+      "pain": 4,
+      "wtp": 4,
+      "buildability": 4,
+      "total": 12
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0036",
+    "pain": "자영업자가 맛집 마케팅에 밀려 동네 장사가 어려워지고, 자본을 앞세운 대형 프랜차이즈와 경쟁에서 밀리는 고통",
+    "quote": "국내 작은 가게는 망하고 자본을 내세운 맛집만 살아남는 현실. 바로 자영업의 양극화 현상인데요",
+    "who": "소상공인, 동네 가게 운영자",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=knc9ZM6xNTw",
+      "title": "동네 장사 힘든 이유",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "일상적",
+      "wtp": "차별화 전략 도구, 경쟁 분석 도구",
+      "alternatives": "프랜차이즈 가맹, 이전 검토"
+    },
+    "score": {
+      "pain": 4,
+      "wtp": 3,
+      "buildability": 3,
+      "total": 10
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0037",
+    "pain": "자영업자가 창업 전 시장 조사·상권 분석을 제대로 하지 않아 실패 확률이 높아지고, 체계적인 분석 도구가 없는 고통",
+    "quote": "자영업은 정말 소수의 사람들이 월에 수천을 멀고 그리고 대부분은 망하는 게임이에요",
+    "who": "예비 창업자, 자영업자",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=1kkEXDZQpUw",
+      "title": "자영업 실패담",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "창업 시 반복",
+      "wtp": "상권 분석 도구, 시장 조사 도구 구매 의사",
+      "alternatives": "직접 발로 뛰기, 컨설팅"
+    },
+    "score": {
+      "pain": 5,
+      "wtp": 5,
+      "buildability": 5,
+      "total": 15
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0038",
+    "pain": "자영업자가 렌트 프리(임대료 면제) 기간이 끝난 후 임대료 부담으로 인해 폐업 위험에 처하는 고통",
+    "quote": "렌트 프리를 내가 뭐 6개월씩도 주거든요. 근데 그래봤자...",
+    "who": "자영업자, 임대점포 운영자",
+    "source": {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=1kkEXDZQpUw",
+      "title": "자영업 실패담",
+      "published": "2026-10-02"
+    },
+    "signals": {
+      "frequency": "창업 후 6개월~1년",
+      "wtp": "임대료 계산기, 수익 예측 도구",
+      "alternatives": "임대료 협상, 이전 검토"
+    },
+    "score": {
+      "pain": 4,
+      "wtp": 4,
+      "buildability": 4,
+      "total": 12
+    },
+    "status": "new",
+    "collected_at": "2026-10-02"
+  },
+  {
+    "id": "P-0039",
+    "date": "2026-10-04",
+    "source": "유튜브 Y4MsuR5Xc4Y (쇼핑몰 창업 실패담)",
+    "title": "쇼핑몰 창업 6개월 만에 200만원 손해 — 아이템 선정 실패와 마진율 20%의 벽",
+    "pain": "창업자가 좋아하는 아이템이 아닌 고객이 원하는 아이템을 팔아야 한다는 깨달음. 마진율 20%로는 인건비조차 안 남고, CS 시간과 에너지 소모가 만만치 않음. 재고 관리·소싱·촬영·CS 전부 혼자 하면 시간당 수익이 모델 일보다 낮음.",
+    "evidence": "200만원 가지고 시작 → 6개월 후 폐업. 마진율 20% (기존 사업 50~90% 대비). 재고·CS·소싱 전부 1인 처리.",
+    "willingness": "높음 — 이미 200만원 손해. 같은 실수 반복하지 않으려는 의지 확인.",
+    "category": "창업/쇼핑몰",
+    "keywords": [
+      "쇼핑몰",
+      "창업",
+      "마진율",
+      "재고관리",
+      "CS",
+      "아이템선정"
+    ]
+  },
+  {
+    "id": "P-0040",
+    "date": "2026-10-04",
+    "source": "유튜브 0iFFys_6v3Q (쇼핑몰 CS 노하우)",
+    "title": "쇼핑몰 CS 처리가 스트레스 — 컴플레인·환불·교환 배송비 협상에 에너지 소모",
+    "pain": "고객 응대(전화·메시지·환불·교환)가 점주 에너지를 갉아먹음. 특히 컴플레인 고객 처리 시 감정 소모 큼. 규정은 지키되 기분 좋게 끝내는 노하우 필요.",
+    "evidence": "점주 인터뷰: '컴플레인 때문에 에너지 소모를 하면 서로 불편해요. 안 그래도 바쁜데.'",
+    "willingness": "중간 — 스트레스 표현은 있으나 직접 지불 의사 표현은 없음.",
+    "category": "창업/쇼핑몰",
+    "keywords": [
+      "CS",
+      "컴플레인",
+      "환불",
+      "교환",
+      "배송비",
+      "고객응대"
+    ]
+  },
+  {
+    "id": "P-0041",
+    "date": "2026-10-04",
+    "source": "레딧 r/smallbusiness (Tracking number nightmare)",
+    "title": "송장 번호 수기 입력 지옥 — 주문 100개당 1~2시간 소요",
+    "pain": "온라인 스토어 주문 처리 시 송장 번호를 수기로 입력하는 데 시간이 너무 많이 걸림. 주문 100개당 1~2시간 소요. 반복 작업으로 인한 시간 낭비.",
+    "evidence": "레딧 스레드: 'Tracking number nightmare' — 주문 100개당 1~2시간 소요. 다른 사용자들도 동일 불만 표현.",
+    "willingness": "높음 — 시간 절약 직접적 효과. 자동화 도구 사용 의지 확인.",
+    "category": "이커머스/물류",
+    "keywords": [
+      "송장",
+      "주문처리",
+      "자동화",
+      "이커머스",
+      "물류"
+    ]
+  },
+  {
+    "id": "P-0042",
+    "date": "2026-10-04",
+    "source": "레딧 r/smallbusiness (Spreadsheet hell)",
+    "title": "엑셀 주문 관리 — 수식 복사 붙여넣기 실패로 데이터 날아감",
+    "pain": "엑셀로 주문 관리 시 수식 복사-붙여넣기가 제대로 안 돼서 데이터가 날아가는 경험. 수동 입력 반복 작업.",
+    "evidence": "레딧 스레드: 'Spreadsheet hell' — 수식 복사 붙여넣기 실패. 다른 사용자들도 동일 경험 공유.",
+    "willingness": "중간 — 불편 표현은 있으나 직접 지불 의사 표현은 없음.",
+    "category": "이커머스/업무효율",
+    "keywords": [
+      "엑셀",
+      "주문관리",
+      "수식",
+      "데이터",
+      "업무효율"
+    ]
+  },
+  {
+    "id": "P-0043",
+    "date": "2026-10-04",
+    "source": "구글 플레이 박스히어로 리뷰 (12건 저평점)",
+    "title": "재고관리 앱 유료 전환 미리 안내 안 함 — 무료 체험 후 갑자기 결제 요구",
+    "pain": "재고관리 앱이 무료 체험 후 유료 전환을 미리 안내하지 않음. 사용자가 데이터 입력 후 유료 결제 요구받아 불쾌감. 가격도 2만5천원으로 비싸다고 느낌.",
+    "evidence": "박스히어로 리뷰 12건 저평점: '유료라는 점을 왜 미리 공지하지 않았을까요?', '2번째 달부터 100개 이상 등록시 월 2만원 내야 해요', '무료인 것처럼 하다가 고생해서 물품 다 등록했더니 유료라고 하네요'",
+    "willingness": "높음 — 이미 유료 결제 경험. 가격 불만 표현. 대체 앱 찾는 중.",
+    "category": "재고관리/유료전환",
+    "keywords": [
+      "재고관리",
+      "유료전환",
+      "무료체험",
+      "가격",
+      "박스히어로"
+    ]
+  },
+  {
+    "id": "P-0044",
+    "date": "2026-10-04",
+    "source": "구글 플레이 냉장고 재고 앱 리뷰 (6건 저평점)",
+    "title": "냉장고 재고 앱 영수증 인식 실패 — 글씨 보이는데도 인식 안 됨",
+    "pain": "냉장고 재고 관리 앱의 영수증 인식 기능이 제대로 작동하지 않음. 글씨가 보이는데도 인식 안 된다고 함. 수동 입력해야 해서 불편.",
+    "evidence": "냉장고 재고 앱 리뷰 6건 저평점: '영수증 찍어 올리려는데 계속 다시 찍으라 하면서 올라가지가 않아요', '영수증 인식이 전혀 안되네요.. 영수증 인식 때문에 다운받은건데..'",
+    "willingness": "중간 — 기능 실패로 인한 불편 표현. 앱 삭제 고려.",
+    "category": "재고관리/OCR",
+    "keywords": [
+      "냉장고",
+      "재고관리",
+      "영수증",
+      "OCR",
+      "인식"
+    ]
+  },
+  {
+    "id": "P-0045",
+    "date": "2026-10-04",
+    "source": "레딧 r/smallbusiness (Inventory tracking)",
+    "title": "재고 실시간 동기화 안 됨 — 온라인·오프라인 재고 불일치",
+    "pain": "온라인 스토어와 오프라인 매장의 재고가 실시간으로 동기화되지 않음. 재고 불일치로 인한 주문 취소·고객 불만 발생.",
+    "evidence": "레딧 스레드: 'Inventory tracking' — 온라인·오프라인 재고 불일치. 다른 사용자들도 동일 문제 공유.",
+    "willingness": "높음 — 매출 직접적 영향. 재고 불일치로 인한 주문 취소 경험.",
+    "category": "재고관리/동기화",
+    "keywords": [
+      "재고",
+      "동기화",
+      "온라인",
+      "오프라인",
+      "재고불일치"
+    ]
+  },
+  {
+    "id": "P-0046",
+    "date": "2026-10-04",
+    "source": "레딧 r/smallbusiness (Shipping label)",
+    "title": "배송 라벨 출력 번거로움 — 주문마다 라벨 수동 생성",
+    "pain": "주문이 들어올 때마다 배송 라벨을 수동으로 생성해야 함. 반복 작업으로 인한 시간 낭비.",
+    "evidence": "레딧 스레드: 'Shipping label' — 라벨 수동 생성. 다른 사용자들도 동일 불만 표현.",
+    "willingness": "중간 — 시간 절약 효과. 자동화 도구 사용 의지 확인.",
+    "category": "이커머스/물류",
+    "keywords": [
+      "배송라벨",
+      "주문처리",
+      "자동화",
+      "이커머스",
+      "물류"
+    ]
+  },
+  {
+    "id": "P-0047",
+    "date": "2026-10-04",
+    "source": "레딧 r/smallbusiness (Customer service)",
+    "title": "고객 문의 답변 반복 — 같은 질문에 매번 수동 답변",
+    "pain": "고객 문의(배송·환불·교환 등)에 매번 수동으로 답변해야 함. 같은 질문 반복 답변으로 인한 시간 낭비.",
+    "evidence": "레딧 스레드: 'Customer service' — 반복 문의 수동 답변. 다른 사용자들도 동일 경험 공유.",
+    "willingness": "중간 — 시간 절약 효과. 자동 응답 도구 사용 의지 확인.",
+    "category": "이커머스/CS",
+    "keywords": [
+      "고객문의",
+      "자동응답",
+      "CS",
+      "이커머스",
+      "반복답변"
+    ]
+  },
+  {
+    "id": "P-0048",
+    "date": "2026-10-04",
+    "source": "레딧 r/smallbusiness (Tax season)",
+    "title": "세금 신고 서류 준비 — 엑셀 데이터 수동 정리",
+    "pain": "세금 신고 시 엑셀 데이터를 수동으로 정리해야 함. 반복 작업으로 인한 시간 낭비.",
+    "evidence": "레딧 스레드: 'Tax season' — 엑셀 데이터 수동 정리. 다른 사용자들도 동일 경험 공유.",
+    "willingness": "중간 — 시간 절약 효과. 자동화 도구 사용 의지 확인.",
+    "category": "세금/회계",
+    "keywords": [
+      "세금",
+      "신고",
+      "엑셀",
+      "데이터정리",
+      "회계"
+    ]
+  }
+]

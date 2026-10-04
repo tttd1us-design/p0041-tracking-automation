@@ -1,0 +1,431 @@
+In this lecture, we will discuss business automation using VIVE Coding
+.  I will.
+Have you ever tried coding?  You would probably divide it into whether you have tried coding
+or not, but
+if you are currently working, you have likely
+tried coding.  You might think, "No, that's not right," but
+there are Excel functions that you actually use in your work, right?  Oh,
+that's coding.  Coding.  You're probably wondering
+what on earth that means, right?  I mentioned earlier when I
+introduced myself that I worked in a non-development role for 13 years, right
+?
+So, I've been using Excel for about 13 years and I still
+use it now, but
+when I use Excel, I've never thought of it as coding
+.  However, as I
+actually learned coding and
+started making a living with it, I came to realize that Excel
+functions were actually coding
+.  So, you're looking at
+many Excel functions right now, aren't you?  If you
+go to Microsoft, you will find the ten
+most famous grammar rules in the world
+.  Well, you
+might not use all of them, but basically, these kinds of
+things are used quite a lot.  However, what you are
+looking at right now shows
+about 500 syntax elements that can be used in Excel
+.
+It means there are many like this.  The perspective of Vibe Coding is ultimately
+this.  Implementing features that we have
+not been able to use or were unable to use through questions
+.  That is what we now
+call bicoating.  So, while you can control a new coding
+owner, since
+Excel functions are also coding, I'm saying you must have
+definitely had the experience of defining a domain using Choi Chi-bi.   Shall we look at an
+example?  There is data like this
+.  Then, you
+need to change the data that looks like this into this.
+For those of you who are good at Excel, switching from left to right shouldn't be
+difficult, right?  However, for
+those who are less proficient with Excel, they might wonder
+how to change this from left to right
+.  At this point, we
+can ask a question.  Shall we give it a try?
+Okay,
+if you look at the Excel lesson materials,
+there is number 4, right?  hmm.  If you open all of number 4, you will
+find contents like this
+.  If you look,
+there is date data and change data. Although
+there is text, you can see that each one is in the form of a formula
+.
+How was this made?  This is exactly how I made it
+.  As shown below,
+there is date data in Junggeun Oriental Medicine in Excel. You are asking them to
+create an Excel function that converts this data into date-format data
+.  It is a very clear
+question, and
+you can see that a few shots are included.  I'll copy this and ask about it
+.   Please
+remember to always include 'Newche' when asking questions.
+Now, when we ask a question like this,
+related content comes out one after another.  So, I'm going to copy this
+text
+and
+insert the formula here like this
+.  Uh, actually, since it’s not the A67 anymore
+but the
+A5,
+we should be able to make some changes.   So
+, then, oh comes out.   It
+comes out.  It comes out.  Errors sometimes pop up
+.  So, how can we fix this error,
+right?
+However, this might be a very
+difficult error for some, but it could be a very
+easy error for others.  What we are trying to say is whether we
+can solve problems through questions regarding coding languages ​​in areas we have never dealt with or do not know
+.  So, I’m thinking of covering some coding languages ​​that we haven’t used much before, which are a bit more intuitive than Excel functions
+.  So, there
+are also a great many coding languages ​​around the world.   In
+other words, there are not only work automation through so-called Vibe coding, but also a
+great
+many software programs such as Make.com, Zepier, and Empa.  But
+basically, for companies, approaching
+paid services from the perspective of increasing our influence is
+a bit risky.
+Let's take a quick look at what that means.  There is a service called Yesterday.
+This is an
+automation platform that was hugely popular until about two or three years ago.
+Then, while services like Make.com were
+recently trending, we
+can see the trend shifting again to a service called Empy
+.  Now, if you use it for a while, they'll tell you to
+pay.  Things like this.  Now,
+but there is a problem.
+As recently as 2023, Zephyr had a high search ranking
+.  Then, just when it seemed like the trend was going up a bit, the
+M8 surged ahead, and
+this year it becomes the M8N.  So,
+what will happen next year?  As for the year after next.
+Please think carefully, everyone.  There are PowerB, a
+Tablet, and a huge number of other
+paid services in the world.
+But those names are popular for a short time and
+then disappear, or you have to
+keep paying money to keep them going
+.  However, it is
+not easy for companies to continue using this while paying for our work.  So,
+if possible, you can
+sufficiently create it using free services
+.
+As for the area of ​​business automation.
+VBA, do you not have Excel at your company?
+You have Excel.  If you can use Excel at work,
+there is also a coding language called VBA that you can use.  Also, for
+companies whose security networks aren't that strong,
+there are Google Sheets and Google Slides available in Google Workspace, right?   There is an
+app script available there for free
+.  And
+Python, which is one of the most important coding languages ​​globally, also
+plays such a role.  So, the
+coding owners in these three areas are open source,
+or we can access them for free
+.  The point is that when we
+can control these things through questions, they will
+accumulate over time, but
+since there is no financial burden, they can be
+continuously operated in the field
+.  As you can see from my resume,
+I have also been playing this role in corporate training for about five years since 2018
+.  So, I did
+n't give lectures; I planned the training.
+However, the problem with these paid service classes is that it is
+really not easy to integrate what you learn into the actual work after the course
+.  So, we would like to try experiencing a coding language that anyone
+can use and is
+free, and
+create a perspective that it can be utilized very easily.
+Now, the first thing we will look at is
+Visual Basic for Applications (VBA), which is built on the Visual Basic coding language. Let's try
+using VBA
+.  As for VBA.   You
+can use it anywhere MS Office is available.  Most companies have
+closed networks, internal networks, and while there are external networks as well, in the
+case of companies with strong security,
+Excel is usually installed when it needs to be used within the office
+.  But if you have Excel installed,
+you want very powerful coding that you can use right away, right?  The point is that you can
+use the Ballon d'Or without having to install anything or do anything like that
+.  Then, shall we give it a try
+?  Please open the class materials Excel and
+let's take a look at Practice 1 VBA.   I
+copied the link and
+pasted it into the URL.
+That brings up a screen like this, called a report production sample
+.  Please do not
+use this as is. Click File at the top left,
+click Download, select Excel, and
+click Download.  And
+after you download this Excel file, create a
+folder on your desktop called
+"VBA
+Applications," and I
+will paste it there.  Okay, now that it looks like this, I've
+made it like this, right?  We are checking here to
+see if the VBA sample file for creating the protection document is included.  Now,
+then right-click here,
+click Properties, and when you
+click Properties, check if the first associated
+program is Excel.
+Then, please check the block option
+.  If
+there are any Mac users, you may encounter some issues using MS,
+Office, and VBA on a Mac
+.
+Therefore, if possible, please
+participate using Windows. For those who cannot, it would be
+nice if you could just take a look.  Because, in fact, it is
+safe to say that there are virtually no cases of using Macs in the office anymore.
+Except for a few startups,
+most companies provide a Windows
+environment, so I prepared some practical exercises using this
+.  Now, Excel opens like this
+.  So, as you can see,
+there is a company name here, right?  The one where the computer
+says 100.  If you change to 1 and press Enter,
+change to 2 and press Enter, change to 3 and press
+Enter, change to 4 and press Enter, change to 5 and press
+Enter, and change to 6 and press Enter, you can
+see the data changing, right?
+This is just a simple Excel spreadsheet.  It is a simple
+Excel file, but if you change it piece by piece and
+then try to save it as a PDF, and you want to restore it to its
+original state, you have to do it like this
+.  You input Computer 1,
+click File, select Save, and then
+change this 1 to PDF and save it
+.  Now, 1 will be saved in this folder
+.   If you
+open it, it looks like this.  Okay, shall we try the second
+one?
+Change to 2 and
+save as PDF.
+And if you open number 2, it
+comes out like this.  Uh, I want to do this 100 times
+.  It won't be easy, right?  However, if you
+use a coding language, things like this
+become very easy.  Okay, let's give it a try together
+.  Click File, and
+there are options at the bottom of Savings.   It is
+called custom.   On
+the right, please check the developer tools checkbox
+and confirm.
+After checking the developer tools, if you
+open Visual Basic, it will
+look like this. Let's try working here
+.  As you can see,
+there is a negative screen like this.
+If you press minus minus minus,
+VB presents will appear corresponding to the amount of Excel you have open.
+Since we are looking at the report generation sample file, press the plus button here, then press the
+module plus button and
+double-click Question 5 for reference.
+Click.  Then, I will
+press the play button here.  Now, when I
+pressed the play button, the code ran and, as you can see,
+100 PDFs were created like this
+.   It is
+very powerful.  Because the Excel file on the left is
+actually something that even people who have only used Excel for about 6 months have
+created using BrewUp
+.  So, actually, it is not a difficult area
+.  If you are wondering how this
+was created, I recommend learning the Excel function called BrewUp
+.  However, creating this on the left side should be viewed more as a
+matter of effort than technology; the
+important thing is the right side.
+Can we create this right side?
+That is the
+story we are about to tell.  Since we are doing this without prior learning, the
+questioning techniques we have learned will
+play a very important role.
+Through these questioning techniques,
+we will try the experience of creating 100 PDFs
+.  Basically,
+since it would be good for us to know how to use VBA itself, let's briefly
+learn how to use VBA
+.  Now, I will open Notepad and
+write it like this.
+Make ten sheets of Sheet 1.
+Okay, number 1.   I am asking for
+VB code to create a total of ten sheets in the currently open Excel, starting from underlined sheet 01 to underlined sheet 10
+.  Okay, let me ask a question like this
+.  As I always say,
+the nature of e-learning is that even if I convey a lot of information, I
+can deliver it briefly
+.  You just need to space out for a moment at your own pace and
+follow along
+.
+Okay, I copied the first question and
+pressed Choipt Newche to
+negate it.
+So, there is the code generated through this question
+. We cannot interpret this code
+.  However, it can be executed
+.  I copied and pasted the code, and now that everything is
+set up in Excel, we will
+look at this again later. Since you might get confused, I will
+close everything for now without saving.  Excel is.  Then, I will
+open an empty Excel file and
+try doing the same thing.  Development
+check.  Visual Basic Check.  Okay,
+so this pops up, right?  hmm.  Okay, so since I've
+turned off Excel completely, only this one remains.
+Right-click here,
+click Insert, and click Module. A module
+will appear; paste the code into it, and
+of course, run it to finish.  However,
+since we cannot see how the code works in that way, we are going to try
+using a mode called debugging
+.  Click Tools,
+click Run, and Debug is right here, right?   It
+says Code 8, step by step in debug.
+The code runs one week each time you click and press F8, and the
+code runs one week each time you keep pressing F8
+.  So, if you hold down F8, you
+can see that ten sheets are created like this
+.  You can now confirm that sheets are being created continuously
+.  The way sheets are
+created one after another like this—this is the
+method we automatically generated.   The point is that
+I learned how to use VBL without formal training and used it to
+produce the desired results.
+Then, I will try it again starting now
+.
+Alright, shall we try an upgrade?
+Uh, for example,
+making ten PowerPoint presentations.
+Because VBA can be used in MS Office, it is
+not limited to Excel.  Then, shall we try making a few PowerPoint presentations
+?  No. 1.  Uh, please
+investigate ten future growth engines for South Korea.  So,
+after doing this, I am asking you to create VBA code that makes ten slides based on the content above in step 2
+.
+First, I will ask Teacher Chaechi via web search to investigate the first future industry of South Korea
+.
+Then, data research will be conducted through web searches, and
+based on that content, I will copy number 2 and
+ask a question.  Now, wouldn't it be
+good to ask a question at least once?  But it doesn't work
+.  We learned that earlier, right?  It violates the COT method
+.  It is
+better to ask questions in separate parts rather than all at once.  Then
+the content will appear in its entirety.  It's good.
+You wait until the end, remove a few searches, and then
+ask the question again.  Now,
+based on the content above, here are ten
+slides.  Okay, I
+told you that there was a typo, but it’s okay.  It would
+n't be good if there were a few typos, but
+uh, I'm saying that if you actually
+use these things, they will be understood
+.  Okay, then the code
+comes out.  Likewise, copy the code,
+open PowerPoint, and review.
+Now, please pause the video and give it a try
+.  Have you tried it?  yes.
+Click File, click Options,
+click Custom, check Development Dog, click OK,
+click Development Dog, and it's Visual Bay.
+So, since it is exactly the same, having a
+container to try it out would be really important, right?
+Then, similarly, right-click,
+insert, and select module to create a module. However, the
+amount of code is too much to press F8 after typing.  So, if you
+click the play button, as
+you can see, ten
+slides appear like this.  Recently,
+co-workers have started doing a really good job with this kind of design, so the
+design itself can also be done like this
+.  Then, there will be a lot more
+things you can do now.  In fact, when I
+join such companies and
+look at the co-
+pilots inside, there are quite a few who fit the company's documentation,
+so it means that there will be a lot more that can be done in the future
+.
+But, looking at the perspective, I've learned everything now
+.  So, what I'm talking about is that you all
+learned how to ask questions, right?
+And you learned how to use VB, right?
+So, making 100 PDFs earlier is something
+you can all do.
+Alright, shall we go again?  So, you had a
+Gene's VB application PDF created on the desktop, right
+?  This is meaningless.
+Delete everything.  Just leave the Excel file
+alone,
+set it up like this, then
+pause the video and
+try making 100 of them on your own.  yes.   You might be
+wondering how to do that, but
+actually, that's all I've told you
+.  So,
+since I taught you how to ask questions and VBA commercial law, you
+can create 100 PDFs, right?   Okay
+, you've paused the video, so give it a try.
+Have you tried it?  It's not easy, is it?  Yes,
+learning involves acquiring knowledge and skills, and
+since simply knowing the theory isn't enough to solve the problem, let's try doing it together for a moment
+.  Okay, I've opened Excel.
+I set up Excel for savings on the right,
+clicked Developer Tools,
+set up Visual Bayes, inserted it here, and created a model
+.  Now, let's start with the questions
+.  Okay, then I'm going to open Notepad and ask a
+question.  Okay, I’ll try doing it this way when asking a question
+.  No. 1.
+VB code to change the data in B3 of the currently open Excel file from Company 1 to Company 2 in the report sheet.
+While the code above is running,
+let's try setting the code to save the range from A1 to 47 as a PDF, the save location of the PDF to the current Excel file location, and the PDF names to GSC001.PDF to GSC100.PDF.  The important thing is
+whether you can understand this sentence.  Okay, this is the Excel file that is currently open
+.  Here is the report sheet.
+Here is the data for B3.
+What should I make of this?  Change from computer 1 to computer 100
+.   yes
+.  That is what I requested.  It means that I
+put in 1, put in 2, put in 3, put in 4, and did
+this.  Okay,
+when number 1 is finished, where is the next one, number 2, starting from A1 to
+2 47?  A1 is here, and 2
+is about that much.  Right?  I
+think the F47 might be a good choice.  Okay, I'll
+go report to F47.  I used the F47.
+VB code to save as PDF.  The
+location to save that PDF.  It might seem
+easy to give clear instructions on this, but it probably wasn't
+easy for you.
+So, if you paused the video and
+tried doing something, you might
+think, "Oh, there was no prompt," or "This prompt was missing
+." But if you just kept listening without thinking, yes, you might have had the opportunity to learn.  So, if possible, it would be
+more helpful to take on the challenge and learn before you try something out, and then receive the answer.  Okay, now that I've asked the
+question,
+should I throw it all out at once?  Yes, that wouldn't be good.
+Now, copy one,
+get the question, and insert it.  Then,
+when you ask this question, the code will be generated.
+Then you can copy this code and
+run it even if you can't understand it.
+Press F8 to run it.
+Uh, so you can see that the changes are working well starting from Company 1
+.  Okay, then we
+move straight to number 2, copy it, and
+insert it.  Then, when you
+insert it and the code comes out,
+copy the code based on that,
+replace the code exactly, and then
+press F8 again.
+So, if it comes out normally, it means GSC will be
+made.   It was
+made in an instant.  But
+what is the key point?   The
+key to creating this is
+ultimately this.  The fact that I
+can design the process as text
+.  The important point here is that
+the fact you can use VB even without learning it applies to other coding
+languages ​​as well.

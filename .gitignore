@@ -1,0 +1,32 @@
+.aider*
+
+# ── 비밀값: 절대 저장소에 넣지 않는다 ──
+*.pem
+*.key
+.env
+.env.*
+**/secrets/
+*token*.json
+*credential*
+
+# ── 백업·임시·로그 (원본이 아님) ──
+04_deployment/backups/
+_logs/
+*.part
+*.tmp
+
+# ── 빌드 산출물·의존성 ──
+node_modules/
+.next/
+out/
+.pnpm-store/
+__pycache__/
+*.pyc
+tsconfig.tsbuildinfo
+
+# ── 에이전트 실행 기록 ──
+.claude_run.json
+.claude_review.json
+
+# ── 외부 도구의 로컬 상태 ──
+.wrangler/

@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-10-04T17:01:13",
+  "painpoints_count": 48,
+  "painpoints_last_id": "P-0048",
+  "reports_count": 22,
+  "reports_latest": [
+    "2026-10-04_대표이사_보고서.pdf",
+    "2026-10-04_대표이사_보고서_stamped.pdf",
+    "2026-10-04_진행경과보고_1448.pdf",
+    "2026-10-04_대표이사_보고서_1200_stamped.pdf",
+    "2026-10-04_대표이사_보고서_1200.pdf"
+  ],
+  "specs": [
+    "02_product_spec\\README.md",
+    "02_product_spec\\business\\plan\\business_plan.md",
+    "02_product_spec\\business\\plan\\business_plan_v2.md",
+    "02_product_spec\\business\\plan\\business_plan_v3.md",
+    "02_product_spec\\business\\plan\\business_plan_v4.1.md",
+    "02_product_spec\\business\\plan\\business_plan_v4.md",
+    "02_product_spec\\business\\plan\\organization_assets.md",
+    "02_product_spec\\business\\research\\A_microsaas_cases.md",
+    "02_product_spec\\business\\research\\B_korea_cases.md",
+    "02_product_spec\\business\\research\\C_competitor_complaints.md",
+    "02_product_spec\\business\\research\\D_korea_stats.md",
+    "02_product_spec\\business\\research\\E_zapier_deepdive.md",
+    "02_product_spec\\business\\research\\F_failure_cases.md",
+    "02_product_spec\\business\\research\\G_plan_structure.md",
+    "02_product_spec\\organization\\roles\\org_chart.md",
+    "02_product_spec\\specs\\archive\\spec_v1_superseded.md",
+    "02_product_spec\\specs\\approved\\merge10\\commercial_verdict.md",
+    "02_product_spec\\specs\\approved\\merge10\\market_evidence.md",
+    "02_product_spec\\specs\\approved\\merge10\\spec.md",
+    "02_product_spec\\specs\\draft\\excel-auto-transform\\spec.md"
+  ],
+  "projects": [
+    "app1_excel_merge",
+    "app2_market_analysis",
+    "app3_behavior_tracker",
+    "merge10"
+  ],
+  "backups": {
+    "daily": 8,
+    "weekly": 1,
+    "monthly": 0
+  },
+  "kanban_raw": "By status:\n  triage    0\n  todo      0\n  scheduled  0\n  ready     5\n  running   0\n  blocked   3\n  done      0\n\nBy assignee:\n  배포팀                   blocked=2\n  수석                    blocked=1, ready=5\n\nOldest ready task age: 57536s\n",
+  "note": "백업체계 v2 구축 완료"
+}

@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>10조 이사 총괄 — 5개 사업 브랜치 마스터 보고서</title>
+<style>
+/* ==========================================================================
+   10조 스튜디오 — 대표이사 보고서 공식 양식 v2.0
+   표지: 브랜드 밴드 + 로고마크 + 대형 타이포 + 핵심지표 스트립
+   근거: 글로벌 연차보고서 표지 원칙 (로고/테마라인/단일 강조점/썸네일 테스트)
+   ========================================================================== */
+
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+@page :first {
+  margin: 0;
+}
+
+html {
+  font-family: "Malgun Gothic", "Noto Sans KR", "NanumGothic", sans-serif;
+  font-size: 10pt;
+  line-height: 1.7;
+  color: #212121;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body { margin: 0; padding: 0; }
+
+/* ==========================================================================
+   표지 (Cover)
+   ========================================================================== */
+.cover {
+  width: 210mm;
+  height: 297mm;
+  page-break-after: always;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* --- 상단 브랜드 밴드 --- */
+.cover-top {
+  background: #0f2a52;
+  color: #ffffff;
+  padding: 13mm 16mm 9mm 16mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cover-brandline {
+  display: flex;
+  align-items: center;
+  gap: 5.5mm;
+}
+
+.brand-logo { display: block; flex: 0 0 auto; }
+
+.cover-company {
+  font-size: 21pt;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.cover-company-en {
+  font-size: 7pt;
+  letter-spacing: 2.4px;
+  color: #9fc0ea;
+  margin-top: 1.8mm;
+  font-weight: 600;
+}
+
+.cover-classbox { text-align: right; padding-top: 0.5mm; }
+
+.cover-classbox .k {
+  font-size: 6.5pt;
+  letter-spacing: 2px;
+  color: #9fc0ea;
+  font-weight: 600;
+}
+
+.cover-classbox .v {
+  font-size: 9pt;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  margin-top: 1.5mm;
+  border: 1.2px solid #7fa8d8;
+  padding: 1mm 2.6mm;
+  display: inline-block;
+}
+
+/* --- 제목 블록 --- */
+.cover-main { padding: 15mm 16mm 0 16mm; }
+
+.cover-metarow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2.5px solid #0f2a52;
+  padding-bottom: 2.5mm;
+}
+
+.cover-doctype {
+  font-size: 9.5pt;
+  font-weight: 800;
+  letter-spacing: 4.5px;
+  color: #1565c0;
+}
+
+.cover-datestamp {
+  font-size: 9.5pt;
+  color: #546e7a;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.cover-title {
+  font-size: 30pt;
+  font-weight: 800;
+  color: #0d2244;
+  line-height: 1.24;
+  margin: 9mm 0 0 0;
+  letter-spacing: -0.6px;
+}
+
+.cover-subtitle {
+  font-size: 12pt;
+  color: #37474f;
+  margin-top: 4mm;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.cover-themeline {
+  margin-top: 7mm;
+  padding: 3.5mm 0 3.5mm 5mm;
+  border-left: 3px solid #1565c0;
+  font-size: 10pt;
+  color: #1565c0;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+/* --- 표지 핵심 판단 하이라이트 --- */
+.cover-highlight {
+  margin: 7mm 16mm 0 16mm;
+  background: #eef4fb;
+  border: 1px solid #c5d5e8;
+  border-left: 4px solid #1565c0;
+  padding: 5.5mm 6.5mm;
+  page-break-inside: avoid;
+}
+
+.cover-highlight .hl-label {
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  color: #1565c0;
+  margin-bottom: 2.8mm;
+}
+
+.cover-highlight .hl-text {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: #0d2244;
+  line-height: 1.62;
+}
+
+.cover-highlight .hl-text em {
+  font-style: normal;
+  color: #c62828;
+}
+
+/* --- 표지 핵심지표 스트립 (본문 kpi-row 재사용) --- */
+.cover .kpi-row {
+  margin: 8mm 16mm 0 16mm;
+  gap: 0;
+  page-break-inside: avoid;
+}
+
+.cover .kpi {
+  border-radius: 0;
+  border: 1px solid #cfd8dc;
+  border-top: 3px solid #0f2a52;
+  padding: 4mm 2mm;
+  background: #ffffff;
+}
+
+.cover .kpi-label { font-size: 7.5pt; color: #78909c; margin-bottom: 1.8mm; }
+.cover .kpi-value { font-size: 19pt; line-height: 1.05; }
+.cover .kpi-unit { font-size: 7.5pt; margin-top: 1.2mm; }
+
+/* --- 하단 문서정보 + 결재란 --- */
+.cover-bottom {
+  margin-top: auto;
+  padding: 0 16mm 11mm 16mm;
+}
+
+.cover-info {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+}
+
+.cover-info th {
+  background: #f2f5f9;
+  color: #37474f;
+  font-weight: 700;
+  text-align: left;
+  padding: 2mm 3mm;
+  border: 0.5pt solid #cfd8dc;
+  width: 21mm;
+  white-space: nowrap;
+}
+
+.cover-info td {
+  padding: 2mm 3mm;
+  border: 0.5pt solid #cfd8dc;
+  color: #263238;
+}
+
+.cover-approval {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+  margin-top: 5mm;
+}
+
+.cover-approval th {
+  background: #e8edf4;
+  color: #37474f;
+  font-weight: 700;
+  text-align: center;
+  padding: 1.8mm;
+  border: 0.5pt solid #b0bec5;
+  width: 33.33%;
+}
+
+.cover-approval td {
+  height: 13mm;
+  border: 0.5pt solid #b0bec5;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 1.8mm;
+  color: #90a4ae;
+  font-size: 7.5pt;
+}
+
+.cover-foot {
+  text-align: center;
+  font-size: 7.5pt;
+  color: #90a4ae;
+  letter-spacing: 0.8px;
+  margin-top: 5mm;
+  padding-top: 3mm;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* ==========================================================================
+   본문 헤딩
+   ========================================================================== */
+h1 {
+  font-size: 15pt;
+  font-weight: 800;
+  color: #0d2a4d;
+  border-bottom: 2px solid #1a3a6b;
+  padding-bottom: 2.2mm;
+  margin-top: 11mm;
+  margin-bottom: 4.5mm;
+  page-break-after: avoid;
+}
+
+h2 {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: #1a3a6b;
+  margin-top: 6.5mm;
+  margin-bottom: 3mm;
+  padding: 1.6mm 0 1.6mm 3.5mm;
+  border-left: 4px solid #1976d2;
+  background: #f5f8fc;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: #263238;
+  margin-top: 4.5mm;
+  margin-bottom: 2.2mm;
+  page-break-after: avoid;
+}
+
+h4 {
+  font-size: 10pt;
+  font-weight: 700;
+  color: #455a64;
+  margin-top: 3.5mm;
+  margin-bottom: 1.8mm;
+  page-break-after: avoid;
+}
+
+p { margin: 0 0 2.8mm 0; text-align: justify; orphans: 2; widows: 2; }
+
+/* ==========================================================================
+   Executive Summary
+   ========================================================================== */
+.exec-summary {
+  background: #f8fafc;
+  border: 1px solid #cfd8dc;
+  border-top: 3px solid #1976d2;
+  padding: 5mm 6mm;
+  margin: 4mm 0 6mm 0;
+  page-break-inside: avoid;
+}
+
+.exec-summary-title {
+  font-size: 11pt;
+  font-weight: 800;
+  color: #0d2a4d;
+  margin-bottom: 3mm;
+  letter-spacing: 1px;
+}
+
+.exec-item { margin-bottom: 2.5mm; font-size: 9.5pt; }
+.exec-item strong { color: #1a3a6b; }
+
+/* ==========================================================================
+   KPI 카드
+   ========================================================================== */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3mm;
+  margin: 4mm 0 6mm 0;
+  page-break-inside: avoid;
+}
+
+.kpi {
+  background: #ffffff;
+  border: 1px solid #cfd8dc;
+  border-radius: 3px;
+  padding: 4mm 3mm;
+  text-align: center;
+}
+
+.kpi-label { font-size: 7.5pt; color: #78909c; letter-spacing: 0.5px; margin-bottom: 2mm; }
+.kpi-value { font-size: 19pt; font-weight: 800; color: #1a3a6b; line-height: 1.1; }
+.kpi-value.positive { color: #2e7d32; }
+.kpi-value.negative { color: #c62828; }
+.kpi-value.neutral { color: #1565c0; }
+.kpi-unit { font-size: 8pt; color: #90a4ae; margin-top: 0.8mm; }
+
+/* ==========================================================================
+   RAG 상태 배지
+   ========================================================================== */
+.rag {
+  display: inline-block;
+  padding: 0.8mm 2.8mm;
+  border-radius: 2px;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.rag-green { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+.rag-amber { background: #fff8e1; color: #f57f17; border: 1px solid #ffe082; }
+.rag-red { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+.rag-gray { background: #eceff1; color: #546e7a; border: 1px solid #cfd8dc; }
+
+/* ==========================================================================
+   표
+   ========================================================================== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 3mm 0 4.5mm 0;
+  font-size: 8.5pt;
+  page-break-inside: avoid;
+}
+
+thead { display: table-header-group; }
+
+th {
+  background: #1a3a6b;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: left;
+  padding: 2.2mm 2.8mm;
+  border: 0.5pt solid #1a3a6b;
+  font-size: 8.5pt;
+}
+
+td {
+  padding: 1.8mm 2.8mm;
+  border: 0.5pt solid #cfd8dc;
+  vertical-align: top;
+  color: #263238;
+}
+
+tbody tr:nth-child(even) { background: #f8fafc; }
+
+/* ==========================================================================
+   강조 박스
+   ========================================================================== */
+.issue-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #ef6c00;
+  background: #fffdf7;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+.issue-box .issue-title {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: #e65100;
+  margin-bottom: 2mm;
+}
+
+.solution-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #2e7d32;
+  background: #f7fdf8;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+.solution-box .solution-title {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 2mm;
+}
+
+.info-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #1976d2;
+  background: #f5f9ff;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+.warn-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #c62828;
+  background: #fff7f7;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+/* ==========================================================================
+   목록 / 구분선
+   ========================================================================== */
+ul, ol { margin: 0 0 3mm 0; padding-left: 5.5mm; }
+li { margin-bottom: 1.2mm; }
+ul.square { list-style-type: square; }
+ul.circle { list-style-type: circle; }
+
+hr { border: none; border-top: 1px solid #e0e0e0; margin: 5.5mm 0; }
+
+/* ==========================================================================
+   승인 요청 박스
+   ========================================================================== */
+.approval-request {
+  border: 2px solid #1a3a6b;
+  background: #f8fafc;
+  padding: 5mm 6mm;
+  margin: 5mm 0;
+  page-break-inside: avoid;
+}
+
+.approval-request-title {
+  font-size: 11pt;
+  font-weight: 800;
+  color: #1a3a6b;
+  margin-bottom: 3mm;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   페이지 나눔 / 인쇄
+   ========================================================================== */
+h1 + h2, h2 + h3, h3 + h4 { page-break-before: avoid; }
+table, .issue-box, .solution-box, .info-box, .warn-box,
+.kpi-row, .exec-summary, .approval-request { page-break-inside: avoid; }
+
+@media print {
+  a[href]:after { content: none; }
+  a { color: #1565c0; text-decoration: none; word-break: break-all; }
+  .cover, .kpi, .rag, .exec-summary, .issue-box, .solution-box,
+  .info-box, .warn-box, th, .cover-top, .cover-classbox .v {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-brandline">
+      <svg class="brand-logo" width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+  <rect width="52" height="52" rx="9" fill="#1565c0"/>
+  <g fill="#ffffff">
+    <circle cx="15" cy="15" r="2.6"/><circle cx="26" cy="15" r="2.6"/><circle cx="37" cy="15" r="2.6"/>
+    <circle cx="15" cy="26" r="2.6"/><circle cx="37" cy="26" r="2.6"/>
+    <circle cx="15" cy="37" r="2.6"/><circle cx="26" cy="37" r="2.6"/><circle cx="37" cy="37" r="2.6"/>
+  </g>
+  <rect x="23.4" y="21" width="5.2" height="10" rx="1.4" fill="#ffffff"/>
+</svg>
+      <div>
+        <div class="cover-company">10조 스튜디오</div>
+        <div class="cover-company-en">10JO STUDIO &nbsp;·&nbsp; AI SOFTWARE COMPANY</div>
+      </div>
+    </div>
+    <div class="cover-classbox">
+      <div class="k">DOCUMENT CLASS</div>
+      <div class="v">대표이사 보고</div>
+    </div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-metarow">
+      <div class="cover-doctype">CEO REPORT</div>
+      <div class="cover-datestamp">2026년 10월 04일</div>
+    </div>
+    <div class="cover-title">10조 이사 총괄 — 5개 사업 브랜치 마스터 보고서</div>
+    <div class="cover-subtitle">10조 북스·스튜디오·쇼츠·롱폼·뮤직 사업기획·진행 이력·조직 관리·문제점 진단·마스터 액션 플랜</div>
+    <div class="cover-themeline">
+      10조 이사 총괄 — 5개 사업 브랜치 사업전반 관리·지휘 마스터 보고서<br>
+      10조 북스·스튜디오·쇼츠·롱폼·뮤직 사업기획·진행 이력·조직 관리·문제점 진단·마스터 액션 플랜 총망라
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-label">매출</div><div class="kpi-value negative">0</div><div class="kpi-unit">원</div></div>
+    <div class="kpi"><div class="kpi-label">불편 발굴</div><div class="kpi-value neutral">38</div><div class="kpi-unit">건</div></div>
+    <div class="kpi"><div class="kpi-label">개발 완료</div><div class="kpi-value positive">1</div><div class="kpi-unit">제품</div></div>
+    <div class="kpi"><div class="kpi-label">승인 대기</div><div class="kpi-value negative">3</div><div class="kpi-unit">건</div></div>
+  </div>
+
+  <div class="cover-highlight">
+    <div class="hl-label">핵심 판단</div>
+    <div class="hl-text">
+      5개 사업 브랜치 전략 수립 완료.<br>
+      10조 스튜디오 1호 제품 Merge10 개발 완료, 배포 승인 대기.<br>
+      나머지 4개 브랜치는 사업기획 단계.
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <table class="cover-info">
+      <tr>
+        <th>문서번호</th><td>10JO-CEO-20261004-02</td>
+        <th>보고일</th><td>2026년 10월 04일</td>
+      </tr>
+      <tr>
+        <th>보고자</th><td>10조 수석 (총괄 기획·지휘 본부)</td>
+        <th>보고기간</th><td>2026년 10월 4일 03:58 ~ 04:10</td>
+      </tr>
+      <tr>
+        <th>수신</th><td>대표이사 이상완</td>
+        <th>분류</th><td>경영진 보고용 · CONFIDENTIAL</td>
+      </tr>
+      <tr>
+        <th>검토</th><td>10조 수석 (Hermes Agent)</td>
+        <th>상태</th><td>대표 승인 대기</td>
+      </tr>
+    </table>
+
+    <table class="cover-approval">
+      <tr><th>작 성</th><th>검 토</th><th>승 인</th></tr>
+      <tr>
+        <td>10조 수석</td>
+        <td>10조 수석</td>
+        <td>대표이사</td>
+      </tr>
+    </table>
+
+    <div class="cover-foot">
+      10조 스튜디오 · 본 문서는 대표이사 보고용으로 무단 복제·배포를 금합니다.
+    </div>
+  </div>
+</div>
+
+<div style="page-break-after:always"><h1 style="margin-top:0;border-bottom:2px solid #1a3a6b">목차</h1><ul style="list-style:none;padding-left:0;margin-top:4mm"><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">I. 보고 요약 (Executive
+Summary)</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">II. 5개 사업 브랜치 사업기획</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 10조 북스 (10jo Books)
+— 플랫폼 브랜치</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 10조 스튜디오 (10jo
+Studio) — 개발 브랜치</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. 10조 쇼츠 (10jo Shorts)
+— 숏폼 브랜치</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 4. 10조 롱폼 (10jo
+Longform) — 콘텐츠 브랜치</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 5. 10조 뮤직 (10jo Music)
+— 오디오 브랜치</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">III. 진행 이력</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 10조 북스 (플랫폼)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 10조 스튜디오 (개발)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. 10조 쇼츠 (숏폼)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 4. 10조 롱폼 (콘텐츠)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 5. 10조 뮤직 (오디오)</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">IV. 조직 관리</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 조직 구성 (10개 부서)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 조직 운영 현황</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">V. 문제점 진단</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 10조 북스 (플랫폼)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 10조 스튜디오 (개발)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. 10조 쇼츠 (숏폼)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 4. 10조 롱폼 (콘텐츠)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 5. 10조 뮤직 (오디오)</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">VI. 마스터 액션 플랜</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 10조 북스 (플랫폼)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 10조 스튜디오 (개발)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. 10조 쇼츠 (숏폼)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 4. 10조 롱폼 (콘텐츠)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 5. 10조 뮤직 (오디오)</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">VII. 현재 상태</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 1. 핵심 지표</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 2. 사업 단계별 진행률</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 3. 브랜치별 진행률</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">VIII. 리스크 관리</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">IX. 대표 승인 요청</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">X. 결론</li></ul></div>
+<!-- COVER
+theme: 10조 이사 총괄 — 5개 사업 브랜치 사업전반 관리·지휘 마스터 보고서 | 10조 북스·스튜디오·쇼츠·롱폼·뮤직 사업기획·진행 이력·조직 관리·문제점 진단·마스터 액션 플랜 총망라
+kpi: 매출|0|원|negative; 불편 발굴|38|건|neutral; 개발 완료|1|제품|positive; 승인 대기|3|건|negative
+highlight: 5개 사업 브랜치 전략 수립 완료. | 10조 스튜디오 1호 제품 Merge10 개발 완료, 배포 승인 대기. | 나머지 4개 브랜치는 사업기획 단계.
+-->
+
+<h1 id="i-보고-요약-executive-summary">I. 보고 요약 (Executive
+Summary)</h1>
+<div class="exec-summary">
+<div class="exec-summary-title">핵심 요약</div>
+
+<div class="exec-item"><strong>1. 5개 사업 브랜치 전략 수립</strong> — 10조 북스(플랫폼), 10조 스튜디오(개발), 10조 쇼츠(숏폼), 10조 롱폼(콘텐츠), 10조 뮤직(오디오).</div>
+
+<div class="exec-item"><strong>2. 10조 스튜디오 1호 제품 Merge10 개발 완료</strong> — 엑셀 다중 파일 병합 도구. E2E 8/8, 라이선스 6/6 통과. 배포 승인 대기.</div>
+
+<div class="exec-item"><strong>3. 조직 10개 부서 역할 정의</strong> — 총괄 기획·지휘 본부, 불편 발굴팀, 기획팀, 개발팀, 배포팀, 보고팀, 운영 감시, 안티그래비티, 검증팀, 배포팀.</div>
+
+<div class="exec-item"><strong>4. 마스터 액션 플랜</strong> — 브랜치별 단기(1주)·중기(1개월)·장기(1년) 액션 아이템 정의.</div>
+</div>
+
+<hr />
+<h1 id="ii-5개-사업-브랜치-사업기획">II. 5개 사업 브랜치 사업기획</h1>
+<h2 id="1-10조-북스-10jo-books--플랫폼-브랜치">1. 10조 북스 (10jo Books)
+— 플랫폼 브랜치</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>역할</td>
+<td>1인 가상 AI 소프트웨어 회사의 지주회사. 불편 발굴 → 해법 도출 →
+소프트웨어 개발 → 글로벌 서비스화 파이프라인 운영</td>
+</tr>
+<tr>
+<td>비전</td>
+<td>불편을 해소하는 소프트웨어로 세상을 더 편하게 만든다</td>
+</tr>
+<tr>
+<td>목표</td>
+<td>1년 내 ARR 1억 원, 10년 내 나스닥 상장</td>
+</tr>
+<tr>
+<td>현재 단계</td>
+<td>1호 제품 Merge10 개발 완료, 배포 승인 대기</td>
+</tr>
+<tr>
+<td>핵심 자산</td>
+<td>38건 불편 데이터, 사업계획서 v4.1, 10개 부서 조직, Kanban 보드, 크론
+13개</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-10조-스튜디오-10jo-studio--개발-브랜치">2. 10조 스튜디오 (10jo
+Studio) — 개발 브랜치</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>역할</td>
+<td>승인된 명세(spec.md)를 받아 소프트웨어를 개발. Claude Code(claude
+-p) 활용</td>
+</tr>
+<tr>
+<td>현재 제품</td>
+<td>Merge10 — 엑셀 다중 파일 병합 도구 (월 9,900원)</td>
+</tr>
+<tr>
+<td>개발 상태</td>
+<td>빌드 완료, E2E 8/8, 라이선스 6/6 통과</td>
+</tr>
+<tr>
+<td>기술 스택</td>
+<td>Next.js, TypeScript, React, Tailwind CSS</td>
+</tr>
+<tr>
+<td>다음 제품</td>
+<td>엑셀 자동 변환 (excel-auto-transform) — draft 단계</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-10조-쇼츠-10jo-shorts--숏폼-브랜치">3. 10조 쇼츠 (10jo Shorts)
+— 숏폼 브랜치</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>역할</td>
+<td>유튜브 쇼츠·틱톡 등 숏폼 콘텐츠 제작. 불편 해결 팁, 제품 홍보</td>
+</tr>
+<tr>
+<td>현재 단계</td>
+<td>사업기획 단계 — 콘텐츠 기획 미수립</td>
+</tr>
+<tr>
+<td>목표</td>
+<td>제품 인지도 확보, 트래픽 유입</td>
+</tr>
+<tr>
+<td>필요 자원</td>
+<td>영상 편집 AI 도구, 자막 생성 도구</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-10조-롱폼-10jo-longform--콘텐츠-브랜치">4. 10조 롱폼 (10jo
+Longform) — 콘텐츠 브랜치</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>역할</td>
+<td>유튜브 롱폼 영상, 블로그 기사, 팟캐스트 등 롱폼 콘텐츠 제작</td>
+</tr>
+<tr>
+<td>현재 단계</td>
+<td>사업기획 단계 — 콘텐츠 기획 미수립</td>
+</tr>
+<tr>
+<td>목표</td>
+<td>SEO 트래픽, 리드 생성</td>
+</tr>
+<tr>
+<td>필요 자원</td>
+<td>영상 제작 AI 도구, 음성 합성 도구</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-10조-뮤직-10jo-music--오디오-브랜치">5. 10조 뮤직 (10jo Music)
+— 오디오 브랜치</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>역할</td>
+<td>AI 음악 생성, 오디오 콘텐츠 제작. 브랜딩 사운드트랙</td>
+</tr>
+<tr>
+<td>현재 단계</td>
+<td>사업기획 단계 — 사업 모델 미수립</td>
+</tr>
+<tr>
+<td>목표</td>
+<td>브랜딩 음악, 콘텐츠 배경음악</td>
+</tr>
+<tr>
+<td>필요 자원</td>
+<td>AI 음악 생성 도구 (Suno 등)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="iii-진행-이력">III. 진행 이력</h1>
+<h2 id="1-10조-북스-플랫폼">1. 10조 북스 (플랫폼)</h2>
+<table>
+<thead>
+<tr>
+<th>일시</th>
+<th>이벤트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-01</td>
+<td>회사 설립</td>
+</tr>
+<tr>
+<td>2026-10-02</td>
+<td>조직도 작성, 부서별 역할 정의</td>
+</tr>
+<tr>
+<td>2026-10-03</td>
+<td>사업계획서 v4.1 완성, Merge10 개발 완료, GPU 활용 성공, 보고서 스킬
+설치, Kanban 설치</td>
+</tr>
+<tr>
+<td>2026-10-04</td>
+<td>5개 브랜치 전략 수립, 마스터 액션 플랜 수립</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-10조-스튜디오-개발">2. 10조 스튜디오 (개발)</h2>
+<table>
+<thead>
+<tr>
+<th>일시</th>
+<th>이벤트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-03</td>
+<td>Merge10 명세 승인, 개발 착수</td>
+</tr>
+<tr>
+<td>2026-10-03</td>
+<td>빌드 통과, E2E 8/8, 라이선스 6/6</td>
+</tr>
+<tr>
+<td>2026-10-03</td>
+<td>배포 사전 준비 (DEPLOY_PLAN.md, LAUNCH_PLAN.md)</td>
+</tr>
+<tr>
+<td>2026-10-04</td>
+<td>배포 승인 대기</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-10조-쇼츠-숏폼">3. 10조 쇼츠 (숏폼)</h2>
+<table>
+<thead>
+<tr>
+<th>일시</th>
+<th>이벤트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-04</td>
+<td>브랜치 전략 수립 (사업기획 단계)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-10조-롱폼-콘텐츠">4. 10조 롱폼 (콘텐츠)</h2>
+<table>
+<thead>
+<tr>
+<th>일시</th>
+<th>이벤트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-04</td>
+<td>브랜치 전략 수립 (사업기획 단계)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-10조-뮤직-오디오">5. 10조 뮤직 (오디오)</h2>
+<table>
+<thead>
+<tr>
+<th>일시</th>
+<th>이벤트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-04</td>
+<td>브랜치 전략 수립 (사업기획 단계)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="iv-조직-관리">IV. 조직 관리</h1>
+<h2 id="1-조직-구성-10개-부서">1. 조직 구성 (10개 부서)</h2>
+<table>
+<thead>
+<tr>
+<th>부서</th>
+<th>담당 AI</th>
+<th>역할</th>
+<th>주요 스킬</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>총괄 기획·지휘 본부</td>
+<td>10조 수석 (Hermes)</td>
+<td>지시 배분·조율·검수·보고</td>
+<td>10jo-ceo-ops</td>
+</tr>
+<tr>
+<td>불편 발굴·리서치팀</td>
+<td>하위 에이전트 (delegate)</td>
+<td>불편 수집·시장 조사</td>
+<td>10jo-pain-mining</td>
+</tr>
+<tr>
+<td>기획팀</td>
+<td>10조 수석</td>
+<td>해법 도출·명세 작성</td>
+<td>10jo-product-spec</td>
+</tr>
+<tr>
+<td>소프트웨어 개발팀</td>
+<td>Claude Code (claude -p)</td>
+<td>코딩·테스트</td>
+<td>10jo-build-mvp</td>
+</tr>
+<tr>
+<td>배포·수익화팀</td>
+<td>10조 수석</td>
+<td>배포·결제·백업</td>
+<td>10jo-deploy</td>
+</tr>
+<tr>
+<td>경영 보고팀</td>
+<td>10조 수석</td>
+<td>현황 집계·보고서 작성</td>
+<td>10jo-status-report</td>
+</tr>
+<tr>
+<td>운영 감시</td>
+<td>스크립트 (AI 미사용)</td>
+<td>모델·백업 자동 점검</td>
+<td>—</td>
+</tr>
+<tr>
+<td>안티그래비티</td>
+<td>Antigravity.exe</td>
+<td>外部 AI 파트너</td>
+<td>—</td>
+</tr>
+<tr>
+<td>보고서 검증팀</td>
+<td>10조 수석</td>
+<td>보고서 검증·품질 관리</td>
+<td>10jo-report-verification</td>
+</tr>
+<tr>
+<td>보고서 배포팀</td>
+<td>10조 수석</td>
+<td>보고서 배포·Drive 업로드</td>
+<td>10jo-report-distribution</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-조직-운영-현황">2. 조직 운영 현황</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kanban 보드</td>
+<td>10jo-studio, 태스크 5건 (전부 ready)</td>
+</tr>
+<tr>
+<td>크론 13개</td>
+<td>정상 운영</td>
+</tr>
+<tr>
+<td>시간당 보고</td>
+<td>안정 (00:00 성공, 01:00 실행 중)</td>
+</tr>
+<tr>
+<td>GPU/Ollama</td>
+<td>llama3.2:1b 설치, 현재 유휴</td>
+</tr>
+<tr>
+<td>안티그래비티</td>
+<td>프로세스 3개 실행 중</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="v-문제점-진단">V. 문제점 진단</h1>
+<h2 id="1-10조-북스-플랫폼-1">1. 10조 북스 (플랫폼)</h2>
+<table>
+<thead>
+<tr>
+<th>문제</th>
+<th>심각도</th>
+<th>원인</th>
+<th>영향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>매출 0원</td>
+<td>높음</td>
+<td>배포 미승인</td>
+<td>수익 없음</td>
+</tr>
+<tr>
+<td>약관 4곳 미작성</td>
+<td>높음</td>
+<td>대표 정보 부재</td>
+<td>배포 차단</td>
+</tr>
+<tr>
+<td>2호 제품 기획 지연</td>
+<td>중간</td>
+<td>자원 집중</td>
+<td>파이프라인 공백</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-10조-스튜디오-개발-1">2. 10조 스튜디오 (개발)</h2>
+<table>
+<thead>
+<tr>
+<th>문제</th>
+<th>심각도</th>
+<th>원인</th>
+<th>영향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>배포 승인 대기</td>
+<td>높음</td>
+<td>대표 승인 게이트</td>
+<td>출시 지연</td>
+</tr>
+<tr>
+<td>약관 미작성</td>
+<td>높음</td>
+<td>대표 정보 부재</td>
+<td>배포 차단</td>
+</tr>
+<tr>
+<td>결제 연동 미준비</td>
+<td>중간</td>
+<td>대표 승인 게이트</td>
+<td>수익화 지연</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-10조-쇼츠-숏폼-1">3. 10조 쇼츠 (숏폼)</h2>
+<table>
+<thead>
+<tr>
+<th>문제</th>
+<th>심각도</th>
+<th>원인</th>
+<th>영향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>콘텐츠 기획 미수립</td>
+<td>중간</td>
+<td>브랜치 신규</td>
+<td>콘텐츠 부재</td>
+</tr>
+<tr>
+<td>AI 도구 미확보</td>
+<td>중간</td>
+<td>예산 제한</td>
+<td>제작 지연</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-10조-롱폼-콘텐츠-1">4. 10조 롱폼 (콘텐츠)</h2>
+<table>
+<thead>
+<tr>
+<th>문제</th>
+<th>심각도</th>
+<th>원인</th>
+<th>영향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>콘텐츠 기획 미수립</td>
+<td>중간</td>
+<td>브랜치 신규</td>
+<td>콘텐츠 부재</td>
+</tr>
+<tr>
+<td>SEO 전략 미수립</td>
+<td>중간</td>
+<td>브랜치 신규</td>
+<td>트래픽 부재</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-10조-뮤직-오디오-1">5. 10조 뮤직 (오디오)</h2>
+<table>
+<thead>
+<tr>
+<th>문제</th>
+<th>심각도</th>
+<th>원인</th>
+<th>영향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>사업 모델 미수립</td>
+<td>중간</td>
+<td>브랜치 신규</td>
+<td>수익 모델 부재</td>
+</tr>
+<tr>
+<td>AI 음악 도구 미확보</td>
+<td>중간</td>
+<td>예산 제한</td>
+<td>제작 지연</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="vi-마스터-액션-플랜">VI. 마스터 액션 플랜</h1>
+<h2 id="1-10조-북스-플랫폼-2">1. 10조 북스 (플랫폼)</h2>
+<h3 id="단기-1주">단기 (1주)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>대표 승인 요청 (배포·결제·도메인)</td>
+<td>수석</td>
+<td>배포 게이트 해소</td>
+</tr>
+<tr>
+<td>2</td>
+<td>약관 정보 4건 회신 요청</td>
+<td>수석</td>
+<td>약관 작성</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2호 제품 후보 5개 선정</td>
+<td>기획팀</td>
+<td>파이프라인 준비</td>
+</tr>
+</tbody>
+</table>
+<h3 id="중기-1개월">중기 (1개월)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2호 제품 명세 작성</td>
+<td>기획팀</td>
+<td>개발 준비</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10조 쇼츠 콘텐츠 기획</td>
+<td>수석</td>
+<td>브랜치 활성화</td>
+</tr>
+<tr>
+<td>3</td>
+<td>10조 롱폼 콘텐츠 기획</td>
+<td>수석</td>
+<td>브랜치 활성화</td>
+</tr>
+</tbody>
+</table>
+<h3 id="장기-1년">장기 (1년)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ARR 1억 원 달성</td>
+<td>전사</td>
+<td>목표</td>
+</tr>
+<tr>
+<td>2</td>
+<td>나스닥 상장 준비</td>
+<td>전사</td>
+<td>비전</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-10조-스튜디오-개발-2">2. 10조 스튜디오 (개발)</h2>
+<h3 id="단기-1주-1">단기 (1주)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Merge10 배포 (승인 시)</td>
+<td>배포팀</td>
+<td>출시</td>
+</tr>
+<tr>
+<td>2</td>
+<td>결제 연동 (승인 시)</td>
+<td>배포팀</td>
+<td>수익화</td>
+</tr>
+<tr>
+<td>3</td>
+<td>엑셀 자동 변환 명세 승인 요청</td>
+<td>기획팀</td>
+<td>2호 제품</td>
+</tr>
+</tbody>
+</table>
+<h3 id="중기-1개월-1">중기 (1개월)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>엑셀 자동 변환 개발</td>
+<td>개발팀</td>
+<td>2호 제품</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3호 제품 기획</td>
+<td>기획팀</td>
+<td>파이프라인</td>
+</tr>
+</tbody>
+</table>
+<h3 id="장기-1년-1">장기 (1년)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>제품 라인업 5개 확보</td>
+<td>전사</td>
+<td>포트폴리오</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-10조-쇼츠-숏폼-2">3. 10조 쇼츠 (숏폼)</h2>
+<h3 id="단기-1주-2">단기 (1주)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>콘텐츠 기획 수립</td>
+<td>수석</td>
+<td>브랜치 활성화</td>
+</tr>
+<tr>
+<td>2</td>
+<td>AI 영상 편집 도구 확보</td>
+<td>수석</td>
+<td>제작 준비</td>
+</tr>
+</tbody>
+</table>
+<h3 id="중기-1개월-2">중기 (1개월)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>첫 콘텐츠 제작</td>
+<td>수석</td>
+<td>브랜치 가동</td>
+</tr>
+<tr>
+<td>2</td>
+<td>제품 홍보 콘텐츠</td>
+<td>수석</td>
+<td>인지도</td>
+</tr>
+</tbody>
+</table>
+<h3 id="장기-1년-2">장기 (1년)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>월 100개 콘텐츠</td>
+<td>수석</td>
+<td>트래픽</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-10조-롱폼-콘텐츠-2">4. 10조 롱폼 (콘텐츠)</h2>
+<h3 id="단기-1주-3">단기 (1주)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>콘텐츠 기획 수립</td>
+<td>수석</td>
+<td>브랜치 활성화</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SEO 전략 수립</td>
+<td>수석</td>
+<td>트래픽</td>
+</tr>
+</tbody>
+</table>
+<h3 id="중기-1개월-3">중기 (1개월)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>첫 콘텐츠 제작</td>
+<td>수석</td>
+<td>브랜치 가동</td>
+</tr>
+<tr>
+<td>2</td>
+<td>블로그 개설</td>
+<td>수석</td>
+<td>SEO</td>
+</tr>
+</tbody>
+</table>
+<h3 id="장기-1년-3">장기 (1년)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>월 50개 콘텐츠</td>
+<td>수석</td>
+<td>트래픽</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-10조-뮤직-오디오-2">5. 10조 뮤직 (오디오)</h2>
+<h3 id="단기-1주-4">단기 (1주)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>사업 모델 수립</td>
+<td>수석</td>
+<td>브랜치 활성화</td>
+</tr>
+<tr>
+<td>2</td>
+<td>AI 음악 도구 확보</td>
+<td>수석</td>
+<td>제작 준비</td>
+</tr>
+</tbody>
+</table>
+<h3 id="중기-1개월-4">중기 (1개월)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>첫 음악 제작</td>
+<td>수석</td>
+<td>브랜치 가동</td>
+</tr>
+<tr>
+<td>2</td>
+<td>브랜딩 사운드트랙</td>
+<td>수석</td>
+<td>브랜딩</td>
+</tr>
+</tbody>
+</table>
+<h3 id="장기-1년-4">장기 (1년)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>액션</th>
+<th>담당</th>
+<th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>월 20개 음악</td>
+<td>수석</td>
+<td>포트폴리오</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="vii-현재-상태">VII. 현재 상태</h1>
+<h2 id="1-핵심-지표">1. 핵심 지표</h2>
+<div class="kpi-row">
+<div class="kpi"><div class="kpi-label">매출</div><div class="kpi-value negative">0</div><div class="kpi-unit">원</div></div>
+<div class="kpi"><div class="kpi-label">불편 발굴</div><div class="kpi-value neutral">38</div><div class="kpi-unit">건</div></div>
+<div class="kpi"><div class="kpi-label">개발 완료</div><div class="kpi-value positive">1</div><div class="kpi-unit">제품</div></div>
+<div class="kpi"><div class="kpi-label">승인 대기</div><div class="kpi-value negative">3</div><div class="kpi-unit">건</div></div>
+</div>
+
+<h2 id="2-사업-단계별-진행률">2. 사업 단계별 진행률</h2>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>진행률</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>불편 발굴</td>
+<td>100%</td>
+<td>완료</td>
+</tr>
+<tr>
+<td>제품 개발</td>
+<td>100%</td>
+<td>완료</td>
+</tr>
+<tr>
+<td>사업계획서</td>
+<td>100%</td>
+<td>완료</td>
+</tr>
+<tr>
+<td>보고 체계</td>
+<td>100%</td>
+<td>완료</td>
+</tr>
+<tr>
+<td>배포 준비</td>
+<td>90%</td>
+<td>약관 대기</td>
+</tr>
+<tr>
+<td>외부 배포</td>
+<td>0%</td>
+<td>승인 대기</td>
+</tr>
+<tr>
+<td>결제 연동</td>
+<td>0%</td>
+<td>승인 대기</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-브랜치별-진행률">3. 브랜치별 진행률</h2>
+<table>
+<thead>
+<tr>
+<th>브랜치</th>
+<th>진행률</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10조 북스</td>
+<td>90%</td>
+<td>배포 승인 대기</td>
+</tr>
+<tr>
+<td>10조 스튜디오</td>
+<td>90%</td>
+<td>배포 승인 대기</td>
+</tr>
+<tr>
+<td>10조 쇼츠</td>
+<td>10%</td>
+<td>사업기획 단계</td>
+</tr>
+<tr>
+<td>10조 롱폼</td>
+<td>10%</td>
+<td>사업기획 단계</td>
+</tr>
+<tr>
+<td>10조 뮤직</td>
+<td>10%</td>
+<td>사업기획 단계</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="viii-리스크-관리">VIII. 리스크 관리</h1>
+<table>
+<thead>
+<tr>
+<th>리스크</th>
+<th>확률</th>
+<th>영향</th>
+<th>대응</th>
+<th>담당</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>배포 승인 지연</td>
+<td>높음</td>
+<td>높음</td>
+<td>대표 승인 요청 지속</td>
+<td>수석</td>
+</tr>
+<tr>
+<td>약관 법률 리스크</td>
+<td>중간</td>
+<td>높음</td>
+<td>배포 전 확정</td>
+<td>배포팀</td>
+</tr>
+<tr>
+<td>매출 0원 지속</td>
+<td>높음</td>
+<td>높음</td>
+<td>배포 후 수익화</td>
+<td>전사</td>
+</tr>
+<tr>
+<td>2호 제품 지연</td>
+<td>중간</td>
+<td>중간</td>
+<td>파이프라인 준비</td>
+<td>기획팀</td>
+</tr>
+<tr>
+<td>브랜치 활성화 지연</td>
+<td>중간</td>
+<td>중간</td>
+<td>단기 액션 실행</td>
+<td>수석</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="ix-대표-승인-요청">IX. 대표 승인 요청</h1>
+<div class="approval-request">
+<div class="approval-request-title">🔔 승인 + 정보 요청 (2건)</div>
+
+<p><strong>A. 승인 3건</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>항목</th>
+<th>비용</th>
+<th>카드 ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Merge10 외부 배포</td>
+<td>0원</td>
+<td>t_dcf50d31</td>
+</tr>
+<tr>
+<td>2</td>
+<td>결제 연동</td>
+<td>0원</td>
+<td>t_6b8c698b</td>
+</tr>
+<tr>
+<td>3</td>
+<td>도메인 구매</td>
+<td>15,000원/년</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>B. 약관 정보 4건</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>필요 정보</th>
+<th>카드 ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>사업자명</td>
+<td>t_527491bb</td>
+</tr>
+<tr>
+<td>2</td>
+<td>고객 문의 이메일</td>
+<td>t_527491bb</td>
+</tr>
+<tr>
+<td>3</td>
+<td>결제 연동 시점</td>
+<td>t_527491bb</td>
+</tr>
+<tr>
+<td>4</td>
+<td>법률 검토 진행 여부</td>
+<td>t_527491bb</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<hr />
+<h1 id="x-결론">X. 결론</h1>
+<p><strong>5개 사업 브랜치 전략이 수립되었다.</strong></p>
+<ul>
+<li>10조 북스(플랫폼), 10조 스튜디오(개발), 10조 쇼츠(숏폼), 10조
+롱폼(콘텐츠), 10조 뮤직(오디오)</li>
+</ul>
+<p><strong>10조 스튜디오 1호 제품 Merge10이 개발
+완료되었다.</strong></p>
+<ul>
+<li>엑셀 다중 파일 병합 도구, 월 9,900원</li>
+<li>E2E 8/8, 라이선스 6/6 통과</li>
+<li>배포 승인 대기</li>
+</ul>
+<p><strong>나머지 4개 브랜치는 사업기획 단계다.</strong></p>
+<ul>
+<li>10조 쇼츠·롱폼·뮤직은 콘텐츠 기획 미수립</li>
+<li>단기 액션 플랜 수립 완료</li>
+</ul>
+<p><strong>배포를 막는 것은 승인 3건 + 약관 4곳이다.</strong> 회신 시
+즉시 배포 착수.</p>
+<hr />
+<p><strong>문서 끝</strong></p>
+
+</body>
+</html>

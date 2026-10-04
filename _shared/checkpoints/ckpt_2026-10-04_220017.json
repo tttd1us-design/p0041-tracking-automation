@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-10-04T22:00:15",
+  "painpoints_count": 48,
+  "painpoints_last_id": "P-0048",
+  "reports_count": 29,
+  "reports_latest": [
+    "2026-10-04_대표이사_보고서_stamped.pdf",
+    "2026-10-04_대표이사_보고서.pdf",
+    "2026-10-04_대표이사_보고서_2000.pdf",
+    "2026-10-04_대표이사_보고서_2000_stamped.pdf",
+    "2026-10-04_대표이사_보고서_v2.pdf"
+  ],
+  "specs": [
+    "02_product_spec\\README.md",
+    "02_product_spec\\research\\ai_video_editing_tools_guide.md",
+    "02_product_spec\\business\\plan\\business_plan.md",
+    "02_product_spec\\business\\plan\\business_plan_v2.md",
+    "02_product_spec\\business\\plan\\business_plan_v3.md",
+    "02_product_spec\\business\\plan\\business_plan_v4.1.md",
+    "02_product_spec\\business\\plan\\business_plan_v4.md",
+    "02_product_spec\\business\\plan\\longform_content_strategy.md",
+    "02_product_spec\\business\\plan\\organization_assets.md",
+    "02_product_spec\\business\\research\\A_microsaas_cases.md",
+    "02_product_spec\\business\\research\\B_korea_cases.md",
+    "02_product_spec\\business\\research\\C_competitor_complaints.md",
+    "02_product_spec\\business\\research\\D_korea_stats.md",
+    "02_product_spec\\business\\research\\E_zapier_deepdive.md",
+    "02_product_spec\\business\\research\\F_failure_cases.md",
+    "02_product_spec\\business\\research\\G_plan_structure.md",
+    "02_product_spec\\organization\\roles\\org_chart.md",
+    "02_product_spec\\specs\\archive\\spec_v1_superseded.md",
+    "02_product_spec\\specs\\draft\\2026-10-04_아이템검증_종합판정.md",
+    "02_product_spec\\specs\\approved\\merge10\\commercial_verdict.md"
+  ],
+  "projects": [
+    "app1_excel_merge",
+    "app2_market_analysis",
+    "app3_behavior_tracker",
+    "merge10"
+  ],
+  "backups": {
+    "daily": 8,
+    "weekly": 1,
+    "monthly": 0
+  },
+  "kanban_raw": "By status:\n  triage    0\n  todo      0\n  scheduled  0\n  ready     0\n  running   0\n  blocked   7\n  done      6\n\nBy assignee:\n  default               blocked=7, done=3\n  수석                    done=3\n",
+  "note": "30분 자동 체크포인트"
+}

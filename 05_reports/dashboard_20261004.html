@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10조 스튜디오 — 경영 대시보드</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', -apple-system, sans-serif;
+    background: #0f1117;
+    color: #e6e8ee;
+    line-height: 1.6;
+    padding: 0 0 60px;
+  }
+  .band {
+    background: linear-gradient(135deg, #1a1f35 0%, #2d1b4e 100%);
+    border-bottom: 3px solid #6d4aff;
+    padding: 28px 40px;
+  }
+  .band h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
+  .band .sub { color: #9aa3b8; font-size: 13px; margin-top: 6px; }
+  .band .meta { color: #6d4aff; font-size: 12px; margin-top: 10px; font-weight: 600; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .kpi-row {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 14px; margin: 26px 0;
+  }
+  .kpi {
+    background: #171b26; border: 1px solid #252b3a; border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .kpi .label { font-size: 12px; color: #8b94a8; font-weight: 600; letter-spacing: 0.3px; }
+  .kpi .value { font-size: 30px; font-weight: 700; margin-top: 6px; letter-spacing: -1px; }
+  .kpi .unit { font-size: 13px; color: #8b94a8; margin-left: 4px; font-weight: 500; }
+  .neg { color: #ff5c7c; }
+  .pos { color: #3ddc97; }
+  .neu { color: #ffc857; }
+  h2 {
+    font-size: 17px; font-weight: 700; margin: 34px 0 14px;
+    padding-left: 12px; border-left: 4px solid #6d4aff;
+  }
+  .card {
+    background: #171b26; border: 1px solid #252b3a; border-radius: 10px;
+    padding: 20px 22px; margin-bottom: 14px;
+  }
+  .card-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; color: #c9d1e4; }
+  .branch {
+    display: grid; grid-template-columns: 150px 1fr 90px;
+    gap: 14px; align-items: center; padding: 12px 0;
+    border-bottom: 1px solid #1f2433;
+  }
+  .branch:last-child { border-bottom: none; }
+  .branch .name { font-weight: 700; font-size: 14px; }
+  .branch .role { font-size: 12.5px; color: #8b94a8; }
+  .bar { height: 8px; background: #232838; border-radius: 4px; overflow: hidden; }
+  .bar > div { height: 100%; border-radius: 4px; }
+  .b-high { background: linear-gradient(90deg, #3ddc97, #2bb87a); }
+  .b-mid { background: linear-gradient(90deg, #ffc857, #e0a63c); }
+  .b-low { background: linear-gradient(90deg, #ff5c7c, #d94462); }
+  .pct { font-size: 13px; font-weight: 700; text-align: right; }
+  .task {
+    display: grid; grid-template-columns: 92px 1fr 80px 60px;
+    gap: 12px; align-items: center; padding: 11px 0;
+    border-bottom: 1px solid #1f2433; font-size: 13px;
+  }
+  .task:last-child { border-bottom: none; }
+  .tid { font-family: 'Consolas', monospace; font-size: 11.5px; color: #6d4aff; font-weight: 600; }
+  .who { font-size: 12px; color: #8b94a8; }
+  .badge {
+    display: inline-block; padding: 3px 9px; border-radius: 20px;
+    font-size: 11px; font-weight: 700; text-align: center;
+  }
+  .badge.ready { background: #2a3550; color: #7aa2ff; }
+  .badge.p1 { background: #4a1f2e; color: #ff5c7c; }
+  .badge.p2 { background: #4a3d1f; color: #ffc857; }
+  .badge.done { background: #1f4a35; color: #3ddc97; }
+  .issue {
+    display: grid; grid-template-columns: 1fr 80px;
+    gap: 12px; padding: 12px 0; border-bottom: 1px solid #1f2433;
+  }
+  .issue:last-child { border-bottom: none; }
+  .issue .txt { font-size: 13.5px; }
+  .issue .cause { font-size: 12px; color: #8b94a8; margin-top: 3px; }
+  .sev { font-size: 11.5px; font-weight: 700; text-align: right; }
+  .sev.high { color: #ff5c7c; }
+  .sev.mid { color: #ffc857; }
+  .timeline { position: relative; padding-left: 22px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 5px; top: 6px; bottom: 6px;
+    width: 2px; background: #252b3a;
+  }
+  .tl-item { position: relative; padding: 9px 0; font-size: 13px; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -21px; top: 15px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: #6d4aff; border: 2px solid #0f1117;
+  }
+  .tl-item .t { font-family: 'Consolas', monospace; font-size: 11.5px; color: #6d4aff; font-weight: 600; }
+  .tl-item .d { color: #c9d1e4; margin-top: 2px; }
+  .alert {
+    background: #2a1f1f; border: 1px solid #5c2a2a; border-left: 4px solid #ff5c7c;
+    border-radius: 8px; padding: 16px 20px; margin: 18px 0;
+  }
+  .alert .h { font-weight: 700; color: #ff8fa3; font-size: 14px; margin-bottom: 6px; }
+  .alert .b { font-size: 13px; color: #d4b8bd; }
+  .ok {
+    background: #1a2a22; border: 1px solid #2a5c42; border-left: 4px solid #3ddc97;
+    border-radius: 8px; padding: 16px 20px; margin: 18px 0;
+  }
+  .ok .h { font-weight: 700; color: #6ee7b7; font-size: 14px; margin-bottom: 6px; }
+  .ok .b { font-size: 13px; color: #a8d4c0; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .footer {
+    text-align: center; color: #5a6377; font-size: 12px;
+    margin-top: 44px; padding-top: 22px; border-top: 1px solid #1f2433;
+  }
+  @media (max-width: 760px) {
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    .grid2 { grid-template-columns: 1fr; }
+    .branch { grid-template-columns: 110px 1fr 60px; }
+    .task { grid-template-columns: 1fr; gap: 4px; }
+    .band { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="band">
+  <div class="wrap">
+    <h1>10조 스튜디오 — 경영 대시보드</h1>
+    <div class="sub">불편 발굴 → 해법 도출 → 소프트웨어 개발 → 글로벌 서비스화</div>
+    <div class="meta">10조 이사 총괄 체제 · 5개 사업 브랜치 · 2026-10-04 12:30 기준</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="label">매출</div><div class="value neg">0<span class="unit">원</span></div></div>
+    <div class="kpi"><div class="label">불편 발굴</div><div class="value neu">38<span class="unit">건</span></div></div>
+    <div class="kpi"><div class="label">개발 완료</div><div class="value pos">1<span class="unit">제품</span></div></div>
+    <div class="kpi"><div class="label">승인 대기</div><div class="value neg">3<span class="unit">건</span></div></div>
+  </div>
+
+  <div class="alert">
+    <div class="h">⚠ 배포 차단 요인 — 승인 3건 + 약관 4곳</div>
+    <div class="b">Merge10은 개발 완료(E2E 8/8, 라이선스 6/6) 상태이나, 대표 승인 게이트 3건과 약관 정보 4곳 미확정으로 외부 배포가 정지되어 있습니다. 매출 0원의 직접 원인입니다.</div>
+  </div>
+
+  <h2>5개 사업 브랜치 진행률</h2>
+  <div class="card">
+    <div class="branch">
+      <div><div class="name">10조 북스</div><div class="role">플랫폼(지주)</div></div>
+      <div class="bar"><div class="b-high" style="width:90%"></div></div>
+      <div class="pct pos">90%</div>
+    </div>
+    <div class="branch">
+      <div><div class="name">10조 스튜디오</div><div class="role">소프트웨어 개발</div></div>
+      <div class="bar"><div class="b-high" style="width:90%"></div></div>
+      <div class="pct pos">90%</div>
+    </div>
+    <div class="branch">
+      <div><div class="name">10조 쇼츠</div><div class="role">숏폼 콘텐츠</div></div>
+      <div class="bar"><div class="b-low" style="width:10%"></div></div>
+      <div class="pct neg">10%</div>
+    </div>
+    <div class="branch">
+      <div><div class="name">10조 롱폼</div><div class="role">롱폼·SEO</div></div>
+      <div class="bar"><div class="b-low" style="width:10%"></div></div>
+      <div class="pct neg">10%</div>
+    </div>
+    <div class="branch">
+      <div><div class="name">10조 뮤직</div><div class="role">AI 음악·오디오</div></div>
+      <div class="bar"><div class="b-low" style="width:10%"></div></div>
+      <div class="pct neg">10%</div>
+    </div>
+  </div>
+
+  <h2>Kanban 업무 현황 — 8건</h2>
+  <div class="card">
+    <div class="task">
+      <div class="tid">t_dcf50d31</div>
+      <div>Merge10 외부 배포 승인 요청</div>
+      <div class="who">배포팀</div>
+      <div><span class="badge p1">P1</span></div>
+    </div>
+    <div class="task">
+      <div class="tid">t_6b8c698b</div>
+      <div>결제 연동 승인 요청</div>
+      <div class="who">배포팀</div>
+      <div><span class="badge p1">P1</span></div>
+    </div>
+    <div class="task">
+      <div class="tid">t_527491bb</div>
+      <div>약관 정보 4건 회신 요청</div>
+      <div class="who">수석</div>
+      <div><span class="badge p1">P1</span></div>
+    </div>
+    <div class="task">
+      <div class="tid">t_fa13be48</div>
+      <div>안티그래비티 브리지 안정화</div>
+      <div class="who">수석</div>
+      <div><span class="badge p2">P2</span></div>
+    </div>
+    <div class="task">
+      <div class="tid">t_4849c9f9</div>
+      <div>로컬 모델 기반 불편 분석 자동화</div>
+      <div class="who">수석</div>
+      <div><span class="badge p2">P2</span></div>
+    </div>
+    <div class="task">
+      <div class="tid">t_53bc1c1c</div>
+      <div>10조 쇼츠 콘텐츠 기획 수립</div>
+      <div class="who">수석</div>
+      <div><span class="badge p2">P2</span></div>
+    </div>
+    <div class="task">
+      <div class="tid">t_9ea3653f</div>
+      <div>10조 롱폼 콘텐츠 기획 수립</div>
+      <div class="who">수석</div>
+      <div><span class="badge p2">P2</span></div>
+    </div>
+    <div class="task">
+      <div class="tid">t_11331a84</div>
+      <div>10조 뮤직 사업 모델 수립</div>
+      <div class="who">수석</div>
+      <div><span class="badge p2">P2</span></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h2>문제점 진단</h2>
+      <div class="card">
+        <div class="issue">
+          <div><div class="txt">매출 0원 지속</div><div class="cause">배포 미승인 → 수익화 불가</div></div>
+          <div class="sev high">높음</div>
+        </div>
+        <div class="issue">
+          <div><div class="txt">약관 4곳 미확정</div><div class="cause">사업자명·연락처·결제시점·법률검토</div></div>
+          <div class="sev high">높음</div>
+        </div>
+        <div class="issue">
+          <div><div class="txt">브랜치 4개 자산 부재</div><div class="cause">전략 문서만 존재, 실행 자산 없음</div></div>
+          <div class="sev mid">중간</div>
+        </div>
+        <div class="issue">
+          <div><div class="txt">안티그래비티 미실행</div><div class="cause">프로세스 종료 상태</div></div>
+          <div class="sev mid">중간</div>
+        </div>
+        <div class="issue">
+          <div><div class="txt">Ollama 모델 미로드</div><div class="cause">models:[] — llama3.2:1b 미등록</div></div>
+          <div class="sev mid">중간</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2>최근 진행 이력</h2>
+      <div class="card">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="t">10-04 12:26</div>
+            <div class="d">완료작업 실행 — 현황 진단</div>
+          </div>
+          <div class="tl-item">
+            <div class="t">10-04 05:57</div>
+            <div class="d">10조 그룹 연결 진단 (로그 분석)</div>
+          </div>
+          <div class="tl-item">
+            <div class="t">10-04 05:22</div>
+            <div class="d">TELEGRAM_ALLOWED_CHATS 추가</div>
+          </div>
+          <div class="tl-item">
+            <div class="t">10-04 04:10</div>
+            <div class="d">10조 이사 총괄 체제 확립 (마스터 보고서 15p)</div>
+          </div>
+          <div class="tl-item">
+            <div class="t">10-04 01:03</div>
+            <div class="d">수석 판단 4차 (5건)</div>
+          </div>
+          <div class="tl-item">
+            <div class="t">10-04 00:30</div>
+            <div class="d">Kanban 설치 (보드 + 태스크 5건)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>조직 구성 — 10개 부서</h2>
+  <div class="card">
+    <div class="grid2">
+      <div>
+        <div class="task" style="grid-template-columns:1fr;">
+          <div>① 총괄 기획·지휘 본부 — 10조 수석</div>
+        </div>
+        <div class="task" style="grid-template-columns:1fr;">
+          <div>② 불편 발굴·리서치팀 — 하위 에이전트</div>
+        </div>
+        <div class="task" style="grid-template-columns:1fr;">
+          <div>③ 기획팀 — 10조 수석</div>
+        </div>
+        <div class="task" style="grid-template-columns:1fr;">
+          <div>④ 소프트웨어 개발팀 — Claude Code</div>
+        </div>
+        <div class="task" style="grid-template-columns:1fr;">
+          <div>⑤ 배포·수익화팀 — 10조 수석</div>
+        </div>
+      </div>
+      <div>
+        <div class="task" style="grid-template-columns:1fr;">
+          <div>⑥ 경영 보고팀 — 10조 수석</div>
+        </div>
+        <div class="task" style="grid-template-columns:1fr;">
+          <div>⑦ 운영 감시 — 스크립트</div>
+        </div>
+        <div class="task" style="grid-template-columns:1fr;">
+          <div>⑧ 안티그래비티 — 외부 AI 파트너</div>
+        </div>
+        <div class="task" style="grid-template-columns:1fr;">
+          <div>⑨ 보고서 검증팀 — 10조 수석</div>
+        </div>
+        <div class="task" style="grid-template-columns:1fr;">
+          <div>⑩ 보고서 배포팀 — 10조 수석</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>시스템 상태</h2>
+  <div class="card">
+    <div class="task" style="grid-template-columns: 1fr 1fr 1fr;">
+      <div><span class="who">GPU</span><br>RTX 3060 6GB · 0%</div>
+      <div><span class="who">Ollama</span><br>실행 중 · 모델 0개</div>
+      <div><span class="who">크론</span><br>13개 운영</div>
+    </div>
+    <div class="task" style="grid-template-columns: 1fr 1fr 1fr;">
+      <div><span class="who">게이트웨이</span><br>05:41 기동 · 재시작 필요</div>
+      <div><span class="who">안티그래비티</span><br>미실행</div>
+      <div><span class="who">Kanban</span><br>8건 ready</div>
+    </div>
+  </div>
+
+  <div class="ok">
+    <div class="h">✓ 완료된 작업</div>
+    <div class="b">5개 브랜치 전략 수립 · Merge10 개발 완료(E2E 8/8) · 사업계획서 v4.1 · 조직 10부서 정의 · Kanban 체계 구축 · 보고 체계 v2.0 · 스킬 14개 · 크론 13개</div>
+  </div>
+
+  <div class="footer">
+    10조 스튜디오 · 10조 이사 총괄 체제 · CONFIDENTIAL<br>
+    생성: 2026-10-04 12:30 KST · 문서번호 10JO-CEO-20261004-03
+  </div>
+
+</div>
+</body>
+</html>

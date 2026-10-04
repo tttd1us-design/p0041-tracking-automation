@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>10조 스튜디오 진행 상황 보고</title>
+<style>
+/* ==========================================================================
+   10조 스튜디오 — 대표이사 보고서 공식 양식 v2.0
+   표지: 브랜드 밴드 + 로고마크 + 대형 타이포 + 핵심지표 스트립
+   근거: 글로벌 연차보고서 표지 원칙 (로고/테마라인/단일 강조점/썸네일 테스트)
+   ========================================================================== */
+
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+@page :first {
+  margin: 0;
+}
+
+html {
+  font-family: "Malgun Gothic", "Noto Sans KR", "NanumGothic", sans-serif;
+  font-size: 10pt;
+  line-height: 1.7;
+  color: #212121;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body { margin: 0; padding: 0; }
+
+/* ==========================================================================
+   표지 (Cover)
+   ========================================================================== */
+.cover {
+  width: 210mm;
+  height: 297mm;
+  page-break-after: always;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* --- 상단 브랜드 밴드 --- */
+.cover-top {
+  background: #0f2a52;
+  color: #ffffff;
+  padding: 13mm 16mm 9mm 16mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cover-brandline {
+  display: flex;
+  align-items: center;
+  gap: 5.5mm;
+}
+
+.brand-logo { display: block; flex: 0 0 auto; }
+
+.cover-company {
+  font-size: 21pt;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.cover-company-en {
+  font-size: 7pt;
+  letter-spacing: 2.4px;
+  color: #9fc0ea;
+  margin-top: 1.8mm;
+  font-weight: 600;
+}
+
+.cover-classbox { text-align: right; padding-top: 0.5mm; }
+
+.cover-classbox .k {
+  font-size: 6.5pt;
+  letter-spacing: 2px;
+  color: #9fc0ea;
+  font-weight: 600;
+}
+
+.cover-classbox .v {
+  font-size: 9pt;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  margin-top: 1.5mm;
+  border: 1.2px solid #7fa8d8;
+  padding: 1mm 2.6mm;
+  display: inline-block;
+}
+
+/* --- 제목 블록 --- */
+.cover-main { padding: 15mm 16mm 0 16mm; }
+
+.cover-metarow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2.5px solid #0f2a52;
+  padding-bottom: 2.5mm;
+}
+
+.cover-doctype {
+  font-size: 9.5pt;
+  font-weight: 800;
+  letter-spacing: 4.5px;
+  color: #1565c0;
+}
+
+.cover-datestamp {
+  font-size: 9.5pt;
+  color: #546e7a;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.cover-title {
+  font-size: 30pt;
+  font-weight: 800;
+  color: #0d2244;
+  line-height: 1.24;
+  margin: 9mm 0 0 0;
+  letter-spacing: -0.6px;
+}
+
+.cover-subtitle {
+  font-size: 12pt;
+  color: #37474f;
+  margin-top: 4mm;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.cover-themeline {
+  margin-top: 7mm;
+  padding: 3.5mm 0 3.5mm 5mm;
+  border-left: 3px solid #1565c0;
+  font-size: 10pt;
+  color: #1565c0;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+/* --- 표지 핵심 판단 하이라이트 --- */
+.cover-highlight {
+  margin: 7mm 16mm 0 16mm;
+  background: #eef4fb;
+  border: 1px solid #c5d5e8;
+  border-left: 4px solid #1565c0;
+  padding: 5.5mm 6.5mm;
+  page-break-inside: avoid;
+}
+
+.cover-highlight .hl-label {
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  color: #1565c0;
+  margin-bottom: 2.8mm;
+}
+
+.cover-highlight .hl-text {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: #0d2244;
+  line-height: 1.62;
+}
+
+.cover-highlight .hl-text em {
+  font-style: normal;
+  color: #c62828;
+}
+
+/* --- 표지 핵심지표 스트립 (본문 kpi-row 재사용) --- */
+.cover .kpi-row {
+  margin: 8mm 16mm 0 16mm;
+  gap: 0;
+  page-break-inside: avoid;
+}
+
+.cover .kpi {
+  border-radius: 0;
+  border: 1px solid #cfd8dc;
+  border-top: 3px solid #0f2a52;
+  padding: 4mm 2mm;
+  background: #ffffff;
+}
+
+.cover .kpi-label { font-size: 7.5pt; color: #78909c; margin-bottom: 1.8mm; }
+.cover .kpi-value { font-size: 19pt; line-height: 1.05; }
+.cover .kpi-unit { font-size: 7.5pt; margin-top: 1.2mm; }
+
+/* --- 하단 문서정보 + 결재란 --- */
+.cover-bottom {
+  margin-top: auto;
+  padding: 0 16mm 11mm 16mm;
+}
+
+.cover-info {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+}
+
+.cover-info th {
+  background: #f2f5f9;
+  color: #37474f;
+  font-weight: 700;
+  text-align: left;
+  padding: 2mm 3mm;
+  border: 0.5pt solid #cfd8dc;
+  width: 21mm;
+  white-space: nowrap;
+}
+
+.cover-info td {
+  padding: 2mm 3mm;
+  border: 0.5pt solid #cfd8dc;
+  color: #263238;
+}
+
+.cover-approval {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+  margin-top: 5mm;
+}
+
+.cover-approval th {
+  background: #e8edf4;
+  color: #37474f;
+  font-weight: 700;
+  text-align: center;
+  padding: 1.8mm;
+  border: 0.5pt solid #b0bec5;
+  width: 33.33%;
+}
+
+.cover-approval td {
+  height: 13mm;
+  border: 0.5pt solid #b0bec5;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 1.8mm;
+  color: #90a4ae;
+  font-size: 7.5pt;
+}
+
+.cover-foot {
+  text-align: center;
+  font-size: 7.5pt;
+  color: #90a4ae;
+  letter-spacing: 0.8px;
+  margin-top: 5mm;
+  padding-top: 3mm;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* ==========================================================================
+   본문 헤딩
+   ========================================================================== */
+h1 {
+  font-size: 15pt;
+  font-weight: 800;
+  color: #0d2a4d;
+  border-bottom: 2px solid #1a3a6b;
+  padding-bottom: 2.2mm;
+  margin-top: 11mm;
+  margin-bottom: 4.5mm;
+  page-break-after: avoid;
+}
+
+h2 {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: #1a3a6b;
+  margin-top: 6.5mm;
+  margin-bottom: 3mm;
+  padding: 1.6mm 0 1.6mm 3.5mm;
+  border-left: 4px solid #1976d2;
+  background: #f5f8fc;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: #263238;
+  margin-top: 4.5mm;
+  margin-bottom: 2.2mm;
+  page-break-after: avoid;
+}
+
+h4 {
+  font-size: 10pt;
+  font-weight: 700;
+  color: #455a64;
+  margin-top: 3.5mm;
+  margin-bottom: 1.8mm;
+  page-break-after: avoid;
+}
+
+p { margin: 0 0 2.8mm 0; text-align: justify; orphans: 2; widows: 2; }
+
+/* ==========================================================================
+   Executive Summary
+   ========================================================================== */
+.exec-summary {
+  background: #f8fafc;
+  border: 1px solid #cfd8dc;
+  border-top: 3px solid #1976d2;
+  padding: 5mm 6mm;
+  margin: 4mm 0 6mm 0;
+  page-break-inside: avoid;
+}
+
+.exec-summary-title {
+  font-size: 11pt;
+  font-weight: 800;
+  color: #0d2a4d;
+  margin-bottom: 3mm;
+  letter-spacing: 1px;
+}
+
+.exec-item { margin-bottom: 2.5mm; font-size: 9.5pt; }
+.exec-item strong { color: #1a3a6b; }
+
+/* ==========================================================================
+   KPI 카드
+   ========================================================================== */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3mm;
+  margin: 4mm 0 6mm 0;
+  page-break-inside: avoid;
+}
+
+.kpi {
+  background: #ffffff;
+  border: 1px solid #cfd8dc;
+  border-radius: 3px;
+  padding: 4mm 3mm;
+  text-align: center;
+}
+
+.kpi-label { font-size: 7.5pt; color: #78909c; letter-spacing: 0.5px; margin-bottom: 2mm; }
+.kpi-value { font-size: 19pt; font-weight: 800; color: #1a3a6b; line-height: 1.1; }
+.kpi-value.positive { color: #2e7d32; }
+.kpi-value.negative { color: #c62828; }
+.kpi-value.neutral { color: #1565c0; }
+.kpi-unit { font-size: 8pt; color: #90a4ae; margin-top: 0.8mm; }
+
+/* ==========================================================================
+   RAG 상태 배지
+   ========================================================================== */
+.rag {
+  display: inline-block;
+  padding: 0.8mm 2.8mm;
+  border-radius: 2px;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.rag-green { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+.rag-amber { background: #fff8e1; color: #f57f17; border: 1px solid #ffe082; }
+.rag-red { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+.rag-gray { background: #eceff1; color: #546e7a; border: 1px solid #cfd8dc; }
+
+/* ==========================================================================
+   표
+   ========================================================================== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 3mm 0 4.5mm 0;
+  font-size: 8.5pt;
+  page-break-inside: avoid;
+}
+
+thead { display: table-header-group; }
+
+th {
+  background: #1a3a6b;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: left;
+  padding: 2.2mm 2.8mm;
+  border: 0.5pt solid #1a3a6b;
+  font-size: 8.5pt;
+}
+
+td {
+  padding: 1.8mm 2.8mm;
+  border: 0.5pt solid #cfd8dc;
+  vertical-align: top;
+  color: #263238;
+}
+
+tbody tr:nth-child(even) { background: #f8fafc; }
+
+/* ==========================================================================
+   강조 박스
+   ========================================================================== */
+.issue-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #ef6c00;
+  background: #fffdf7;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+.issue-box .issue-title {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: #e65100;
+  margin-bottom: 2mm;
+}
+
+.solution-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #2e7d32;
+  background: #f7fdf8;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+.solution-box .solution-title {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 2mm;
+}
+
+.info-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #1976d2;
+  background: #f5f9ff;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+.warn-box {
+  border: 1px solid #cfd8dc;
+  border-left: 4px solid #c62828;
+  background: #fff7f7;
+  padding: 3.5mm 4.5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+
+/* ==========================================================================
+   목록 / 구분선
+   ========================================================================== */
+ul, ol { margin: 0 0 3mm 0; padding-left: 5.5mm; }
+li { margin-bottom: 1.2mm; }
+ul.square { list-style-type: square; }
+ul.circle { list-style-type: circle; }
+
+hr { border: none; border-top: 1px solid #e0e0e0; margin: 5.5mm 0; }
+
+/* ==========================================================================
+   승인 요청 박스
+   ========================================================================== */
+.approval-request {
+  border: 2px solid #1a3a6b;
+  background: #f8fafc;
+  padding: 5mm 6mm;
+  margin: 5mm 0;
+  page-break-inside: avoid;
+}
+
+.approval-request-title {
+  font-size: 11pt;
+  font-weight: 800;
+  color: #1a3a6b;
+  margin-bottom: 3mm;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   페이지 나눔 / 인쇄
+   ========================================================================== */
+h1 + h2, h2 + h3, h3 + h4 { page-break-before: avoid; }
+table, .issue-box, .solution-box, .info-box, .warn-box,
+.kpi-row, .exec-summary, .approval-request { page-break-inside: avoid; }
+
+@media print {
+  a[href]:after { content: none; }
+  a { color: #1565c0; text-decoration: none; word-break: break-all; }
+  .cover, .kpi, .rag, .exec-summary, .issue-box, .solution-box,
+  .info-box, .warn-box, th, .cover-top, .cover-classbox .v {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-brandline">
+      <svg class="brand-logo" width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+  <rect width="52" height="52" rx="9" fill="#1565c0"/>
+  <g fill="#ffffff">
+    <circle cx="15" cy="15" r="2.6"/><circle cx="26" cy="15" r="2.6"/><circle cx="37" cy="15" r="2.6"/>
+    <circle cx="15" cy="26" r="2.6"/><circle cx="37" cy="26" r="2.6"/>
+    <circle cx="15" cy="37" r="2.6"/><circle cx="26" cy="37" r="2.6"/><circle cx="37" cy="37" r="2.6"/>
+  </g>
+  <rect x="23.4" y="21" width="5.2" height="10" rx="1.4" fill="#ffffff"/>
+</svg>
+      <div>
+        <div class="cover-company">10조 스튜디오</div>
+        <div class="cover-company-en">10JO STUDIO &nbsp;·&nbsp; AI SOFTWARE COMPANY</div>
+      </div>
+    </div>
+    <div class="cover-classbox">
+      <div class="k">DOCUMENT CLASS</div>
+      <div class="v">대표이사 보고</div>
+    </div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-metarow">
+      <div class="cover-doctype">CEO REPORT</div>
+      <div class="cover-datestamp">2026년 10월 03일</div>
+    </div>
+    <div class="cover-title">10조 스튜디오 진행 상황 보고</div>
+    <div class="cover-subtitle">2026-10-03 17:00 — 불편 38건 · 아이템 1건 · 개발 1건 · 배포 0건</div>
+    <div class="cover-themeline">
+      Merge10 빌드 완료, 배포 전 단계<br>
+      결제 모델 전환(구독→단건) 대표 결정 대기
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-label">불편 발굴</div><div class="kpi-value blue">38</div><div class="kpi-unit">건</div></div>
+    <div class="kpi"><div class="kpi-label">아이템 확정</div><div class="kpi-value green">1</div><div class="kpi-unit">건</div></div>
+    <div class="kpi"><div class="kpi-label">개발 중</div><div class="kpi-value amber">1</div><div class="kpi-unit">건</div></div>
+    <div class="kpi"><div class="kpi-label">배포</div><div class="kpi-value gray">0</div><div class="kpi-unit">건</div></div>
+  </div>
+
+  <div class="cover-highlight">
+    <div class="hl-label">핵심 판단</div>
+    <div class="hl-text">
+      Merge10 개발 완료(빌드 통과·검증 스크립트 통과). 외부 배포·결제 연동은 대표 승인 대기 중. 16:00 보고는 모델 반복 루프로 실패, 17:00 보고서가 정상 생성됨.
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <table class="cover-info">
+      <tr>
+        <th>문서번호</th><td>10JO-CEO-20261003-02</td>
+        <th>보고일</th><td>2026년 10월 03일</td>
+      </tr>
+      <tr>
+        <th>보고자</th><td>10조 수석 (총괄 기획·지휘 본부)</td>
+        <th>보고기간</th><td>2026-10-03 16:00 ~ 17:00</td>
+      </tr>
+      <tr>
+        <th>수신</th><td>대표이사 이상완</td>
+        <th>분류</th><td>경영진 보고용 · CONFIDENTIAL</td>
+      </tr>
+      <tr>
+        <th>검토</th><td>10조 수석 (Hermes Agent)</td>
+        <th>상태</th><td>대표 승인 대기</td>
+      </tr>
+    </table>
+
+    <table class="cover-approval">
+      <tr><th>작 성</th><th>검 토</th><th>승 인</th></tr>
+      <tr>
+        <td>10조 수석</td>
+        <td>10조 수석</td>
+        <td>대표이사</td>
+      </tr>
+    </table>
+
+    <div class="cover-foot">
+      10조 스튜디오 · 본 문서는 대표이사 보고용으로 무단 복제·배포를 금합니다.
+    </div>
+  </div>
+</div>
+
+<div style="page-break-after:always"><h1 style="margin-top:0;border-bottom:2px solid #1a3a6b">목차</h1><ul style="list-style:none;padding-left:0;margin-top:4mm"><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">I. 보고 요약 (Executive
+Summary)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 성과</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 조직 운영</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 문제</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 결정 필요</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">II. 이번 기간 완료한 일</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 제품 개발</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 사업 기획</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 기술 인프라</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">III. 조직 구성원별 업무
+배치와 실적</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 조직 구성</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 부서별 실적</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 배치 방식</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">IV. 문제와 해결</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 문제 1: 16:00 보고서 생성
+실패</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 문제 2: 결제 모델 모순</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 문제 3: 셀 병합 처리 전략
+변경</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 문제 4: 약관 4곳 미작성</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">V. 현재 상태</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— KPI</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 진행률</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 인프라</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 조직 운영 현황</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">VI. 앞으로 할 일 — 누가
+무엇을 할 것인가</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 즉시 (오늘~내일)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 단기 (1주일)</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 중기 (1개월)</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">VII. 리스크 관리</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">VIII. 대표 승인 요청</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 승인 요청 1: 결제 모델 전환</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 승인 요청 2: 외부 배포</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 승인 요청 3: 약관 정보 제공</li><li style="font-weight:700;color:#0d2a4d;margin-top:3.5mm;padding-bottom:1.2mm;border-bottom:1px solid #cfd8dc">IX. 결론</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 성과</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 조직 운영 평가</li><li style="list-style:none;padding-left:6mm;color:#37474f;font-size:9.5pt;margin-bottom:1.2mm">— 남은 병목</li></ul></div>
+<!--
+COVER
+title: 10조 스튜디오 진행 상황 보고
+subtitle: 2026-10-03 17:00 — 불편 38건 · 아이템 1건 · 개발 1건 · 배포 0건
+theme: Merge10 빌드 완료, 배포 전 단계 | 결제 모델 전환(구독→단건) 대표 결정 대기
+kpi: 불편 발굴|38|건|blue; 아이템 확정|1|건|green; 개발 중|1|건|amber; 배포|0|건|gray
+highlight: Merge10 개발 완료(빌드 통과·검증 스크립트 통과). 외부 배포·결제 연동은 대표 승인 대기 중. 16:00 보고는 모델 반복 루프로 실패, 17:00 보고서가 정상 생성됨.
+-->
+
+<h1 id="i-보고-요약-executive-summary">I. 보고 요약 (Executive
+Summary)</h1>
+<h2 id="성과">성과</h2>
+<ul>
+<li><strong>불편 발굴</strong>: 총 38건 확보 (approved 4건, new
+34건)</li>
+<li><strong>아이템 확정</strong>: Merge10 (엑셀 다중 파일 병합 도구) —
+명세 승인 완료</li>
+<li><strong>개발 완료</strong>: Merge10 빌드 통과
+(<code>npm run build</code> ✅), 검증 스크립트 전부 통과</li>
+<li><strong>시장 검증</strong>: 크몽·숨고 8개 상품 실측 완료, 시장 수요
+증거 확보</li>
+<li><strong>인프라</strong>: 안티그래비티 브리지 가동, hermes proxy 가동
+(llm·aider·OpenCode 부활)</li>
+<li><strong>크론 자동화</strong>: 13개 크론 작업 운영 중 (일일 운영점검,
+무료 AI 감시, 백업 등)</li>
+</ul>
+<h2 id="조직-운영">조직 운영</h2>
+<ul>
+<li><strong>10조 수석</strong>: 총괄 기획·지휘, 대표 보고 검토</li>
+<li><strong>발굴팀</strong>: 불편 발굴, 크몽·숨고 조사 (delegate)</li>
+<li><strong>검증팀</strong>: 시장 수요 검증 (delegate)</li>
+<li><strong>개발팀</strong>: Claude Code + Antigravity 브리지</li>
+<li><strong>보고팀</strong>: 10jo-status-report 스킬 (PDF 보고
+전담)</li>
+</ul>
+<h2 id="문제">문제</h2>
+<ul>
+<li><strong>16:00 보고 실패</strong>: 모델 반복 루프로 인해 16:00 보고서
+생성 실패 (RuntimeError: repetition loop)</li>
+<li><strong>결제 모델 모순</strong>: 무계정·무PII 아키텍처에서 "월 구독"
+모델 성립 불가 → 단건 결제+라이선스 키로 전환 구현, 대표 승인 대기</li>
+<li><strong>셀 병합 처리 전략 변경</strong>: 명세상 "거부" →
+평탄화(Flatten)로 변경, 대표 확인 필요</li>
+<li><strong>약관 4곳 미작성</strong>: 사업자명·연락처 등 대표 정보
+대기</li>
+</ul>
+<h2 id="결정-필요">결정 필요</h2>
+<ul>
+<li><strong>결제 모델 전환 승인</strong>: 구독 → 단건 결제(24시간 패스
+2,900원 + 평생 39,000원)</li>
+<li><strong>외부 배포 승인</strong>: Merge10 정적 사이트 GitHub
+Pages/Cloudflare Pages 배포</li>
+<li><strong>약관 정보 제공</strong>: 사업자명·연락처 등</li>
+</ul>
+<hr />
+<h1 id="ii-이번-기간-완료한-일">II. 이번 기간 완료한 일</h1>
+<h2 id="제품-개발">제품 개발</h2>
+<ul>
+<li><strong>Merge10 빌드 완료</strong>: Next.js 15 + TypeScript +
+Tailwind CSS 3 + Zustand + SheetJS
+<ul>
+<li><code>npm run build</code> 통과, <code>out/</code> 정적 export
+생성</li>
+<li>타입 오류 0 (<code>npx tsc --noEmit</code>)</li>
+<li>검증 스크립트 <code>scripts/verify.ts</code> 전부 통과:
+<ul>
+<li>헤더 자동 인식 ✅</li>
+<li>컬럼 매칭 (순서 다른 경우도) ✅</li>
+<li>셀 병합 평탄화 ✅</li>
+<li>기간 접두사 오탐 방지 ✅</li>
+<li>데이터 손실 0 ✅</li>
+</ul></li>
+</ul></li>
+<li><strong>결제 모델 구현</strong>: 단건 결제 + 오프라인 라이선스 키
+(WebCrypto ECDSA P-256)
+<ul>
+<li>24시간 패스 2,900원 + 평생 이용권 39,000원</li>
+<li>서버·계정·개인정보 없이 기간제/평생권 구현</li>
+<li>결제 실연동은 게이트 5 승인 후 예정</li>
+</ul></li>
+</ul>
+<h2 id="사업-기획">사업 기획</h2>
+<ul>
+<li><strong>Merge10 명세 승인</strong>:
+<code>specs/approved/merge10/spec.md</code></li>
+<li><strong>시장 수요 검증</strong>: 크몽·숨고 8개 상품 실측, 시세 통계
+확보</li>
+<li><strong>사업계획서 v4.0</strong>:
+<code>02_product_spec/business/plan/business_plan_v4.md</code> 작성
+완료</li>
+<li><strong>배포 계획</strong>: <code>DEPLOY_PLAN.md</code>,
+<code>LAUNCH_PLAN.md</code> 작성</li>
+</ul>
+<h2 id="기술-인프라">기술 인프라</h2>
+<ul>
+<li><strong>안티그래비티 브리지</strong>: 무료 제3자 검토 창구 가동
+(<code>_tools/antigravity_bridge.py</code>)</li>
+<li><strong>hermes proxy</strong>: llm·aider·OpenCode 부활
+(<code>http://127.0.0.1:8645/v1</code>)</li>
+<li><strong>스킬 5종 신규</strong>: ceo-ops, item-validation,
+thinking-pipeline, capability-scout, antigravity</li>
+<li><strong>상태 파일 9종</strong>: <code>_shared/</code> (dashboard,
+orders_log, thinking_log, values, values_log, skill_usage,
+capability_gaps, free_ai_setup, skill_catalog)</li>
+<li><strong>크론 13개</strong>: 일일 운영점검(08:10), 주간 아이템검증(화
+10:00), 무료 AI 경로 감시(20분) 등</li>
+</ul>
+<hr />
+<h1 id="iii-조직-구성원별-업무-배치와-실적">III. 조직 구성원별 업무
+배치와 실적</h1>
+<h2 id="조직-구성">조직 구성</h2>
+<table>
+<thead>
+<tr>
+<th>구성원</th>
+<th>역할</th>
+<th>업무 방식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>10조 수석</strong></td>
+<td>총괄 기획·지휘, 대표 보고 검토</td>
+<td>직접 실행 + delegate 검수</td>
+</tr>
+<tr>
+<td><strong>발굴팀</strong></td>
+<td>불편 발굴, 시장 조사</td>
+<td>delegate (크론 자동 실행)</td>
+</tr>
+<tr>
+<td><strong>검증팀</strong></td>
+<td>아이템 검증, 시장 수요 분석</td>
+<td>delegate (크론 주간 실행)</td>
+</tr>
+<tr>
+<td><strong>개발팀</strong></td>
+<td>코드 작성, 기술 검토</td>
+<td>Claude Code + Antigravity 브리지</td>
+</tr>
+<tr>
+<td><strong>보고팀</strong></td>
+<td>경영 보고서 작성</td>
+<td>10jo-status-report 스킬 (PDF)</td>
+</tr>
+<tr>
+<td><strong>고문 (Claude)</strong></td>
+<td>기술 고문, 조언</td>
+<td>ADVISOR_NOTES.md</td>
+</tr>
+</tbody>
+</table>
+<h2 id="부서별-실적">부서별 실적</h2>
+<h3 id="발굴팀">발굴팀</h3>
+<ul>
+<li>불편 38건 발굴 (approved 4, new 34)</li>
+<li>크몽·숨고 8개 상품 실측 조사</li>
+<li>유튜브 영상 분석 (자막 32KB 추출)</li>
+</ul>
+<h3 id="검증팀">검증팀</h3>
+<ul>
+<li>Merge10 시장 수요 검증 진행 중</li>
+<li><code>market_evidence.md</code>, <code>commercial_verdict.md</code>
+작성</li>
+</ul>
+<h3 id="개발팀">개발팀</h3>
+<ul>
+<li>Merge10 빌드 완료 (타입 오류 0, 검증 스크립트 통과)</li>
+<li>결제 모델 구현 (단건 결제 + 라이선스 키)</li>
+<li>안티그래비티 브리지 가동</li>
+</ul>
+<h3 id="보고팀">보고팀</h3>
+<ul>
+<li>10jo-status-report 스킬 v2.0 운영</li>
+<li>16:00 보고 실패 (모델 반복 루프), 17:00 보고서 정상 생성</li>
+</ul>
+<h3 id="10조-수석">10조 수석</h3>
+<ul>
+<li>대표 지시 26건 접수·처리</li>
+<li>크론 13개 작업 정책 확정</li>
+<li>유령 모델 3개 제거 (step-3.7-flash, ling-3.0-flash-fin,
+longcat-2.0)</li>
+<li>폴백 체인 8개 → 5개 (전부 실동작 검증)</li>
+</ul>
+<h2 id="배치-방식">배치 방식</h2>
+<ul>
+<li><strong>자동 운영 체계</strong>: 크론 기반 일일/주간/월간 작업
+스케줄링</li>
+<li><strong>delegate 패턴</strong>: 큰 조사·반복 작업은 하위 에이전트에
+맡기고 결과 검수</li>
+<li><strong>스킬 기반</strong>: 모든 업무 절차는 스킬로 정본화 (11개
+스킬 운영 중)</li>
+</ul>
+<hr />
+<h1 id="iv-문제와-해결">IV. 문제와 해결</h1>
+<h2 id="문제-1-1600-보고서-생성-실패">문제 1: 16:00 보고서 생성
+실패</h2>
+<p><strong>상황</strong>: 크론 <code>f39f7f9abe4a</code> (대표이사
+시간당 보고) 16:00 실행 시 모델 반복 루프로 실패</p>
+<p><strong>해결</strong>:</p>
+<ul>
+<li>17:00 실행 시 정상 생성 (본 보고서)</li>
+<li>모델 고정: <code>meituan/longcat-2.5-preview:free</code> (provider:
+nous)</li>
+<li>크론 모델 정책: 에이전트 7개 고정 / 스크립트 6개 해제</li>
+</ul>
+<h2 id="문제-2-결제-모델-모순">문제 2: 결제 모델 모순</h2>
+<p><strong>상황</strong>: 무계정·무PII 아키텍처에서 "월 9,900원 구독"
+모델 성립 불가</p>
+<p><strong>해결</strong>:</p>
+<ul>
+<li>단건 결제 + 오프라인 라이선스 키 모델로 전환 구현</li>
+<li>24시간 패스 2,900원 + 평생 이용권 39,000원</li>
+<li>서버·계정·개인정보 없이 기간제/평생권 구현</li>
+<li>대표 승인 대기 중</li>
+</ul>
+<h2 id="문제-3-셀-병합-처리-전략-변경">문제 3: 셀 병합 처리 전략
+변경</h2>
+<p><strong>상황</strong>: 명세상 "거부" → 평탄화(Flatten)로 변경
+필요</p>
+<p><strong>해결</strong>:</p>
+<ul>
+<li>제목 배너·세로 병합은 평탄화로 처리</li>
+<li>진짜 다단 헤더는 단일 헤더 추정으로 남겨둠</li>
+<li>대표 확인 필요 (명세 이탈)</li>
+</ul>
+<h2 id="문제-4-약관-4곳-미작성">문제 4: 약관 4곳 미작성</h2>
+<p><strong>상황</strong>: 사업자명·연락처 등 대표 정보 대기</p>
+<p><strong>해결</strong>:</p>
+<ul>
+<li>이용약관 초안 작성 완료 (변호사 검토 전)</li>
+<li>대표 정보 입력 대기 중</li>
+</ul>
+<hr />
+<h1 id="v-현재-상태">V. 현재 상태</h1>
+<h2 id="kpi">KPI</h2>
+<table>
+<thead>
+<tr>
+<th>지표</th>
+<th>값</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>불편 발굴</td>
+<td>38건</td>
+<td>🟢 approved 4, new 34</td>
+</tr>
+<tr>
+<td>아이템 확정</td>
+<td>1건</td>
+<td>🟢 Merge10</td>
+</tr>
+<tr>
+<td>기획 (spec)</td>
+<td>1건</td>
+<td>🟢 approved/merge10</td>
+</tr>
+<tr>
+<td>개발</td>
+<td>1건</td>
+<td>🟡 빌드 완료, 배포 전</td>
+</tr>
+<tr>
+<td>배포</td>
+<td>0건</td>
+<td>🔴 대표 승인 대기</td>
+</tr>
+<tr>
+<td>매출</td>
+<td>0원</td>
+<td>🔴 결제 연동 전</td>
+</tr>
+</tbody>
+</table>
+<h2 id="진행률">진행률</h2>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>진행률</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>불편 발굴</td>
+<td>100%</td>
+<td>38건 확보</td>
+</tr>
+<tr>
+<td>아이템 확정</td>
+<td>100%</td>
+<td>Merge10 확정</td>
+</tr>
+<tr>
+<td>기획</td>
+<td>100%</td>
+<td>명세 승인 완료</td>
+</tr>
+<tr>
+<td>개발</td>
+<td>90%</td>
+<td>빌드 완료, 배포 전</td>
+</tr>
+<tr>
+<td>배포</td>
+<td>0%</td>
+<td>대표 승인 대기</td>
+</tr>
+<tr>
+<td>매출</td>
+<td>0%</td>
+<td>결제 연동 전</td>
+</tr>
+</tbody>
+</table>
+<h2 id="인프라">인프라</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>16논리코어, 낮은 사용률</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>31.74 GB (여유 13.31 GB), 58% 사용</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>RTX 3060 6GB, 0% 사용 — 완전 유휴</td>
+</tr>
+<tr>
+<td>D 드라이브</td>
+<td>281.9 GB 여유</td>
+</tr>
+<tr>
+<td>안티그래비티</td>
+<td>앱 실행 (프로세스 5개), 브리지 연결 성공</td>
+</tr>
+<tr>
+<td>hermes proxy</td>
+<td>가동 중 (<code>http://127.0.0.1:8645/v1</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="조직-운영-현황">조직 운영 현황</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>크론 작업</td>
+<td>13개 (에이전트 7, 스크립트 6)</td>
+</tr>
+<tr>
+<td>스킬</td>
+<td>11개 운영 중</td>
+</tr>
+<tr>
+<td>상태 파일</td>
+<td>9종 (<code>_shared/</code>)</td>
+</tr>
+<tr>
+<td>고문 조언</td>
+<td>ADVISOR_NOTES.md (A-001~A-010)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="vi-앞으로-할-일--누가-무엇을-할-것인가">VI. 앞으로 할 일 — 누가
+무엇을 할 것인가</h1>
+<h2 id="즉시-오늘내일">즉시 (오늘~내일)</h2>
+<table>
+<thead>
+<tr>
+<th>업무</th>
+<th>담당</th>
+<th>의존</th>
+<th>결과물</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Merge10 배포 준비</td>
+<td>개발팀</td>
+<td>대표 승인</td>
+<td>GitHub Pages/Cloudflare Pages 배포</td>
+</tr>
+<tr>
+<td>약관 정보 입력</td>
+<td>10조 수석</td>
+<td>대표 정보</td>
+<td>사업자명·연락처 등</td>
+</tr>
+<tr>
+<td>결제 모델 승인 요청</td>
+<td>10조 수석</td>
+<td>대표 결정</td>
+<td>구독 → 단건 전환 승인</td>
+</tr>
+</tbody>
+</table>
+<h2 id="단기-1주일">단기 (1주일)</h2>
+<table>
+<thead>
+<tr>
+<th>업무</th>
+<th>담당</th>
+<th>의존</th>
+<th>결과물</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Merge10 외부 배포</td>
+<td>개발팀</td>
+<td>대표 승인</td>
+<td>공개 URL</td>
+</tr>
+<tr>
+<td>결제 연동</td>
+<td>개발팀</td>
+<td>대표 승인</td>
+<td>토스페이먼츠/Stripe 연동</td>
+</tr>
+<tr>
+<td>다음 아이템 5개 선택</td>
+<td>검증팀</td>
+<td>—</td>
+<td>아이템 후보 목록</td>
+</tr>
+<tr>
+<td>크몽·숨고 자동 수집</td>
+<td>발굴팀</td>
+<td>로그인 문제 해결</td>
+<td>자동 수집 파이프라인</td>
+</tr>
+</tbody>
+</table>
+<h2 id="중기-1개월">중기 (1개월)</h2>
+<table>
+<thead>
+<tr>
+<th>업무</th>
+<th>담당</th>
+<th>의존</th>
+<th>결과물</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Merge10 시장 검증</td>
+<td>검증팀</td>
+<td>배포 완료</td>
+<td>실제 사용자 데이터</td>
+</tr>
+<tr>
+<td>수익 모델 확정</td>
+<td>10조 수석</td>
+<td>대표 결정</td>
+<td>최종 가격·정책</td>
+</tr>
+<tr>
+<td>조직 확장</td>
+<td>10조 수석</td>
+<td>—</td>
+<td>추가 인력·스킬</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="vii-리스크-관리">VII. 리스크 관리</h1>
+<table>
+<thead>
+<tr>
+<th>리스크</th>
+<th>확률</th>
+<th>영향</th>
+<th>대응</th>
+<th>담당</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>결제 모델 전환 미승인</td>
+<td>중</td>
+<td>高</td>
+<td>현행 유지 (버튼만), 2주 검증 후 재논의</td>
+<td>10조 수석</td>
+</tr>
+<tr>
+<td>외부 배포 지연</td>
+<td>中</td>
+<td>中</td>
+<td>대표 승인 요청 대기, 로컬 검증으로 병행</td>
+<td>개발팀</td>
+</tr>
+<tr>
+<td>약관 법적 리스크</td>
+<td>低</td>
+<td>高</td>
+<td>변호사 검토 (배포 전 필수)</td>
+<td>10조 수석</td>
+</tr>
+<tr>
+<td>크론 모델 실패</td>
+<td>低</td>
+<td>中</td>
+<td>모델 고정, 폴백 체인 5개 운영</td>
+<td>10조 수석</td>
+</tr>
+<tr>
+<td>경쟁 제품 출시</td>
+<td>中</td>
+<td>中</td>
+<td>차별점(서버리스·무PII) 강조</td>
+<td>검증팀</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="viii-대표-승인-요청">VIII. 대표 승인 요청</h1>
+<h2 id="승인-요청-1-결제-모델-전환">승인 요청 1: 결제 모델 전환</h2>
+<ul>
+<li><strong>내용</strong>: 월 9,900원 구독 → 단건 결제 (24시간 패스
+2,900원 + 평생 39,000원)</li>
+<li><strong>비용</strong>: 0원 (개발 완료)</li>
+<li><strong>담당</strong>: 개발팀</li>
+<li><strong>효과</strong>: 무계정·무PII 아키텍처 유지, 서버리스 배포
+가능</li>
+<li><strong>판단 요청</strong>: 승인 / 보류 / 중단</li>
+</ul>
+<h2 id="승인-요청-2-외부-배포">승인 요청 2: 외부 배포</h2>
+<ul>
+<li><strong>내용</strong>: Merge10 정적 사이트 GitHub Pages/Cloudflare
+Pages 배포</li>
+<li><strong>비용</strong>: 0원 (무료 플랜)</li>
+<li><strong>담당</strong>: 개발팀</li>
+<li><strong>효과</strong>: 실제 사용자 접근 가능, 시장 검증 시작</li>
+<li><strong>판단 요청</strong>: 승인 / 보류 / 중단</li>
+</ul>
+<h2 id="승인-요청-3-약관-정보-제공">승인 요청 3: 약관 정보 제공</h2>
+<ul>
+<li><strong>내용</strong>: 사업자명·연락처 등 약관 4곳 정보 제공</li>
+<li><strong>비용</strong>: 0원</li>
+<li><strong>담당</strong>: 10조 수석</li>
+<li><strong>효과</strong>: 이용약관 완성, 법적 리스크 완화</li>
+<li><strong>판단 요청</strong>: 정보 제공</li>
+</ul>
+<hr />
+<h1 id="ix-결론">IX. 결론</h1>
+<h2 id="성과-1">성과</h2>
+<ul>
+<li>Merge10 개발 완료 (빌드 통과, 검증 스크립트 통과)</li>
+<li>불편 38건 확보, 아이템 1건 확정</li>
+<li>크론 13개 자동 운영, 스킬 11개 운영</li>
+<li>안티그래비티 브리지 가동, hermes proxy 가동</li>
+</ul>
+<h2 id="조직-운영-평가">조직 운영 평가</h2>
+<ul>
+<li>자동 운영 체계 구축 완료 (크론 기반)</li>
+<li>delegate 패턴 운영 중 (발굴팀, 검증팀)</li>
+<li>스킬 기반 업무 절차 정본화 완료</li>
+</ul>
+<h2 id="남은-병목">남은 병목</h2>
+<ul>
+<li>외부 배포 승인 대기</li>
+<li>결제 연동 승인 대기</li>
+<li>약관 정보 대기</li>
+<li>크몽·숨고 자동 수집 불가 (로그인 필요)</li>
+</ul>
+<hr />
+<p><strong>보고자</strong>: 10조 수석 <strong>검토</strong>: Claude Code
+(기술 고문) <strong>승인</strong>: 대표이사 <strong>문서번호</strong>:
+10JO-CEO-20261003-02 <strong>보고일</strong>: 2026-10-03
+<strong>보고기간</strong>: 2026-10-03 16:00 ~ 17:00
+<strong>수신</strong>: 대표이사 <strong>분류</strong>: 대표이사 보고
+<strong>상태</strong>: 배포 전</p>
+
+</body>
+</html>

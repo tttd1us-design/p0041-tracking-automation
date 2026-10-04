@@ -1,0 +1,35 @@
+{
+  "updated": "2026-10-03",
+  "note": "스킬·플러그인 실제 사용 추적. 적재적소 배치 판단 근거. 10jo-capability-scout 규칙: 설치 후 반드시 여기에 등록한다.",
+  "skills": {
+    "10jo-capability-scout": {"use_count": 1, "last_used": "2026-10-03", "purpose": "막힐 때 스킬·플러그인 탐색", "team": "수석"},
+    "10jo-ceo-ops": {"use_count": 1, "last_used": "2026-10-03", "purpose": "대표 지시 접수·보고", "team": "수석"},
+    "10jo-thinking-pipeline": {"use_count": 1, "last_used": "2026-10-03", "purpose": "질문→패턴→실행 3단계", "team": "수석 (일일 크론)"},
+    "10jo-pain-mining": {"use_count": 3, "last_used": "2026-10-02", "purpose": "불편 발굴 (크론)"},
+    "10jo-product-spec": {"use_count": 1, "last_used": "2026-10-02", "purpose": "spec.md 작성"},
+    "10jo-status-report": {"use_count": 2, "last_used": "2026-10-03", "purpose": "경영 보고"},
+    "10jo-business-plan": {"use_count": 1, "last_used": "2026-10-03", "purpose": "사업계획서 v4"},
+    "10jo-pdf-report": {"use_count": 1, "last_used": "2026-10-03", "purpose": "PDF 생성"},
+    "10jo-ceo-ops": {"use_count": 1, "last_used": "2026-10-03", "purpose": "대표 대응 체계"},
+    "10jo-item-validation": {"use_count": 0, "last_used": null, "purpose": "아이템 검증 (미착수)"},
+    "10jo-thinking-pipeline": {"use_count": 1, "last_used": "2026-10-03", "purpose": "3단계 탐구"},
+    "10jo-build-mvp": {"use_count": 0, "last_used": null, "purpose": "개발 (미착수)"},
+    "10jo-deploy": {"use_count": 0, "last_used": null, "purpose": "배포 (미착수)"},
+    "naver-news-search": {"use_count": 1, "last_used": "2026-10-02", "purpose": "뉴스 (크론)"},
+    "google-trends": {"use_count": 1, "last_used": "2026-10-02", "purpose": "트렌드 (크론)"},
+    "find-skills": {"use_count": 1, "last_used": "2026-10-03", "purpose": "스킬 탐색 (크론)"},
+    "grill-with-docs": {"use_count": 0, "last_used": null, "purpose": "문서 검토 (미사용)"},
+    "the-mom-test": {"use_count": 0, "last_used": null, "purpose": "고객 인터뷰 (미사용)"}
+  },
+  "unused_high_value": [
+    "the-mom-test — 고객 인터뷰 시 사용",
+    "customer-research — 시장 조사 시 사용",
+    "korean-law-search — 법적 리스크 판단 시 사용",
+    "grill-with-docs — 문서 검토 시 사용",
+    "requesting-code-review — 코드 리뷰 시 사용",
+    "systematic-debugging — 버그 추적 시 사용"
+  ],
+  "plugins": {
+    "browser-browser": "not enabled — 필요 시 활성화"
+  }
+}
